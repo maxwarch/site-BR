@@ -127,6 +127,9 @@ for (const [nom, taille] of [['favicon-32.png', 32], ['favicon-192.png', 192], [
   await sharp(LOGO_CARRE).resize(taille, taille).png({ compressionLevel: 9, palette: true }).toFile(path.join(DIST, nom));
 }
 await writeFile(path.join(DIST, '.nojekyll'), '');
+// L'ancienne adresse de la première publication redirige vers la racine
+await mkdir(path.join(DIST, 'maquettes/d-journee'), { recursive: true });
+await writeFile(path.join(DIST, 'maquettes/d-journee/index.html'), '<!doctype html><meta charset="utf-8"><title>CDPA Bassin-Rond</title><meta http-equiv="refresh" content="0; url=../../"><link rel="canonical" href="../../"><a href="../../">CDPA Bassin-Rond</a>');
 
 console.log(`Photos : ${ko(avant)} → ${ko(apres)} (${Object.keys(variantes).length} photos, ${LARGEURS.join(' et ')} px)`);
 console.log(`HTML   : ${ko(h.avant)} → ${ko(h.apres)}`);
