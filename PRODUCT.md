@@ -17,7 +17,7 @@ Tous les publics comptent autant ; le site doit orienter chaque profil vers sa d
 - **Familles** : parents ou grands-parents qui inscrivent un enfant de 7 à 17 ans à un stage de voile pendant les vacances.
 - **Grand public / loisirs** : habitants de la région (Bouchain, Denain, Valenciennes, Douai, Cambrai) qui veulent louer un canoë, un kayak, un paddle, un paddle géant ou un voilier Hansa, ou venir à un événement.
 - **Futurs adhérents** : adultes et jeunes qui veulent pratiquer à l'année (cotisation, licence, forfait de séances).
-- **Groupes** : centres aérés, comités d'entreprise, écoles, journées d'intégration, EHPAD. Ils comparent des formules au tarif par personne.
+- **Groupes** : les formules tarifées (4 ou 5 jours, journée, demi-journée) sont **réservées aux centres aérés**. Les comités d'entreprise, journées d'intégration, écoles et autres groupes sont aussi accueillis, mais **sur contact** : aucune formule publiée pour eux (confirmé par le propriétaire).
 
 ## Product Purpose
 
@@ -25,21 +25,22 @@ Refonte du site vitrine de www.bassin-rond.net pour le CDPA Bassin-Rond, une ass
 
 ## Positioning
 
-C'est un plan d'eau intérieur, calme et protégé, entouré de forêt, sur un site au passé batelier : on y navigue en sécurité, sans moteur et sans bruit. Le club est une association à taille humaine (140 licenciés, 3 labels fédéraux) réputée pour son ambiance familiale et ses repas maison. Il organise aussi les 24 heures du Bassin-Rond, qui attirent plus de 5000 personnes le dernier week-end complet de juin.
+C'est un plan d'eau intérieur, calme et protégé, entouré de forêt, sur un site au passé batelier : on y navigue en sécurité, sans moteur et sans bruit. Le club est une association à taille humaine (140 licenciés, 3 labels fédéraux) réputée pour son ambiance familiale et ses repas maison. Il organise aussi les 24 heures du Bassin-Rond, qui attirent plus de 5000 personnes le premier week-end de septembre (corrigé par le propriétaire ; le site actuel indiquait juin).
 
 ## Operating Context
 
 - La réservation et le paiement **restent sur des outils séparés**, vers lesquels le site renvoie : `stages.bassin-rond.net` (stages de voile, panier, inscription) et `location.bassin-rond.net` (créneaux de location, paiement en ligne, confirmation par e-mail avec QR code). Le site vitrine ne les remplace pas.
 - Le club communique surtout sur Facebook (facebook.com/bassin.rond, environ 5300 abonnés) et sur YouTube (youtube.com/user/bassinrond).
-- Saisonnalité : les stages ont lieu pendant les vacances scolaires (exemple : sessions S9 et S10 en octobre 2026, 14h–17h, 131,50 € par stagiaire, hors Passeport Voile à +14,50 €). Les locations suivent des horaires d'ouverture ; les 24 h ont lieu fin juin.
+- Saisonnalité : les stages ont lieu pendant les vacances scolaires (exemple : sessions S9 et S10 en octobre 2026, 14h–17h, 131,50 € par stagiaire, hors Passeport Voile à +14,50 €). Les locations suivent des horaires d'ouverture ; les 24 h ont lieu le premier week-end de septembre.
 - Horaires de l'accueil : du lundi au vendredi, 9h–12h et 14h–18h, toute l'année ; le samedi, 14h–18h de mars à fin juin et de septembre à fin octobre.
 - Coordonnées : CDPA Bassin-Rond, 403 rue Henri Deshays, 59111 Bouchain · 03 27 35 72 28 · directeur@bassin-rond.net.
 - Le club ne gère ni le port ni la pêche (le formulaire de contact actuel le précise).
 
 ## Capabilities and Constraints
 
-- **Offre du club** : école de voile (enfants, adultes, seniors), stages individuels, formules pour centres aérés (4 ou 5 jours : multi-activités, nature, demi-journée ou journée ; camping ; cotisation de groupe ; livret de certification FFVoile), locations, adhésion à l'année, rendez-vous (24 h du Bassin-Rond, fête du sport, Rand'eau nautic), apprentissage en mer pour les membres.
-- **Flotte** (une partie à confirmer) : Optimist (dès 7 ans), Open Bic / OpenSkiff (dès 11 ans), RS Quba, catamaran Newcat 12, Laser / ILCA (dès 14 ans), Ludic, planche à voile (dès 12 ans), 420, Hansa ; canoë, kayak, paddle, paddle géant.
+- **Offre du club** : école de voile (enfants, adultes, seniors), stages pour les enfants **et pour les adultes** (confirmé par le propriétaire), formules pour centres aérés (4 ou 5 jours : multi-activités, nature, demi-journée ou journée ; camping ; cotisation de groupe ; livret de certification FFVoile), locations, adhésion à l'année, rendez-vous (24 h du Bassin-Rond, fête du sport, Rand'eau nautic), apprentissage en mer pour les membres.
+- **Flotte** (une partie à confirmer) : Optimist (dès 7 ans), Open Bic / OpenSkiff (dès 11 ans), RS Quba, catamaran Newcat 12, Ilca (ex-Laser, dès 14 ans ; dire « Ilca » sur le site, confirmé par le propriétaire), Ludic, 420, Hansa (bateau double, adapté au handicap et facile à prendre en main ; confirmé par le propriétaire). **Le club ne propose plus de planche à voile** (confirmé par le propriétaire) : n'en parler nulle part et ne montrer aucune photo de planche (fb05 par exemple) ; canoë, kayak, paddle, paddle géant.
+- **Adhésion sur contact** : pas de lien « Je m'inscris » ; pour adhérer, on contacte le club (page contact ou téléphone), confirmé par le propriétaire.
 - **Aucune vente sur le site** : pas de boutique, pas de panier, pas de paiement. Toute réservation et tout paiement passent par les sous-domaines `stages.` et `location.`.
 - **Seuls tarifs affichés sur le site** : les formules **centres aérés** (page actuelle `/centres-aeres/`) et les tarifs d'**adhésion** (page actuelle `/le-club/je-minscris/`). Les deux sont pilotés par JSON. Les prix des stages et des locations ne sont pas recopiés : le site renvoie vers les sous-domaines.
 - **Données dynamiques au format JSON** : tarifs centres aérés, tarifs d'adhésion, événements, actualités, horaires. Chaque fichier doit garder un schéma simple et stable pour que l'agent puisse les modifier sans casser le build.
@@ -51,6 +52,7 @@ C'est un plan d'eau intérieur, calme et protégé, entouré de forêt, sur un s
 
 - Nom : « CDPA Bassin-Rond » (avec le trait d'union ; le site actuel écrit aussi « Bassin Rond »). Signature actuelle : « Un club de voile unique ! ».
 - Logo existant : `https://www.bassin-rond.net/assets/uploads/2019/04/BR-logo.png`. Il faut le récupérer en meilleure définition ou en vectoriel si possible.
+- **Direction visuelle (préférence ferme du propriétaire, 6 octobre 2026)** : l'univers repose sur l'évasion, le sport et la nature. Rien de techno, pas de pixel art, pas d'univers étranger plaqué. Ce sont les photos qui portent le site, avec uniquement les plus récentes (les photos Facebook `fb*`). Elles peuvent être retravaillées (étalonnage, recadrage), mais pas à outrance.
 - Ton : chaleureux, associatif et familial, tutoiement collectif de la région (« on vous donne rendez-vous »), ouvert à tous (« de l'enfant au senior »).
 
 ## Evidence on Hand

@@ -1,0 +1,105 @@
+{
+  "unite": "par personne",
+  "groupeMinimum": 6,
+  "inclus": "Les tarifs comprennent l'encadrement et le matériel pour les activités.",
+  "durees": [
+    {
+      "id": "4-jours",
+      "libelle": "4 jours de stage",
+      "formules": [
+        {
+          "id": "multi",
+          "nom": "Multi activités",
+          "prix": 86,
+          "description": "2 activités différentes par jour dont une séance de voile. L'occasion de découvrir la diversité de nos activités avec la voile comme fil rouge du séjour.",
+          "plusDemande": false
+        },
+        {
+          "id": "nature",
+          "nom": "Nature",
+          "prix": 67.5,
+          "description": "1 activité de 2 heures par jour. Cette formule permet de prendre son temps et d'organiser des balades pédestres autour du site du Bassin-Rond.",
+          "plusDemande": true
+        },
+        {
+          "id": "demi-journee",
+          "nom": "À la ½ journée",
+          "prix": 20,
+          "description": "Pour la demi-journée.",
+          "plusDemande": false
+        }
+      ]
+    },
+    {
+      "id": "5-jours",
+      "libelle": "5 jours de stage",
+      "formules": [
+        {
+          "id": "multi",
+          "nom": "Multi activités",
+          "prix": 100,
+          "description": "2 activités différentes par jour dont une séance de voile. L'occasion de découvrir la diversité de nos activités avec la voile comme fil rouge du séjour.",
+          "plusDemande": false
+        },
+        {
+          "id": "nature",
+          "nom": "Nature",
+          "prix": 81,
+          "description": "1 activité de 2 heures par jour. Cette formule permet de prendre son temps et d'organiser des balades pédestres autour du site du Bassin-Rond.",
+          "plusDemande": true
+        },
+        {
+          "id": "journee",
+          "nom": "À la journée",
+          "prix": 35,
+          "description": "Pour la journée.",
+          "plusDemande": false
+        }
+      ]
+    }
+  ],
+  "cotisationGroupe": {
+    "libelle": "Cotisation groupe",
+    "prix": 74,
+    "unite": "par groupe"
+  },
+  "camping": [
+    {
+      "id": "4-jours",
+      "libelle": "Camping 4 jours",
+      "prix": 23,
+      "unite": "par personne"
+    },
+    {
+      "id": "5-jours",
+      "libelle": "Camping 5 jours",
+      "prix": 27,
+      "unite": "par personne"
+    },
+    {
+      "id": "journee",
+      "libelle": "Camping à la journée",
+      "prix": 8.75,
+      "unite": "par personne et par jour",
+      "precision": "stage de moins de 4 jours"
+    }
+  ],
+  "forfaitEnergie": {
+    "libelle": "Forfait énergie",
+    "precision": "pour l'utilisation de plaques de cuisson électriques",
+    "prix": 55,
+    "unite": "en sus"
+  },
+  "livret": {
+    "prix": 14,
+    "priseEnChargeClub": 7,
+    "resteACharge": 7,
+    "contenu": [
+      "une carte de progression",
+      "un carnet de certification de l'expérience",
+      "une licence valable dans toutes les Écoles Françaises de Voile"
+    ],
+    "description": "Le club peut délivrer à vos jeunes un livret certifiant le niveau atteint en fin de stage de voile."
+  },
+  "note": "Les durées 4-jours et 5-jours correspondent au sélecteur de la page : garder ces deux identifiants."
+}

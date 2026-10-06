@@ -1,0 +1,783 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-06T11:44:35.988Z",
+  "title": "Design System: CDPA Bassin-Rond",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Encre du bassin",
+        "canonical": "#0e2a3c",
+        "oklch": "oklch(27.3% 0.047 240)",
+        "tonalRamp": [
+          "oklch(15% 0.032 240)",
+          "oklch(26% 0.041 240)",
+          "oklch(38% 0.047 240)",
+          "oklch(49% 0.047 240)",
+          "oklch(61% 0.047 240)",
+          "oklch(72% 0.047 240)",
+          "oklch(84% 0.047 240)",
+          "oklch(95% 0.040 240)"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Encre douce",
+        "canonical": "#2f4a5c",
+        "oklch": "oklch(39.5% 0.045 239)",
+        "tonalRamp": [
+          "oklch(15% 0.031 239)",
+          "oklch(26% 0.040 239)",
+          "oklch(38% 0.045 239)",
+          "oklch(49% 0.045 239)",
+          "oklch(61% 0.045 239)",
+          "oklch(72% 0.045 239)",
+          "oklch(84% 0.045 239)",
+          "oklch(95% 0.039 239)"
+        ]
+      },
+      "lac": {
+        "role": "primary",
+        "displayName": "Bleu du lac",
+        "canonical": "#0f5c99",
+        "oklch": "oklch(46.5% 0.121 249)",
+        "tonalRamp": [
+          "oklch(15% 0.050 249)",
+          "oklch(26% 0.073 249)",
+          "oklch(38% 0.096 249)",
+          "oklch(49% 0.119 249)",
+          "oklch(61% 0.121 249)",
+          "oklch(72% 0.116 249)",
+          "oklch(84% 0.093 249)",
+          "oklch(95% 0.070 249)"
+        ]
+      },
+      "lac-vif": {
+        "role": "primary",
+        "displayName": "Bleu vif du lac (focus)",
+        "canonical": "#1a72bd",
+        "oklch": "oklch(54.2% 0.141 250)",
+        "tonalRamp": [
+          "oklch(15% 0.055 250)",
+          "oklch(26% 0.082 250)",
+          "oklch(38% 0.109 250)",
+          "oklch(49% 0.136 250)",
+          "oklch(61% 0.141 250)",
+          "oklch(72% 0.132 250)",
+          "oklch(84% 0.106 250)",
+          "oklch(95% 0.079 250)"
+        ]
+      },
+      "foret": {
+        "role": "secondary",
+        "displayName": "Vert forêt",
+        "canonical": "#2f6b3c",
+        "oklch": "oklch(47.5% 0.098 149)",
+        "tonalRamp": [
+          "oklch(15% 0.044 149)",
+          "oklch(26% 0.063 149)",
+          "oklch(38% 0.082 149)",
+          "oklch(49% 0.098 149)",
+          "oklch(61% 0.098 149)",
+          "oklch(72% 0.098 149)",
+          "oklch(84% 0.079 149)",
+          "oklch(95% 0.061 149)"
+        ]
+      },
+      "or": {
+        "role": "tertiary",
+        "displayName": "Or du soleil",
+        "canonical": "#f2a531",
+        "oklch": "oklch(77.9% 0.152 72)",
+        "tonalRamp": [
+          "oklch(15% 0.058 72)",
+          "oklch(26% 0.087 72)",
+          "oklch(38% 0.116 72)",
+          "oklch(49% 0.145 72)",
+          "oklch(61% 0.152 72)",
+          "oklch(72% 0.141 72)",
+          "oklch(84% 0.112 72)",
+          "oklch(95% 0.083 72)"
+        ]
+      },
+      "or-chiffre": {
+        "role": "tertiary",
+        "displayName": "Or des chiffres",
+        "canonical": "#ffd27a",
+        "oklch": "oklch(88.5% 0.118 83)",
+        "tonalRamp": [
+          "oklch(15% 0.050 83)",
+          "oklch(26% 0.072 83)",
+          "oklch(38% 0.094 83)",
+          "oklch(49% 0.117 83)",
+          "oklch(61% 0.118 83)",
+          "oklch(72% 0.114 83)",
+          "oklch(84% 0.092 83)",
+          "oklch(95% 0.069 83)"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Blanc panneau",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 90)",
+        "tonalRamp": [
+          "oklch(15% 0.000 90)",
+          "oklch(26% 0.000 90)",
+          "oklch(38% 0.000 90)",
+          "oklch(49% 0.000 90)",
+          "oklch(61% 0.000 90)",
+          "oklch(72% 0.000 90)",
+          "oklch(84% 0.000 90)",
+          "oklch(95% 0.000 90)"
+        ]
+      },
+      "voile-ciel": {
+        "role": "neutral",
+        "displayName": "Voile de ciel",
+        "canonical": "#f0f6fa",
+        "oklch": "oklch(97.0% 0.008 237)",
+        "tonalRamp": [
+          "oklch(15% 0.008 237)",
+          "oklch(26% 0.008 237)",
+          "oklch(38% 0.008 237)",
+          "oklch(49% 0.008 237)",
+          "oklch(61% 0.008 237)",
+          "oklch(72% 0.008 237)",
+          "oklch(84% 0.008 237)",
+          "oklch(95% 0.008 237)"
+        ]
+      },
+      "ground-lieu": {
+        "role": "neutral",
+        "displayName": "Fond · Le lieu",
+        "canonical": "#dbe7ef",
+        "oklch": "oklch(92.1% 0.017 237)",
+        "tonalRamp": [
+          "oklch(15% 0.017 237)",
+          "oklch(26% 0.017 237)",
+          "oklch(38% 0.017 237)",
+          "oklch(49% 0.017 237)",
+          "oklch(61% 0.017 237)",
+          "oklch(72% 0.017 237)",
+          "oklch(84% 0.017 237)",
+          "oklch(95% 0.017 237)"
+        ]
+      },
+      "ground-stages": {
+        "role": "neutral",
+        "displayName": "Fond · Stages",
+        "canonical": "#e6f2f8",
+        "oklch": "oklch(95.4% 0.015 229)",
+        "tonalRamp": [
+          "oklch(15% 0.015 229)",
+          "oklch(26% 0.015 229)",
+          "oklch(38% 0.015 229)",
+          "oklch(49% 0.015 229)",
+          "oklch(61% 0.015 229)",
+          "oklch(72% 0.015 229)",
+          "oklch(84% 0.015 229)",
+          "oklch(95% 0.015 229)"
+        ]
+      },
+      "ground-groupes": {
+        "role": "neutral",
+        "displayName": "Fond · Groupes (vert d'eau)",
+        "canonical": "#e1efe3",
+        "oklch": "oklch(93.8% 0.022 150)",
+        "tonalRamp": [
+          "oklch(15% 0.022 150)",
+          "oklch(26% 0.022 150)",
+          "oklch(38% 0.022 150)",
+          "oklch(49% 0.022 150)",
+          "oklch(61% 0.022 150)",
+          "oklch(72% 0.022 150)",
+          "oklch(84% 0.022 150)",
+          "oklch(95% 0.022 150)"
+        ]
+      },
+      "ground-location": {
+        "role": "neutral",
+        "displayName": "Fond · Location (bleu ciel)",
+        "canonical": "#d6ecf6",
+        "oklch": "oklch(93.0% 0.027 227)",
+        "tonalRamp": [
+          "oklch(15% 0.027 227)",
+          "oklch(26% 0.027 227)",
+          "oklch(38% 0.027 227)",
+          "oklch(49% 0.027 227)",
+          "oklch(61% 0.027 227)",
+          "oklch(72% 0.027 227)",
+          "oklch(84% 0.027 227)",
+          "oklch(95% 0.027 227)"
+        ]
+      },
+      "ground-adhesion": {
+        "role": "tertiary",
+        "displayName": "Fond · Adhésion (or clair net)",
+        "canonical": "#ffe6a0",
+        "oklch": "oklch(93.0% 0.092 91)",
+        "tonalRamp": [
+          "oklch(15% 0.043 91)",
+          "oklch(26% 0.061 91)",
+          "oklch(38% 0.078 91)",
+          "oklch(49% 0.092 91)",
+          "oklch(61% 0.092 91)",
+          "oklch(72% 0.092 91)",
+          "oklch(84% 0.076 91)",
+          "oklch(95% 0.058 91)"
+        ]
+      },
+      "ground-vingt-quatre": {
+        "role": "neutral",
+        "displayName": "Fond · Les 24 h (ciel franc)",
+        "canonical": "#cfe8f7",
+        "oklch": "oklch(91.7% 0.033 234)",
+        "tonalRamp": [
+          "oklch(15% 0.028 234)",
+          "oklch(26% 0.033 234)",
+          "oklch(38% 0.033 234)",
+          "oklch(49% 0.033 234)",
+          "oklch(61% 0.033 234)",
+          "oklch(72% 0.033 234)",
+          "oklch(84% 0.033 234)",
+          "oklch(95% 0.033 234)"
+        ]
+      },
+      "ground-videos": {
+        "role": "neutral",
+        "displayName": "Fond · Vidéos",
+        "canonical": "#e4eef8",
+        "oklch": "oklch(94.5% 0.017 248)",
+        "tonalRamp": [
+          "oklch(15% 0.017 248)",
+          "oklch(26% 0.017 248)",
+          "oklch(38% 0.017 248)",
+          "oklch(49% 0.017 248)",
+          "oklch(61% 0.017 248)",
+          "oklch(72% 0.017 248)",
+          "oklch(84% 0.017 248)",
+          "oklch(95% 0.017 248)"
+        ]
+      },
+      "ground-infos": {
+        "role": "neutral",
+        "displayName": "Fond · Infos",
+        "canonical": "#e9f1f4",
+        "oklch": "oklch(95.3% 0.009 222)",
+        "tonalRamp": [
+          "oklch(15% 0.009 222)",
+          "oklch(26% 0.009 222)",
+          "oklch(38% 0.009 222)",
+          "oklch(49% 0.009 222)",
+          "oklch(61% 0.009 222)",
+          "oklch(72% 0.009 222)",
+          "oklch(84% 0.009 222)",
+          "oklch(95% 0.009 222)"
+        ]
+      },
+      "ciel-24-haut": {
+        "role": "secondary",
+        "displayName": "Ciel des 24 h, haut",
+        "canonical": "#5fb2e6",
+        "oklch": "oklch(73.2% 0.111 238)",
+        "tonalRamp": [
+          "oklch(15% 0.048 238)",
+          "oklch(26% 0.069 238)",
+          "oklch(38% 0.090 238)",
+          "oklch(49% 0.111 238)",
+          "oklch(61% 0.111 238)",
+          "oklch(72% 0.108 238)",
+          "oklch(84% 0.087 238)",
+          "oklch(95% 0.066 238)"
+        ]
+      },
+      "ciel-24-bas": {
+        "role": "secondary",
+        "displayName": "Ciel des 24 h, milieu",
+        "canonical": "#8ccbef",
+        "oklch": "oklch(81.2% 0.082 234)",
+        "tonalRamp": [
+          "oklch(15% 0.040 234)",
+          "oklch(26% 0.056 234)",
+          "oklch(38% 0.072 234)",
+          "oklch(49% 0.082 234)",
+          "oklch(61% 0.082 234)",
+          "oklch(72% 0.082 234)",
+          "oklch(84% 0.070 234)",
+          "oklch(95% 0.054 234)"
+        ]
+      },
+      "soleil-disque": {
+        "role": "tertiary",
+        "displayName": "Soleil · disque",
+        "canonical": "#ffc531",
+        "oklch": "oklch(85.3% 0.163 85)",
+        "tonalRamp": [
+          "oklch(15% 0.061 85)",
+          "oklch(26% 0.092 85)",
+          "oklch(38% 0.123 85)",
+          "oklch(49% 0.154 85)",
+          "oklch(61% 0.163 85)",
+          "oklch(72% 0.150 85)",
+          "oklch(84% 0.119 85)",
+          "oklch(95% 0.088 85)"
+        ]
+      },
+      "soleil-rayons": {
+        "role": "tertiary",
+        "displayName": "Soleil · rayons",
+        "canonical": "#f2a10f",
+        "oklch": "oklch(77.0% 0.162 73)",
+        "tonalRamp": [
+          "oklch(15% 0.060 73)",
+          "oklch(26% 0.091 73)",
+          "oklch(38% 0.122 73)",
+          "oklch(49% 0.153 73)",
+          "oklch(61% 0.162 73)",
+          "oklch(72% 0.149 73)",
+          "oklch(84% 0.118 73)",
+          "oklch(95% 0.087 73)"
+        ]
+      },
+      "soleil-cerne": {
+        "role": "tertiary",
+        "displayName": "Soleil · cerne",
+        "canonical": "#6b3a00",
+        "oklch": "oklch(40.1% 0.093 61)",
+        "tonalRamp": [
+          "oklch(15% 0.043 61)",
+          "oklch(26% 0.061 61)",
+          "oklch(38% 0.079 61)",
+          "oklch(49% 0.093 61)",
+          "oklch(61% 0.093 61)",
+          "oklch(72% 0.093 61)",
+          "oklch(84% 0.077 61)",
+          "oklch(95% 0.059 61)"
+        ]
+      },
+      "soleil-reflet": {
+        "role": "tertiary",
+        "displayName": "Soleil · reflet",
+        "canonical": "#ffe9a3",
+        "oklch": "oklch(93.6% 0.091 93)",
+        "tonalRamp": [
+          "oklch(15% 0.043 93)",
+          "oklch(26% 0.060 93)",
+          "oklch(38% 0.078 93)",
+          "oklch(49% 0.091 93)",
+          "oklch(61% 0.091 93)",
+          "oklch(72% 0.091 93)",
+          "oklch(84% 0.075 93)",
+          "oklch(95% 0.058 93)"
+        ]
+      },
+      "nuit-legende": {
+        "role": "neutral",
+        "displayName": "Nuit de légende (scrim)",
+        "canonical": "#081a30",
+        "oklch": "oklch(21.6% 0.050 255)",
+        "tonalRamp": [
+          "oklch(15% 0.032 255)",
+          "oklch(26% 0.042 255)",
+          "oklch(38% 0.050 255)",
+          "oklch(49% 0.050 255)",
+          "oklch(61% 0.050 255)",
+          "oklch(72% 0.050 255)",
+          "oklch(84% 0.050 255)",
+          "oklch(95% 0.041 255)"
+        ]
+      },
+      "pied-texte": {
+        "role": "neutral",
+        "displayName": "Texte du pied",
+        "canonical": "#e5eef4",
+        "oklch": "oklch(94.4% 0.013 237)",
+        "tonalRamp": [
+          "oklch(15% 0.013 237)",
+          "oklch(26% 0.013 237)",
+          "oklch(38% 0.013 237)",
+          "oklch(49% 0.013 237)",
+          "oklch(61% 0.013 237)",
+          "oklch(72% 0.013 237)",
+          "oklch(84% 0.013 237)",
+          "oklch(95% 0.013 237)"
+        ]
+      },
+      "pied-legal": {
+        "role": "neutral",
+        "displayName": "Mention légale",
+        "canonical": "#b9cad6",
+        "oklch": "oklch(83.0% 0.025 238)",
+        "tonalRamp": [
+          "oklch(15% 0.025 238)",
+          "oklch(26% 0.025 238)",
+          "oklch(38% 0.025 238)",
+          "oklch(49% 0.025 238)",
+          "oklch(61% 0.025 238)",
+          "oklch(72% 0.025 238)",
+          "oklch(84% 0.025 238)",
+          "oklch(95% 0.025 238)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Le seul titre d'accueil, dans le ciel de la photo fb02."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Titres de section, 16 ch au plus."
+      },
+      "headline-evenement": {
+        "displayName": "Headline événement",
+        "purpose": "Titre des 24 heures du Bassin-Rond."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Sous-parties : flotte, vie du club, formules, blocs d'infos."
+      },
+      "title-item": {
+        "displayName": "Title item",
+        "purpose": "Nom d'un bateau, d'une embarcation, d'une formule, d'un reportage, d'une entrée du sélecteur."
+      },
+      "price": {
+        "displayName": "Prix",
+        "purpose": "Prix des formules groupes, en bleu du lac."
+      },
+      "price-large": {
+        "displayName": "Prix large",
+        "purpose": "Prix annuel des adhésions."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Promesse d'accueil et chapeaux de section."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texte courant, 32–40 rem de mesure ; 1.0625rem sous 760 px."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Navigation, légendes, en-têtes de tableaux."
+      }
+    },
+    "groundProgression": {
+      "source": "maquettes/d-journee/script.js (GROUND)",
+      "order": [
+        "lieu",
+        "stages",
+        "groupes",
+        "location",
+        "adhesion",
+        "vingt-quatre",
+        "videos",
+        "infos"
+      ],
+      "tokens": [
+        "ground-lieu",
+        "ground-stages",
+        "ground-groupes",
+        "ground-location",
+        "ground-adhesion",
+        "ground-vingt-quatre",
+        "ground-videos",
+        "ground-infos"
+      ],
+      "interpolation": "RGB linéaire entre la section courante et la suivante, uniquement pendant la seconde moitié de la section (eased = t < .5 ? 0 : (t - .5) * 2). Repère de lecture : scrollY + hauteur d'en-tête + 26 px. En bas de page, la dernière teinte est forcée.",
+      "progressVar": "--progress = index fractionnaire / 7, consommé par la chaleur des photos graduées.",
+      "reducedMotion": "Index arrondi à l'entier : une teinte fixe par section, sans glissement.",
+      "overlay24h": "linear-gradient(180deg, #5fb2e6 0%, #8ccbef 55%, var(--ground) 100%)",
+      "derivedSurfaces": {
+        "headerScrolled": "color-mix(in srgb, var(--ground) 92%, #fff)",
+        "menuOpen": "color-mix(in srgb, var(--ground) 85%, #fff)",
+        "railBarMobile": "color-mix(in srgb, var(--ground) 80%, #fff)",
+        "railLabel": "color-mix(in srgb, var(--ground) 70%, #fff)",
+        "chooser": "color-mix(in srgb, var(--ground) 18%, #fff)",
+        "line": "color-mix(in srgb, var(--ink) 22%, transparent)"
+      }
+    },
+    "photoGrading": {
+      "scope": "Photos fb* uniquement, retouche légère.",
+      "families": [
+        {
+          "name": "frais",
+          "filter": "saturate(.92) brightness(1.03) contrast(1.02)",
+          "overlay": "rgba(110, 165, 210, .08) soft-light",
+          "use": "Le lieu"
+        },
+        {
+          "name": "net",
+          "filter": "saturate(1.06) sepia(.05)",
+          "overlay": "rgba(255, 196, 120, .05) soft-light",
+          "use": "Stages, flotte, groupes, location, vie du club"
+        },
+        {
+          "name": "dore",
+          "filter": "sepia(.12) saturate(1.1) brightness(1.02)",
+          "overlay": "rgba(255, 168, 80, .07) soft-light",
+          "use": "Adhésion"
+        }
+      ],
+      "progressWarmth": "main [grade-*]::before : rgba(255, 200, 130, calc(var(--progress) * .07)) soft-light",
+      "heroVeil": "radial-gradient(ellipse 85% 75% at 28% 50%, rgba(240,246,250,.74) 0%, rgba(240,246,250,.5) 45%, rgba(240,246,250,0) 72%), derrière le texte seulement",
+      "captionScrim": "linear-gradient(180deg, rgba(8,26,48,0), rgba(8,26,48,.85))",
+      "captionLabel": "rgba(255,255,255,.88), coins 4px, 600 1rem"
+    },
+    "sun": {
+      "svg": "viewBox 0 0 40 40 ; disque r 8 #ffc531 sur cerne r 8.6 #6b3a00 ; reflet r 2.6 à (17.4,17.4) #ffe9a3 ; 10 rayons de r 8.5 à 17 (trait 3 #f2a10f, halo 4.6 #6b3a00)",
+      "size": "2.25rem (2rem sous 900 px)",
+      "position": "interpolée entre le point de la section courante et le suivant, au prorata du défilement",
+      "rotation": "(scrollY / 6) % 360 deg, désactivée en mouvement réduit",
+      "labelSync": "l'étiquette active suit le point le plus proche du soleil",
+      "reveal": "rail visible après 0.6 × hauteur d'écran, fondu 0.5s"
+    },
+    "shadows": [
+      {
+        "name": "panneau-photo",
+        "value": "0 20px 50px -30px rgba(14, 42, 60, .55)",
+        "purpose": "Panneau blanc posé sur une photo plein cadre (location)."
+      },
+      {
+        "name": "panneau-photo-dore",
+        "value": "0 20px 50px -30px rgba(74, 40, 8, .55)",
+        "purpose": "Même panneau sous la section dorée de l'adhésion."
+      },
+      {
+        "name": "en-tete",
+        "value": "0 1px 0 var(--line), 0 8px 24px -18px rgba(14, 42, 60, .45)",
+        "purpose": "En-tête après 24 px de défilement."
+      },
+      {
+        "name": "menu",
+        "value": "0 16px 30px -20px rgba(14, 42, 60, .5)",
+        "purpose": "Menu déroulé (≤ 1100 px)."
+      },
+      {
+        "name": "pastille",
+        "value": "0 6px 16px -10px rgba(14, 42, 60, .5)",
+        "purpose": "Pastilles du programme des 24 h."
+      },
+      {
+        "name": "rail-point",
+        "value": "0 1px 4px rgba(14, 42, 60, .45)",
+        "purpose": "Points du rail."
+      },
+      {
+        "name": "rail-etiquette",
+        "value": "0 1px 4px rgba(14, 42, 60, .25)",
+        "purpose": "Étiquettes du rail."
+      },
+      {
+        "name": "rail-filet",
+        "value": "0 0 0 1px rgba(14, 42, 60, .35)",
+        "purpose": "Cerne du filet blanc du rail."
+      },
+      {
+        "name": "soleil",
+        "value": "drop-shadow(0 1px 2px rgba(60, 30, 0, .45))",
+        "purpose": "Filtre du soleil du rail."
+      },
+      {
+        "name": "passe-partout",
+        "value": "0 0 0 clamp(.4rem, 1vw, .75rem) var(--ground)",
+        "purpose": "Anneau couleur de fond autour d'une photo qui en chevauche une autre."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Courbe unique de toutes les transitions."
+      },
+      {
+        "name": "duration-state",
+        "value": ".2s–.25s",
+        "purpose": "Boutons, bascule, points du sélecteur."
+      },
+      {
+        "name": "duration-reveal",
+        "value": ".3s–.35s",
+        "purpose": "Étiquettes du rail, soulignement de navigation."
+      },
+      {
+        "name": "duration-surface",
+        "value": ".4s–.5s",
+        "purpose": "En-tête au défilement, apparition du rail."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "transition-duration: 0s; scroll-behavior: auto",
+        "purpose": "États fixes : teinte par section, soleil posé, rayons immobiles."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "rail-lateral",
+        "value": "901px",
+        "note": "au-dessus : rail à droite, réserve de 3.75rem"
+      },
+      {
+        "name": "menu",
+        "value": "1100px",
+        "note": "en dessous : navigation dans un menu"
+      },
+      {
+        "name": "rail-bas",
+        "value": "900px",
+        "note": "en dessous : rail en barre basse de 3.5rem"
+      },
+      {
+        "name": "mobile",
+        "value": "760px",
+        "note": "en dessous : une colonne, en-tête 4rem, corps 1.0625rem"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Bouton plein",
+      "kind": "button",
+      "refersTo": "button-plein",
+      "description": "Action principale vers un sous-domaine (stages, location) ou un contact ; flèche oblique quand le lien sort.",
+      "html": "<a class=\"ds-btn-plein\" href=\"#\">Voir les dates et s'inscrire<svg class=\"ds-ico\" aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M7 17 17 7M9 7h8v8\"/></svg></a>",
+      "css": ".ds-ico{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none} .ds-btn-plein{display:inline-flex;align-items:center;gap:.55rem;padding:.95rem 1.4rem;border-radius:999px;font:800 1.05rem/1.2 \"Source Sans 3\",system-ui,sans-serif;text-decoration:none;border:2px solid #0e2a3c;transition:background-color .25s cubic-bezier(.16,1,.3,1),color .25s cubic-bezier(.16,1,.3,1),transform .25s cubic-bezier(.16,1,.3,1);background:#0f5c99;border-color:#0f5c99;color:#fff} .ds-btn-plein:hover{background:#0e2a3c;border-color:#0e2a3c} .ds-btn-plein:active{transform:translateY(1px)} .ds-btn-plein:focus-visible{outline:3px solid #1a72bd;outline-offset:3px}"
+    },
+    {
+      "name": "Bouton contour",
+      "kind": "button",
+      "refersTo": "button",
+      "description": "Action secondaire ; s'encre au survol.",
+      "html": "<a class=\"ds-btn\" href=\"#\">Toutes nos vidéos sur YouTube<svg class=\"ds-ico\" aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M7 17 17 7M9 7h8v8\"/></svg></a>",
+      "css": ".ds-ico{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none} .ds-btn{display:inline-flex;align-items:center;gap:.55rem;padding:.95rem 1.4rem;border-radius:999px;font:800 1.05rem/1.2 \"Source Sans 3\",system-ui,sans-serif;text-decoration:none;border:2px solid #0e2a3c;transition:background-color .25s cubic-bezier(.16,1,.3,1),color .25s cubic-bezier(.16,1,.3,1),transform .25s cubic-bezier(.16,1,.3,1);color:#0e2a3c;background:transparent} .ds-btn:hover{background:#0e2a3c;color:#fff} .ds-btn:active{transform:translateY(1px)} .ds-btn:focus-visible{outline:3px solid #1a72bd;outline-offset:3px}"
+    },
+    {
+      "name": "Bouton sombre",
+      "kind": "button",
+      "refersTo": "button-sombre",
+      "description": "Action d'adhésion, encre puis bleu du lac au survol.",
+      "html": "<a class=\"ds-btn-sombre\" href=\"#\">Adhérer au club</a>",
+      "css": ".ds-btn-sombre{display:inline-flex;align-items:center;gap:.55rem;padding:.95rem 1.4rem;border-radius:999px;font:800 1.05rem/1.2 \"Source Sans 3\",system-ui,sans-serif;text-decoration:none;border:2px solid #0e2a3c;transition:background-color .25s cubic-bezier(.16,1,.3,1),color .25s cubic-bezier(.16,1,.3,1),transform .25s cubic-bezier(.16,1,.3,1);background:#0e2a3c;color:#fff} .ds-btn-sombre:hover{background:#0f5c99;border-color:#0f5c99} .ds-btn-sombre:focus-visible{outline:3px solid #1a72bd;outline-offset:3px}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "tel",
+      "description": "En-tête fixe : marque, liens soulignés au survol, pilule téléphone.",
+      "html": "<header class=\"ds-top\"><a class=\"ds-brand\" href=\"#\">CDPA Bassin-Rond</a><nav><ul class=\"ds-nav\"><li><a href=\"#\">Stages</a></li><li><a href=\"#\">Groupes</a></li><li><a href=\"#\">Location</a></li><li><a href=\"#\">Adhésion</a></li></ul></nav><a class=\"ds-tel\" href=\"#\"><svg class=\"ds-ico\" aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M6.6 3.5h3l1.5 4-2 1.3a11 11 0 0 0 6.1 6.1l1.3-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z\"/></svg><span>03 27 35 72 28</span></a></header>",
+      "css": ".ds-ico{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none} .ds-top{display:flex;align-items:center;gap:1.5rem;height:4.5rem;padding:0 1.5rem;background:color-mix(in srgb,#e6f2f8 92%,#fff);box-shadow:0 1px 0 rgba(14,42,60,.22),0 8px 24px -18px rgba(14,42,60,.45);color:#0e2a3c;font-family:\"Source Sans 3\",system-ui,sans-serif} .ds-brand{font:800 1.05rem/1 \"Fira Sans\",sans-serif;text-decoration:none;color:inherit;margin-right:auto} .ds-nav{list-style:none;display:flex;gap:1.5rem;margin:0;padding:0} .ds-nav a{text-decoration:none;color:inherit;font-weight:600;font-size:1rem;padding:.4rem 0;background:linear-gradient(currentColor,currentColor) 0 100%/0 2px no-repeat;transition:background-size .35s cubic-bezier(.16,1,.3,1)} .ds-nav a:hover,.ds-nav a:focus-visible{background-size:100% 2px} .ds-tel{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;font-weight:800;font-size:1rem;padding:.6rem 1rem;border-radius:999px;background:#0e2a3c;color:#fff} .ds-tel:hover{background:#0f5c99} .ds-top a:focus-visible{outline:3px solid #1a72bd;outline-offset:3px}"
+    },
+    {
+      "name": "Bascule 4 jours / 5 jours",
+      "kind": "input",
+      "refersTo": "bascule-option",
+      "description": "Radios natifs masqués en pilules ; l'option cochée s'encre.",
+      "html": "<fieldset class=\"ds-bascule\"><legend>Durée du séjour</legend><input type=\"radio\" name=\"ds-d\" id=\"ds-d4\" checked><label for=\"ds-d4\">4 jours</label><input type=\"radio\" name=\"ds-d\" id=\"ds-d5\"><label for=\"ds-d5\">5 jours</label></fieldset>",
+      "css": ".ds-bascule{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;color:#0e2a3c} .ds-bascule legend{float:left;margin-right:1rem;font:800 1.15rem/1 \"Fira Sans\",sans-serif} .ds-bascule input{position:absolute;opacity:0;width:1px;height:1px} .ds-bascule label{cursor:pointer;padding:.7rem 1.3rem;border-radius:999px;border:2px solid #0e2a3c;font:800 1.1rem/1 \"Fira Sans\",sans-serif;background:#fff;transition:background-color .2s cubic-bezier(.16,1,.3,1),color .2s cubic-bezier(.16,1,.3,1)} .ds-bascule label:hover{background:#e6f2f8} .ds-bascule input:checked+label{background:#0e2a3c;color:#fff} .ds-bascule input:focus-visible+label{outline:3px solid #1a72bd;outline-offset:3px}"
+    },
+    {
+      "name": "Fait pratique et badge",
+      "kind": "chip",
+      "refersTo": "fait",
+      "description": "Pilule encre portant une donnée réelle ; badge or « Le plus demandé » piloté par le JSON.",
+      "html": "<p class=\"ds-fait\">Stages jeunes : <span class=\"ds-num\">14 h – 17 h</span>, pendant les vacances</p> <span class=\"ds-badge\">Le plus demandé</span>",
+      "css": ".ds-fait{display:inline-block;margin:0 0 .75rem;padding:.35rem .95rem;border-radius:999px;background:#0e2a3c;color:#fff;font:600 1.1rem/1.3 \"Fira Sans\",sans-serif} .ds-num{color:#ffd27a;font-weight:800;font-variant-numeric:tabular-nums lining-nums;white-space:nowrap} .ds-badge{display:inline-block;font:700 .95rem/1 \"Source Sans 3\",sans-serif;background:#f2a531;color:#0e2a3c;padding:.35rem .65rem;border-radius:999px}"
+    },
+    {
+      "name": "Lien média",
+      "kind": "chip",
+      "refersTo": "lien-media",
+      "description": "Pilule contour bleu du lac avec icône lecture, pour vidéos et reportages.",
+      "html": "<a class=\"ds-media\" href=\"#\"><svg class=\"ds-ico\" aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M8 5.5v13l10-6.5z\"/></svg>Voir la vidéo</a>",
+      "css": ".ds-ico{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none} .ds-media{display:inline-flex;align-items:center;gap:.45rem;font:700 1rem/1.2 \"Source Sans 3\",sans-serif;color:#0f5c99;text-decoration:none;padding:.55rem 1rem;border-radius:999px;border:2px solid currentColor;transition:background-color .25s cubic-bezier(.16,1,.3,1),color .25s cubic-bezier(.16,1,.3,1)} .ds-media .ds-ico{width:.95rem;height:.95rem} .ds-media:hover{background:#0f5c99;color:#fff} .ds-media:focus-visible{outline:3px solid #1a72bd;outline-offset:3px}"
+    },
+    {
+      "name": "Panneau sur photo plein cadre",
+      "kind": "card",
+      "refersTo": "panneau",
+      "description": "Panneau blanc qui remonte de 3.5rem sur une photo plein cadre (location, adhésion).",
+      "html": "<div class=\"ds-plein\"><div class=\"ds-photo\"></div><div class=\"ds-panneau\"><h2>Louer un bateau</h2><ul><li><strong>Canoë et kayak</strong><span>en solo ou en duo</span></li><li><strong>Paddle géant</strong><span>jusqu'à 8 personnes à bord</span></li></ul></div></div>",
+      "css": ".ds-plein{background:#d6ecf6;padding-bottom:1.5rem;color:#0e2a3c;font-family:\"Source Sans 3\",sans-serif} .ds-photo{height:12rem;background:linear-gradient(180deg,#8ccbef,#5fb2e6 60%,#2f6b3c)} .ds-panneau{position:relative;margin:-3.5rem 1.5rem 0;background:#fff;padding:clamp(1.5rem,4vw,3.5rem);border-radius:6px;box-shadow:0 20px 50px -30px rgba(14,42,60,.55)} .ds-panneau h2{margin:0 0 1rem;font:800 2.1rem/1.04 \"Fira Sans\",sans-serif;letter-spacing:-.015em} .ds-panneau ul{list-style:none;margin:0;padding:0} .ds-panneau li{display:flex;flex-direction:column;padding:1rem 0;border-bottom:1px solid rgba(14,42,60,.22)} .ds-panneau li:first-child{border-top:1px solid rgba(14,42,60,.22)} .ds-panneau strong{font:800 1.5rem/1.15 \"Fira Sans\",sans-serif} .ds-panneau span{color:#2f4a5c}"
+    },
+    {
+      "name": "Sélecteur « Votre moment au CDPA Bassin-Rond »",
+      "kind": "custom",
+      "refersTo": "button-plein",
+      "description": "Quatre entrées dans l'ordre stage, groupe, location, adhésion, chacune avec son lien direct, sur une ligne à points.",
+      "html": "<div class=\"ds-frise\"><h2>Votre moment au CDPA Bassin-Rond</h2><ol><li><a class=\"ds-quoi\" href=\"#\">Un stage pour mon enfant… ou pour moi</a><span class=\"ds-qui\">Stages jeunes de 7 à 17 ans, et stages adultes</span><a class=\"ds-direct\" href=\"#\">Voir les dates<svg class=\"ds-ico\" aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M7 17 17 7M9 7h8v8\"/></svg></a></li><li><a class=\"ds-quoi\" href=\"#\">Venir en groupe</a><span class=\"ds-qui\">Centres aérés, CE, écoles</span><a class=\"ds-direct\" href=\"#\">Voir les formules groupes<svg class=\"ds-ico\" aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M7 17 17 7M9 7h8v8\"/></svg></a></li><li><a class=\"ds-quoi\" href=\"#\">Louer un bateau</a><span class=\"ds-qui\">Canoë, kayak, paddle, Hansa</span><a class=\"ds-direct\" href=\"#\">Réserver un créneau<svg class=\"ds-ico\" aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M7 17 17 7M9 7h8v8\"/></svg></a></li><li><a class=\"ds-quoi\" href=\"#\">Naviguer toute l'année</a><span class=\"ds-qui\">L'adhésion au club</span><a class=\"ds-direct\" href=\"#\">Adhérer<svg class=\"ds-ico\" aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M7 17 17 7M9 7h8v8\"/></svg></a></li></ol></div>",
+      "css": ".ds-ico{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none} .ds-frise{padding:1.5rem;background:color-mix(in srgb,#dbe7ef 18%,#fff);border-top:1px solid rgba(14,42,60,.22);color:#0e2a3c;font-family:\"Source Sans 3\",sans-serif} .ds-frise h2{margin:0;font:800 1.35rem/1.2 \"Fira Sans\",sans-serif} .ds-frise ol{list-style:none;margin:0;padding:1rem 0 0;display:grid;grid-template-columns:repeat(4,1fr);position:relative} .ds-frise ol::before{content:\"\";position:absolute;left:0;right:0;top:calc(1rem + .55rem);height:2px;background:rgba(14,42,60,.22)} .ds-frise li{position:relative;padding:1.75rem 1.25rem 0 0;display:flex;flex-direction:column;gap:.35rem} .ds-frise li::before{content:\"\";position:absolute;left:0;top:.1rem;width:1rem;height:1rem;border-radius:50%;background:#fff;border:2px solid #0e2a3c;transition:background-color .25s,border-color .25s} .ds-frise li:hover::before,.ds-frise li:focus-within::before{background:#0f5c99;border-color:#0f5c99} .ds-quoi{font:800 1.3rem/1.15 \"Fira Sans\",sans-serif;color:inherit;text-decoration:none} .ds-quoi:hover{text-decoration:underline;text-decoration-thickness:2px} .ds-qui{font-size:1rem;color:#2f4a5c} .ds-direct{display:inline-flex;align-items:center;gap:.35rem;font-weight:800;font-size:1rem;color:#0f5c99;text-decoration:none} .ds-direct:hover{text-decoration:underline} .ds-frise a:focus-visible{outline:3px solid #1a72bd;outline-offset:3px}"
+    },
+    {
+      "name": "Rail et soleil",
+      "kind": "custom",
+      "refersTo": "rail-soleil",
+      "description": "Rail de sections, points cerclés d'encre et soleil SVG dessiné qui se pose sur le point courant.",
+      "html": "<nav class=\"ds-rail\"><ol><li><a href=\"#\"><span>Le lieu</span></a></li><li><a href=\"#\" aria-current=\"true\"><span>Stages</span></a></li><li><a href=\"#\"><span>Groupes</span></a></li><li><a href=\"#\"><span>Location</span></a></li></ol><span class=\"ds-sun\" aria-hidden=\"true\"><svg viewBox=\"0 0 40 40\"><g class=\"ds-rayons\"><path class=\"ds-halo\" d=\"M20 8.5V3M26.76 10.7l3.23-4.45M30.94 16.45l5.23-1.7M30.94 23.55l5.23 1.7M26.76 29.3l3.23 4.45M20 31.5V37M13.24 29.3l-3.23 4.45M9.06 23.55l-5.23 1.7M9.06 16.45l-5.23-1.7M13.24 10.7l-3.23-4.45\"/><path d=\"M20 8.5V3M26.76 10.7l3.23-4.45M30.94 16.45l5.23-1.7M30.94 23.55l5.23 1.7M26.76 29.3l3.23 4.45M20 31.5V37M13.24 29.3l-3.23 4.45M9.06 23.55l-5.23 1.7M9.06 16.45l-5.23-1.7M13.24 10.7l-3.23-4.45\"/></g><circle fill=\"#6b3a00\" cx=\"20\" cy=\"20\" r=\"8.6\"/><circle fill=\"#ffc531\" cx=\"20\" cy=\"20\" r=\"8\"/><circle fill=\"#ffe9a3\" cx=\"17.4\" cy=\"17.4\" r=\"2.6\"/></svg></span></nav>",
+      "css": ".ds-rail{position:relative;height:16rem;width:12rem;padding:1rem;background:#e6f2f8;font-family:\"Source Sans 3\",sans-serif} .ds-rail ol{list-style:none;margin:0;padding:0;height:100%;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;position:relative} .ds-rail ol::before{content:\"\";position:absolute;right:.5rem;top:.5rem;bottom:.5rem;width:3px;margin-right:-.5px;background:#fff;box-shadow:0 0 0 1px rgba(14,42,60,.35);border-radius:2px} .ds-rail a{display:flex;align-items:center;gap:.7rem;text-decoration:none;font-size:.875rem;font-weight:600;color:#0e2a3c;position:relative} .ds-rail a::after{content:\"\";width:1rem;height:1rem;border-radius:50%;background:#fff;border:2px solid #0e2a3c;box-shadow:0 1px 4px rgba(14,42,60,.45)} .ds-rail a span{opacity:0;transform:translateX(.4rem);transition:opacity .3s cubic-bezier(.16,1,.3,1),transform .3s cubic-bezier(.16,1,.3,1);background:color-mix(in srgb,#e6f2f8 70%,#fff);padding:.15rem .5rem;border-radius:4px;box-shadow:0 1px 4px rgba(14,42,60,.25)} .ds-rail:hover a span,.ds-rail a:focus-visible span,.ds-rail a[aria-current=\"true\"] span{opacity:1;transform:none} .ds-rail a[aria-current=\"true\"]{font-weight:800} .ds-rail a:focus-visible{outline:3px solid #1a72bd;outline-offset:3px;border-radius:3px} .ds-sun{position:absolute;right:calc(1rem + .5rem - 1.125rem + 1px);top:calc(1rem + 16rem*.33 - 1.125rem);width:2.25rem;height:2.25rem;filter:drop-shadow(0 1px 2px rgba(60,30,0,.45));pointer-events:none} .ds-sun svg{display:block;width:100%;height:100%;overflow:visible} .ds-rayons{transform-origin:20px 20px;transition:transform .6s cubic-bezier(.16,1,.3,1)} .ds-rail:hover .ds-rayons{transform:rotate(36deg)} .ds-rayons path{fill:none;stroke:#f2a10f;stroke-width:3;stroke-linecap:round} .ds-rayons .ds-halo{stroke:#6b3a00;stroke-width:4.6}"
+    }
+  ],
+  "narrative": {
+    "northStar": "La lumière qui avance sur le bassin",
+    "overview": "Le site est un récit photographique au défilement chromatique. Les photos récentes du club (`fb*`), en plein cadre ou en grands aplats débordant la grille, portent tout le propos : l'eau calme, la forêt, les péniches, les voiles. Autour d'elles, le fond de page n'est pas une couleur fixe mais une lumière qui change progressivement d'une section à l'autre, du bleu-gris pâle du matin au vert d'eau, au bleu ciel franc, jusqu'à un or clair net, puis revient vers un bleu doux. Elle ne descend jamais vers la nuit et ne vire jamais au crème ou au parchemin.\n\nLa densité est aérée et franche : de grands titres humanistes très gras (Fira Sans 800), un texte courant généreux (Source Sans 3, 19 px), des listes séparées par de simples filets plutôt que des cartes. Les informations pratiques (prix, horaires, âges) sont traitées en chiffres tabulaires et en gras, toujours lisibles. Un rail collant à droite (en bas sur mobile) sert de repère et de navigation ; un soleil dessiné en SVG s'y déplace avec le défilement. C'est le seul ornement du système : tout le reste vient des photos.\n\nLe propriétaire a fixé l'univers : évasion, sport, nature. Rien de techno, pas de pixel art, pas d'univers étranger plaqué ; uniquement les photos Facebook récentes, retouchées légèrement.",
+    "keyCharacteristics": [
+      "Fond de lecture piloté par le défilement : une teinte par section, interpolée pendant la seconde moitié de chaque section.",
+      "Photos `fb*` plein cadre ou débordant la gouttière, étalonnage léger par famille (frais, net, doré).",
+      "Panneaux blancs qui chevauchent le bas d'une photo plein cadre.",
+      "Typographie humaniste franche : Fira Sans 800 pour les titres et les chiffres, Source Sans 3 pour le texte.",
+      "Formes en pilule pour tout ce qui se touche ; filets fins pour tout ce qui se lit.",
+      "Un seul ornement dessiné : le soleil du rail."
+    ],
+    "rules": [
+      {
+        "name": "The Daylight Rule",
+        "body": "Le fond de lecture reste une lumière de jour : bleu-gris, vert d'eau, bleu ciel ou or clair net. Jamais de crème, de parchemin, ni de section nocturne ; seul le pied de page est encré.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ground-Follows Rule",
+        "body": "Toute surface claire translucide se compose à partir de `--ground` mélangé au blanc, jamais d'une teinte fixe, pour suivre la progression.",
+        "section": "colors"
+      },
+      {
+        "name": "The Gold Is Rare Rule",
+        "body": "L'or n'apparaît qu'en point : un badge, une sélection, les chiffres d'une pastille, le soleil, et le fond d'une seule section (l'adhésion).",
+        "section": "colors"
+      },
+      {
+        "name": "The Tabular Facts Rule",
+        "body": "Tout prix, horaire, âge ou numéro de téléphone passe en chiffres tabulaires et alignés, sans césure (`white-space: nowrap`), et les montants principaux en Fira Sans 800.",
+        "section": "typography"
+      },
+      {
+        "name": "The No Uppercase Rule",
+        "body": "Aucun texte en capitales espacées : la hiérarchie se fait par la graisse et la taille, jamais par un surtitre.",
+        "section": "typography"
+      },
+      {
+        "name": "The Lift-Over-Photo Rule",
+        "body": "Une surface ne s'élève que lorsqu'elle se pose sur une photo ou flotte au-dessus du contenu (en-tête, menu, rail). Les listes et les tarifs restent à plat, séparés par des filets.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do laisser les photos `fb*` porter chaque section, en plein cadre ou en débordant la gouttière, avec l'une des trois familles d'étalonnage (frais, net, doré) et rien de plus fort que `sepia(.12)` ou `saturate(1.1)`.",
+      "Do donner à toute nouvelle section sa teinte de fond dans la progression et la faire glisser pendant la seconde moitié de la section précédente.",
+      "Do composer les surfaces translucides à partir de `--ground` mélangé au blanc.",
+      "Do poser les panneaux d'action en blanc (coins 6px) sur le bas d'une photo plein cadre, avec l'ombre diffuse « Panneau sur photo ».",
+      "Do donner aux prix, horaires et âges des chiffres tabulaires en Fira Sans 800, et lire leurs valeurs dans les JSON.",
+      "Do mettre en pilule tout ce qui se clique et séparer tout ce qui se lit par des filets à 22 % d'encre.",
+      "Do dessiner les icônes en SVG au trait (1em, trait 1.9, extrémités arrondies, `currentColor`).",
+      "Do figer les états avec `prefers-reduced-motion` : fond par section sans interpolation, soleil posé sur le point courant, rayons immobiles, transitions à 0s."
+    ],
+    "donts": [
+      "Don't utiliser de photo hors des `fb*` récentes, ni la photo de planche à voile (fb05), ni d'image de soirée ou de repas.",
+      "Don't introduire d'esthétique techno, de pixel art, de néon ou d'univers étranger au plan d'eau.",
+      "Don't faire virer le fond au crème, au parchemin ou à la nuit ; l'encre est réservée au pied de page, aux pastilles et aux boutons.",
+      "Don't retoucher les photos à outrance : pas de filtres saturés, de duotones ou de dégradés colorés plein cadre.",
+      "Don't aligner des rangées de cartes égales sous une photo d'accueil ; les offres sont des listes et des compositions texte-photo.",
+      "Don't utiliser d'ombre dure décalée ni de surtitre en capitales au-dessus des titres.",
+      "Don't ajouter d'autre ornement dessiné que le soleil du rail."
+    ]
+  }
+}

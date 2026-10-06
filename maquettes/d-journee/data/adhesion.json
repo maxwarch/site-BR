@@ -1,0 +1,37 @@
+{
+  "note": "Le total de chaque formule est calculé : cotisation + licence + forfait séances.",
+  "intro": "Devenir adhérent, c'est naviguer au fil des saisons dans un club sérieux et convivial",
+  "licencies": 140,
+  "labelsFederaux": 3,
+  "formules": [
+    {
+      "id": "adultes",
+      "nom": "Adultes",
+      "cotisation": 41,
+      "licence": 72,
+      "forfaitSeances": 200,
+      "prixSeance": 9.8,
+      "supports": [
+        "Ilca",
+        "420",
+        "RS Quba",
+        "Hansa"
+      ]
+    },
+    {
+      "id": "jeunes",
+      "nom": "Jeunes",
+      "cotisation": 29,
+      "licence": 33,
+      "forfaitSeances": 200,
+      "prixSeance": 8.2,
+      "supports": [
+        "Optimist",
+        "RS Quba",
+        "Open Skiff",
+        "Newcat 12",
+        "Hansa"
+      ]
+    }
+  ]
+}
