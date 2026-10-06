@@ -464,7 +464,7 @@
       }
     },
     "groundProgression": {
-      "source": "maquettes/d-journee/script.js (GROUND)",
+      "source": "site/js/main.js (GROUND)",
       "order": [
         "lieu",
         "stages",

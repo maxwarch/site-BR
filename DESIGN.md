@@ -1,6 +1,6 @@
 ---
 name: CDPA Bassin-Rond
-description: Un club de voile unique — le Bassin-Rond raconté par ses photos, sur un fond dont la lumière avance avec le défilement.
+description: Votre moment au CDPA Bassin-Rond — le Bassin-Rond raconté par ses photos, sur un fond dont la lumière avance avec le défilement.
 colors:
   ink: "#0e2a3c"
   ink-soft: "#2f4a5c"
@@ -211,7 +211,7 @@ Le propriétaire a fixé l'univers : évasion, sport, nature. Rien de techno, pa
 Une palette de plein jour : encre bleu-nuit pour le texte, le bleu et le vert du logo assombris pour l'accent, l'or pour la chaleur, et une série de fonds clairs qui forment la lumière de la page.
 
 ### Primary
-- **Bleu du lac** (`lac`) : l'accent d'action. Boutons pleins (stages, location, groupes), liens directs du sélecteur, prix, mot « unique » du titre d'accueil, liens média. C'est le bleu du logo assombri pour atteindre le contraste du texte.
+- **Bleu du lac** (`lac`) : l'accent d'action. Boutons pleins (stages, location, groupes), liens directs du sélecteur, prix, mot « moment » du titre d'accueil, liens média. C'est le bleu du logo assombri pour atteindre le contraste du texte.
 - **Bleu vif du lac** (`lac-vif`) : uniquement l'anneau de focus (3 px, décalé de 3 px).
 
 ### Secondary
@@ -252,7 +252,7 @@ Le fond de page (`--ground`) est réécrit par le script selon la section couran
 - **Title** (800, clamp(1.6rem, 2.6vw, 2.25rem)) : sous-parties (la flotte, la vie du club, les blocs d'infos à 1.4rem, les formules à 1.6rem).
 - **Title item** (800, 1.35–1.5rem, 1.15–1.2) : nom d'un bateau, d'une embarcation, d'une formule, d'un reportage, d'une entrée du sélecteur.
 - **Price** (800, clamp(2.4rem, 3.6vw, 3.2rem), chiffres tabulaires) en bleu du lac ; **Price large** (clamp(3rem, 5vw, 4.2rem)) pour l'adhésion à l'année.
-- **Lead** (500, clamp(1.1rem, 1.5vw, 1.3rem)) : la promesse d'accueil et les chapeaux de section (1.2rem).
+- **Lead** (500, 1.2rem) : les chapeaux de section.
 - **Body** (400, 1.1875rem, 1.6 ; 1.0625rem sous 760 px) : paragraphes limités à 32–40 rem (environ 65 ch), `text-wrap: pretty`.
 - **Label** (600, 1rem) : navigation, légendes, en-têtes de tableaux ; 0.875rem pour les étiquettes du rail.
 
@@ -269,7 +269,7 @@ Les photos sortent de la grille : elles débordent la gouttière d'un côté (ma
 
 Au-dessus de 901 px, le contenu réserve 3.75rem à droite pour le rail ; les sections plein cadre (accueil, location, adhésion, 24 h) annulent cette réserve pour aller jusqu'au bord. À 1100 px, la navigation passe dans un menu. À 900 px, le rail devient une barre en bas d'écran (3.5rem). À 760 px, tout passe sur une colonne, l'en-tête descend à 4rem, le numéro de téléphone se réduit à son icône et les légendes plein cadre sortent sous la photo.
 
-Le premier écran tient en 100svh : photo `fb02` plein cadre, titre dans le ciel, puis le sélecteur « Votre moment au CDPA Bassin-Rond » au pied.
+Le premier écran tient en 100svh : un bandeau photo `fb02` atténué (clamp(16rem, 48svh, 30rem), cadré en bas sur les enfants), puis le titre principal « Votre *moment* au CDPA Bassin-Rond » et les quatre vignettes, qui prennent toute la hauteur restante. Le bloc entier est visible sans défiler, et centré : la réserve du rail ne s'applique pas au premier écran.
 
 ## Elevation & Depth
 
@@ -325,8 +325,10 @@ Repère de lecture et accès direct aux huit sections, qui apparaît en fondu (0
 
 Le soleil est un SVG dessiné (40 × 40, 2.25rem ; 2rem sur mobile) : disque `soleil-disque` cerné de `soleil-cerne`, reflet `soleil-reflet`, dix rayons `soleil-rayons` de 3 px doublés d'un halo `soleil-cerne` de 4.6 px. Il se pose sur le point de la section courante et glisse vers le suivant en proportion du défilement ; ses rayons tournent de `scrollY / 6` degrés. L'étiquette active suit le point le plus proche du soleil.
 
-### Le sélecteur « Votre moment au CDPA Bassin-Rond »
-Bandeau au pied du premier écran, fond `--ground` mélangé à 18 % avec du blanc, filet en tête. Titre en Fira Sans 800 à 1.35rem, puis quatre entrées dans cet ordre fixe : un stage (enfant ou adulte), venir en groupe, louer un bateau, naviguer toute l'année. Chaque entrée porte un point du même dessin que le rail sur une ligne commune, un nom en Fira Sans 800 clamp(1.2rem, 1.6vw, 1.45rem) qui renvoie à la section, une sous-ligne en encre douce et un lien direct en bleu du lac, 800, avec la flèche oblique. Au survol, le point se remplit de bleu du lac. Sur mobile, la ligne devient verticale.
+### L'accueil « Votre moment au CDPA Bassin-Rond »
+- **Bandeau photo :** `fb02`, `saturate(.8) brightness(1.06) contrast(.92)`, sous un voile clair vertical (0,86 en haut, 0,22 au milieu sur les enfants, puis fondu vers `--ground`). La photo reste un décor : elle ne porte plus de texte.
+- **Titre principal (h1) :** Fira Sans 800, clamp(2rem, 3.6vw, 3.2rem), interlettrage -0.02em, centré, en encre ; un seul mot en bleu du lac (« moment »), comme le faisait « unique » auparavant. Aucun soulignement ni autre couleur.
+- **Vignettes :** quatre portes photo dans cet ordre fixe : un stage (enfant ou adulte), venir en groupe, louer un bateau, naviguer toute l'année. Grille de 4 colonnes (gap 1rem, 2 colonnes entre 761 et 1100 px, carrousel horizontal à 78 % sur mobile, avec aimantation), coins de 6px, ombre diffuse encre. Photo `object-fit: cover` (50 % 78 %) sous un dégradé encre vers le bas (0 à 0,88) ; nom en Fira Sans 800 blanc, sous-ligne `#e5eef4`, et pilule blanche « Voir les dates » ou « Réserver un créneau » quand un lien direct existe. Toute la vignette renvoie à sa section. Au survol, elle monte de 6 px et la photo zoome à 1,05.
 
 ### Listes de tarifs
 - **Formules groupes:** trois colonnes (1.15fr 1.15fr 0.8fr) sous un filet encre de 2 px, séparées par des filets verticaux à 22 % ; nom, badge éventuel, prix en style Price, « par personne » en encre douce, description.

@@ -2,7 +2,7 @@
 
 Toutes les photos sont de vraies photos du CDPA Bassin-Rond, tirées de la page Facebook publique du club (facebook.com/bassin.rond). Le club en autorise la réutilisation. Elles sont redimensionnées à 1800 px de côté maximum (JPEG, qualité 72), et leur provenance est inscrite dans les métadonnées de chaque fichier.
 
-Le dossier ne contient que les photos utilisées par la page d'accueil (`maquettes/d-journee/`). Les autres, retirées le 6 octobre 2026, restent disponibles sur la page Facebook.
+Le dossier ne contient que les photos utilisées par la page d'accueil (`site/index.html`). Les autres, retirées le 6 octobre 2026, restent disponibles sur la page Facebook.
 
 | Fichier | Section | Contenu |
 |---|---|---|

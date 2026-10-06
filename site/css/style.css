@@ -2,14 +2,14 @@
    Le fond de page change progressivement d'une section à l'autre :
    --ground et --progress sont réécrites par script.js au fil du défilement. */
 
-@font-face { font-family: "Fira Sans"; src: url("fonts/FiraSans-normal-600-latin.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-@font-face { font-family: "Fira Sans"; src: url("fonts/FiraSans-normal-600-latin-ext.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
-@font-face { font-family: "Fira Sans"; src: url("fonts/FiraSans-normal-800-latin.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-@font-face { font-family: "Fira Sans"; src: url("fonts/FiraSans-normal-800-latin-ext.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
-@font-face { font-family: "Source Sans 3"; src: url("fonts/SourceSans3-normal-400-700-latin.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-@font-face { font-family: "Source Sans 3"; src: url("fonts/SourceSans3-normal-400-700-latin-ext.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
-@font-face { font-family: "Source Sans 3"; src: url("fonts/SourceSans3-italic-400-latin.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-@font-face { font-family: "Source Sans 3"; src: url("fonts/SourceSans3-italic-400-latin-ext.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Fira Sans"; src: url("../fonts/FiraSans-normal-600-latin.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Fira Sans"; src: url("../fonts/FiraSans-normal-600-latin-ext.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Fira Sans"; src: url("../fonts/FiraSans-normal-800-latin.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Fira Sans"; src: url("../fonts/FiraSans-normal-800-latin-ext.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Source Sans 3"; src: url("../fonts/SourceSans3-normal-400-700-latin.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Source Sans 3"; src: url("../fonts/SourceSans3-normal-400-700-latin-ext.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Source Sans 3"; src: url("../fonts/SourceSans3-italic-400-latin.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Source Sans 3"; src: url("../fonts/SourceSans3-italic-400-latin-ext.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
 
 :root {
   /* Lumière (réécrite par le script) */
@@ -125,36 +125,10 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 .hero { position: relative; min-height: 100svh; display: grid; grid-template-rows: 1fr auto; isolation: isolate; }
 .hero__photo { position: relative; grid-row: 1; grid-column: 1; z-index: -2; overflow: hidden; margin: 0; }
 .hero__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 88%; filter: saturate(1) brightness(1.01); }
-.hero__sky { position: relative; grid-row: 1; grid-column: 1; align-self: start; }
-.hero__sky::before {
-  content: ""; position: absolute; z-index: -1;
-  /* Le halo s'éteint avant les bords de sa boîte : aucune arête visible sur la photo */
-  left: -8rem; top: -2rem; bottom: -3rem; width: 64rem;
-  background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(240, 246, 250, .78) 0%, rgba(240, 246, 250, .55) 45%, rgba(240, 246, 250, 0) 100%);
-  pointer-events: none;
-}
 /* En haut de page aussi, l'en-tête garde un fond clair : le menu reste lisible sur la photo */
 .top:not(.is-scrolled) { background: rgba(240, 246, 250, .88); box-shadow: 0 1px 0 rgba(14, 42, 60, .12); }
-.hero__sky { isolation: isolate; padding: calc(var(--header-h) + clamp(2rem, 7vh, 5rem)) var(--gutter) var(--space-4); max-width: var(--max); width: 100%; margin: 0 auto; }
-.hero h1 { font-size: clamp(3.1rem, 7.4vw, 6rem); font-weight: 800; letter-spacing: -.02em; line-height: 1; max-width: 12ch; }
-.hero h1 em { font-style: normal; color: var(--lac); }
 /* La promesse passe sur un panneau clair : lisible quelle que soit la photo derrière */
-.hero__promise { margin-top: var(--space-3); max-width: 36rem; padding: var(--space-2) var(--space-3); border-radius: 6px; background: rgba(255, 255, 255, .9); box-shadow: 0 10px 30px -18px rgba(14, 42, 60, .55); font-size: clamp(1.1rem, 1.5vw, 1.3rem); font-weight: 500; color: var(--ink); }
 
-.frise { grid-row: 2; grid-column: 1; width: 100%; padding: 0 var(--gutter); background: color-mix(in srgb, var(--ground) 18%, #ffffff); border-top: 1px solid var(--line); }
-.frise__titre { max-width: var(--max); margin: 0 auto; padding: var(--space-3) 0 0; font: 800 1.35rem/1.2 var(--display); letter-spacing: 0; color: var(--ink); }
-.frise__moments { list-style: none; margin: 0 auto; padding: var(--space-2) 0 var(--space-3); max-width: var(--max); display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
-.frise__moments::before { content: ""; position: absolute; left: 0; right: 0; top: calc(var(--space-2) + .55rem); height: 2px; background: var(--line); border-radius: 2px; }
-.moment { position: relative; padding: 1.75rem 1.25rem 0 0; display: flex; flex-direction: column; gap: .5rem; }
-.moment::before { content: ""; position: absolute; left: 0; top: .1rem; width: 1rem; height: 1rem; border-radius: 50%; background: #fff; border: 2px solid var(--ink); transition: background-color .25s var(--ease-out), border-color .25s var(--ease-out); }
-.moment:hover::before, .moment:focus-within::before { background: var(--lac); border-color: var(--lac); }
-.moment__lien { text-decoration: none; display: flex; flex-direction: column; gap: .15rem; border-radius: 4px; }
-.moment__quand { font-size: .95rem; font-weight: 600; color: var(--ink-soft); }
-.moment__quoi { font: 800 clamp(1.2rem, 1.6vw, 1.45rem)/1.15 var(--display); letter-spacing: -.01em; }
-.moment__qui { font-size: 1rem; color: var(--ink-soft); }
-.moment__lien:hover .moment__quoi { text-decoration: underline; text-decoration-thickness: 2px; }
-.moment__direct { display: inline-flex; align-items: center; gap: .35rem; font-weight: 800; font-size: 1rem; color: var(--lac); text-decoration: none; }
-.moment__direct:hover { text-decoration: underline; }
 
 /* ---------- Chapitres ---------- */
 .chapitre { padding: var(--space-6) var(--gutter); }
@@ -400,7 +374,6 @@ main [class*="grade-"]::before { content: ""; position: absolute; inset: 0; z-in
   main { padding-right: var(--rail-space); }
   .hero, .chapitre--vingt-quatre, .chapitre--location, .chapitre--adhesion { margin-right: calc(-1 * var(--rail-space)); }
   .chapitre--vingt-quatre { padding-right: calc(var(--gutter) + var(--rail-space)); }
-  .frise { padding-right: calc(var(--gutter) + var(--rail-space)); }
 }
 .rail a span { box-shadow: 0 1px 4px rgba(14, 42, 60, .25); }
 
@@ -445,13 +418,6 @@ main [class*="grade-"]::before { content: ""; position: absolute; inset: 0; z-in
 
   .hero { min-height: 0; }
   .hero__photo img { object-position: 42% 92%; }
-  .hero__sky::before { left: 0; right: 0; top: 0; bottom: 0; width: auto; background: radial-gradient(ellipse 80% 45% at 35% 25%, rgba(240, 246, 250, .55) 0%, rgba(240, 246, 250, .3) 50%, rgba(240, 246, 250, 0) 80%); }
-  .hero__sky { min-height: 74svh; padding-bottom: var(--space-3); }
-  .hero__promise { max-width: none; padding: var(--space-2); }
-  .frise__moments { grid-template-columns: 1fr; padding-bottom: var(--space-2); }
-  .frise__moments::before { left: .45rem; right: auto; top: 1.25rem; bottom: 1.5rem; width: 2px; height: auto; background: var(--line); }
-  .moment { padding: .75rem 0 1rem 2rem; }
-  .moment::before { top: 1rem; }
 
   .ouverture, .groupes, .stages, .flotte, .vq__tete { grid-template-columns: 1fr; gap: var(--space-3); }
   .ouverture__photo, .flotte__photo { margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter)); }
@@ -497,3 +463,57 @@ main [class*="grade-"]::before { content: ""; position: absolute; inset: 0; z-in
 .voir-plus[hidden] { display: none; }
 [data-plie] > [hidden] { display: none; }
 @media (min-width: 761px) and (max-width: 1100px) { .adhesion { padding: 2.5rem; } }
+
+
+/* ==== Accueil « Votre moment » : quatre vignettes sur le bandeau photo ==== */
+/* Variante A — « Les quatre portes », version 2 :
+   tout le bloc tient dans le premier écran ; la photo d'accueil se fait plus discrète
+   pour laisser « Votre moment » porter la page. */
+
+/* Accueil : bandeau photo plus bas, adouci et fondu vers le fond de page */
+/* L'accueil et le bloc remplissent exactement le premier écran ; les vignettes prennent la hauteur restante */
+.hero { min-height: 100svh; display: grid; grid-template-rows: auto 1fr; }
+.hero__photo { grid-row: 1; grid-column: 1; height: clamp(18rem, 55svh, 34rem); }
+.hero__photo img { object-position: 50% 100%; filter: saturate(.8) brightness(1.06) contrast(.92); }
+.hero__photo::after { content: ""; position: absolute; inset: 0; /* Photo atténuée : voile clair fort sous le grand titre et sous « Votre moment », plus léger au milieu où sont les enfants */
+  background: linear-gradient(180deg, rgba(240, 246, 250, .86) 0%, rgba(240, 246, 250, .7) 22%, rgba(240, 246, 250, .3) 40%, rgba(240, 246, 250, .22) 62%, rgba(240, 246, 250, .7) 82%, var(--ground) 100%); pointer-events: none; }
+
+/* Le bloc remonte sur le bas de la photo, dans la zone fondue */
+.portes { grid-row: 2; grid-column: 1; position: relative; z-index: 2; margin-top: clamp(-5.5rem, -9svh, -3rem); padding: 0 var(--gutter) var(--space-4); }
+.portes__titre { max-width: var(--max); margin: 0 auto var(--space-2); text-align: center; font: 800 clamp(1.9rem, 3.4vw, 3rem)/1.05 var(--display); letter-spacing: -.02em; color: var(--ink); }
+.portes__liste { list-style: none; margin: 0 auto; padding: 0; max-width: var(--max); display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.porte { position: relative; height: clamp(15rem, 40svh, 25rem); border-radius: 6px; overflow: hidden; background: var(--ink); box-shadow: 0 26px 50px -30px rgba(14, 42, 60, .75); transition: transform .5s var(--ease-out), box-shadow .5s var(--ease-out); }
+.porte img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 78%; transition: transform .8s var(--ease-out); }
+.porte::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8, 26, 48, 0) 30%, rgba(8, 26, 48, .88) 100%); pointer-events: none; }
+.porte__lien { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: .3rem; padding: 1.1rem 1.1rem 4rem; color: #fff; text-decoration: none; }
+.porte:not(:has(.porte__direct)) .porte__lien { padding-bottom: 1.25rem; }
+.porte__quoi { font: 800 clamp(1.3rem, 1.8vw, 1.75rem)/1.08 var(--display); letter-spacing: -.01em; }
+.porte__qui { font-size: 1rem; color: #e5eef4; }
+.porte__direct { position: absolute; z-index: 2; left: 1.1rem; bottom: 1.1rem; display: inline-flex; align-items: center; gap: .4rem; padding: .45rem .9rem; border-radius: 999px; background: #fff; color: var(--ink); font-weight: 800; font-size: 1rem; text-decoration: none; transition: background-color .25s var(--ease-out), color .25s var(--ease-out); }
+.porte__direct:hover { background: var(--lac); color: #fff; }
+.porte:hover, .porte:focus-within { transform: translateY(-6px); box-shadow: 0 34px 60px -30px rgba(14, 42, 60, .85); }
+.porte:hover img, .porte:focus-within img { transform: scale(1.05); }
+.porte__lien:focus-visible { outline: 3px solid #fff; outline-offset: -6px; border-radius: 6px; }
+@media (min-width: 761px) {
+  .portes { display: flex; flex-direction: column; padding-bottom: var(--space-3); }
+  .portes__liste { flex: 1; width: 100%; }
+  .porte { height: auto; min-height: 15rem; }
+}
+@media (max-width: 1100px) and (min-width: 761px) { .portes__liste { grid-template-columns: repeat(2, 1fr); } .porte { height: clamp(12rem, 24svh, 17rem); } }
+@media (max-width: 760px) {
+  .hero { min-height: 0; }
+  .hero__photo { height: 46svh; }
+  .hero__photo img { object-position: 42% 100%; }
+  .portes { margin-top: -4.5rem; padding-bottom: var(--space-4); }
+  .portes__liste { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 78%; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: .5rem; margin-right: calc(-1 * var(--gutter)); padding-right: var(--gutter); scrollbar-width: none; }
+  .portes__liste::-webkit-scrollbar { display: none; }
+  .porte { height: clamp(15rem, 40svh, 20rem); scroll-snap-align: start; }
+}
+@media (prefers-reduced-motion: reduce) { .porte, .porte img { transition: none; } .porte:hover, .porte:focus-within { transform: none; } .porte:hover img, .porte:focus-within img { transform: none; } }
+
+/* « Votre moment » : même traitement sobre que « Un club de voile unique », un seul mot en bleu du lac */
+.portes__titre em { font-style: normal; color: var(--lac); }
+
+/* Sans grand titre d'accueil : « Votre moment » devient le titre principal de la page */
+.hero .portes__titre { max-width: var(--max); font: 800 clamp(2rem, 3.6vw, 3.2rem)/1.08 var(--display); letter-spacing: -.02em; text-shadow: none; }
+.hero__photo { height: clamp(16rem, 48svh, 30rem); }

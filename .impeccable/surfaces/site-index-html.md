@@ -1,16 +1,17 @@
 ---
 version: 1
-slug: "maquettes-d-journee-index-html"
-primary_target: "maquettes/d-journee/index.html"
+slug: "site-index-html"
+primary_target: "site/index.html"
 related_targets: []
 ---
 
 # Accueil — « Une journée au Bassin-Rond » (direction retenue)
 
-Scope : page d'accueil de bassin-rond.net, maquette HTML/CSS statique, future base du port Astro. Mode : Persuade.
+Scope : page d'accueil de bassin-rond.net (site/index.html), site statique HTML/CSS/JS ; portage Astro envisagé. Mode : Persuade.
 Audience : familles, loisirs, futurs adhérents, groupes, à égalité. Action : trouver son moment de la journée et rejoindre directement stages.bassin-rond.net, location.bassin-rond.net, l'adhésion ou les centres aérés. Aucune vente sur le site.
 Contraintes : seules les photos Facebook récentes (`fb*`), retouche légère seulement ; rien de techno ni de pixel art. Les heures affichées doivent être réelles : accueil de 9 h à 12 h et de 14 h à 18 h en semaine, stages de 14 h à 17 h. Les autres moments sont nommés par moment de la journée, sans heure inventée.
-Révision du propriétaire : il garde le défilement et la couleur de fond qui change progressivement, mais abandonne le récit d'une journée (plus de moments de la journée ; le soleil du rail est conservé). Il garde le titre « Votre moment au CDPA Bassin-Rond » au-dessus du sélecteur, dans cet ordre : un stage (enfants et adultes), venir en groupe, louer un bateau, puis l'adhésion. Les 24 h ont pour titre « Les 24 heures du Bassin-Rond ». Cette révision prime sur le contrat ci-dessous partout où ils divergent.
+Révision du propriétaire (2) : le premier écran devient « Votre moment au CDPA Bassin-Rond » en titre principal (h1), au-dessus de quatre grandes vignettes photo (stage, groupe, location, adhésion) qui tiennent entières dans le premier écran ; la photo d'accueil fb02 n'est plus qu'un bandeau atténué, cadré sur les enfants ; plus de « Un club de voile unique » ni de phrase de promesse.
+Révision du propriétaire (1) : il garde le défilement et la couleur de fond qui change progressivement, mais abandonne le récit d'une journée (plus de moments de la journée ; le soleil du rail est conservé). Il garde le titre « Votre moment au CDPA Bassin-Rond » au-dessus du sélecteur, dans cet ordre : un stage (enfants et adultes), venir en groupe, louer un bateau, puis l'adhésion. Les 24 h ont pour titre « Les 24 heures du Bassin-Rond ». Cette révision prime sur le contrat ci-dessous partout où ils divergent.
 Remplace les directions A, B et C, rejetées par le propriétaire. Le propriétaire exclut le soir et le repas : la page ne parle ni de soirée, ni de repas maison, ni de vie du club le soir.
 
 ## Direction contract

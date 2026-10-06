@@ -174,11 +174,13 @@
     const elan = window.innerHeight * 0.9;
     if (Math.abs(arrivee - depart) <= elan * 1.5) return; // court : le défilement doux natif suffit
     e.preventDefault();
+    // L'entrée d'historique est créée AVANT de bouger : le navigateur y mémorise la position
+    // de départ, et le bouton « Retour » ramène bien à la section d'où l'on vient
+    history.pushState(null, '', `#${id}`);
     // Long : saut direct jusqu'à un écran de la cible, puis la fin du trajet en douceur
     const sens = arrivee > depart ? 1 : -1;
     window.scrollTo({ top: arrivee - sens * elan, behavior: 'instant' });
     window.scrollTo({ top: arrivee, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
-    history.pushState(null, '', `#${id}`);
   });
 })();
 
