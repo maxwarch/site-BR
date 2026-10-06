@@ -13,6 +13,14 @@ const ASSETS = path.join(RACINE, 'maquettes/assets');
 const DIST = path.join(RACINE, 'dist');
 const LARGEURS = [900, 1200, 1800];
 const QUALITE_WEBP = 72;
+// Tant que le site n'est qu'une maquette à montrer : ni moteurs de recherche ni robots d'IA.
+// Passer à true au moment de la mise en ligne définitive.
+const INDEXABLE = false;
+const META_ROBOTS = '<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, noai, noimageai">';
+const ROBOTS_TXT = ['User-agent: *', 'Disallow: /', '',
+  ...['GPTBot', 'ChatGPT-User', 'OAI-SearchBot', 'ClaudeBot', 'Claude-Web', 'anthropic-ai', 'Google-Extended', 'PerplexityBot', 'CCBot', 'Bytespider', 'Applebot-Extended', 'Meta-ExternalAgent', 'Amazonbot', 'cohere-ai']
+    .flatMap((bot) => [`User-agent: ${bot}`, 'Disallow: /', '']),
+].join('\n');
 
 const ko = (n) => `${(n / 1024).toFixed(0)} Ko`;
 let avant = 0;
@@ -79,6 +87,8 @@ async function html(variantes) {
     .replace('<link rel="icon" type="image/png" href="assets/logo/logo-carre.png">', '<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">\n<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">')
     .replace('<link rel="apple-touch-icon" href="assets/logo/logo-carre.png">', '<link rel="apple-touch-icon" href="apple-touch-icon.png">');
 
+  if (!INDEXABLE) source = source.replace('<meta charset="utf-8">', `<meta charset="utf-8">\n${META_ROBOTS}`);
+
   const restantes = source.match(/assets\/photos\/[\w-]+\.jpg/g);
   if (restantes) throw new Error(`Photos JPEG encore référencées : ${restantes.join(', ')}`);
 
@@ -127,9 +137,10 @@ for (const [nom, taille] of [['favicon-32.png', 32], ['favicon-192.png', 192], [
   await sharp(LOGO_CARRE).resize(taille, taille).png({ compressionLevel: 9, palette: true }).toFile(path.join(DIST, nom));
 }
 await writeFile(path.join(DIST, '.nojekyll'), '');
+if (!INDEXABLE) await writeFile(path.join(DIST, 'robots.txt'), ROBOTS_TXT);
 // L'ancienne adresse de la première publication redirige vers la racine
 await mkdir(path.join(DIST, 'maquettes/d-journee'), { recursive: true });
-await writeFile(path.join(DIST, 'maquettes/d-journee/index.html'), '<!doctype html><meta charset="utf-8"><title>CDPA Bassin-Rond</title><meta http-equiv="refresh" content="0; url=../../"><link rel="canonical" href="../../"><a href="../../">CDPA Bassin-Rond</a>');
+await writeFile(path.join(DIST, 'maquettes/d-journee/index.html'), `<!doctype html><meta charset="utf-8">${INDEXABLE ? '' : META_ROBOTS}<title>CDPA Bassin-Rond</title><meta http-equiv="refresh" content="0; url=../../"><link rel="canonical" href="../../"><a href="../../">CDPA Bassin-Rond</a>`);
 
 console.log(`Photos : ${ko(avant)} → ${ko(apres)} (${Object.keys(variantes).length} photos, ${LARGEURS.join(' et ')} px)`);
 console.log(`HTML   : ${ko(h.avant)} → ${ko(h.apres)}`);

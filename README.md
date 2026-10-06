@@ -26,6 +26,8 @@ Pour voir la version publiée en local : `npm install`, puis `npm run preview` (
 
 ## À faire avant la migration
 
+- **Réactiver l'indexation.** Tant que le site n'est qu'une maquette, la construction ajoute une balise `<meta name="robots" content="noindex, nofollow, …">` à chaque page et un `robots.txt` qui bloque tous les robots, y compris ceux des IA (GPTBot, ClaudeBot, Google-Extended, PerplexityBot, CCBot…). Pour la mise en ligne définitive, passer `INDEXABLE` à `true` dans `scripts/build.mjs`.
+
 - **Vidéos hébergées sur l'ancien site.** Deux vidéos de « La vie du club » pointent encore vers l'ancien site. Leurs liens casseront quand www.bassin-rond.net sera remplacé :
   - « La vie de nos jeunes navigateurs » : `https://www.bassin-rond.net/assets/uploads/2020/07/film-Estelle.mp4` (353 Mo, trop lourd pour GitHub, limité à 100 Mo par fichier) ;
   - « Entraînement de l'équipe du CDPA » : `https://www.bassin-rond.net/assets/uploads/2020/07/Saison-2019.mp4` (18 Mo).
