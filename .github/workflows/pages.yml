@@ -25,6 +25,10 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          # Mot de passe de la maquette, stocké dans les secrets du dépôt (jamais dans le code)
+          SITE_PASSWORD: ${{ secrets.SITE_PASSWORD }}
+          REQUIRE_PASSWORD: "1"
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

@@ -22,10 +22,13 @@ Le site est publié sur https://maxwarch.github.io/site-BR/. À chaque envoi sur
 - le HTML, le CSS, le JS et le JSON minifiés ;
 - les favicons, générés à partir de `maquettes/assets/logo/logo-carre.png`.
 
+La version publiée est protégée par un mot de passe (chiffrement StatiCrypt de la page). Le mot de passe est le secret `SITE_PASSWORD` du dépôt (Settings > Secrets and variables > Actions) ; pour le changer : `gh secret set SITE_PASSWORD`, puis relancer la publication. Sans ce secret, la publication échoue plutôt que de mettre le site en ligne sans protection. En local, il n'y a pas de mot de passe. Cette protection éloigne les visiteurs de passage, mais le dépôt étant public, son contenu reste lisible sur GitHub.
+
 Pour voir la version publiée en local : `npm install`, puis `npm run preview` (http://localhost:8743/).
 
 ## À faire avant la migration
 
+- **Retirer le mot de passe** : supprimer les deux lignes `SITE_PASSWORD` et `REQUIRE_PASSWORD` du workflow `.github/workflows/pages.yml`.
 - **Réactiver l'indexation.** Tant que le site n'est qu'une maquette, la construction ajoute une balise `<meta name="robots" content="noindex, nofollow, …">` à chaque page et un `robots.txt` qui bloque tous les robots, y compris ceux des IA (GPTBot, ClaudeBot, Google-Extended, PerplexityBot, CCBot…). Pour la mise en ligne définitive, passer `INDEXABLE` à `true` dans `scripts/build.mjs`.
 
 - **Vidéos hébergées sur l'ancien site.** Deux vidéos de « La vie du club » pointent encore vers l'ancien site. Leurs liens casseront quand www.bassin-rond.net sera remplacé :

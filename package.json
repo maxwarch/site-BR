@@ -9,6 +9,7 @@
   "devDependencies": {
     "esbuild": "^0.25.0",
     "html-minifier-terser": "^7.2.0",
-    "sharp": "^0.34.0"
+    "sharp": "^0.34.0",
+    "staticrypt": "^3.5.4"
   }
 }

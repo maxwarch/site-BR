@@ -6,6 +6,7 @@ import path from 'node:path';
 import sharp from 'sharp';
 import { transform } from 'esbuild';
 import { minify as minifyHtml } from 'html-minifier-terser';
+import { execFileSync } from 'node:child_process';
 
 const RACINE = path.resolve(import.meta.dirname, '..');
 const PAGE = path.join(RACINE, 'maquettes/d-journee');
@@ -141,6 +142,35 @@ if (!INDEXABLE) await writeFile(path.join(DIST, 'robots.txt'), ROBOTS_TXT);
 // L'ancienne adresse de la première publication redirige vers la racine
 await mkdir(path.join(DIST, 'maquettes/d-journee'), { recursive: true });
 await writeFile(path.join(DIST, 'maquettes/d-journee/index.html'), `<!doctype html><meta charset="utf-8">${INDEXABLE ? '' : META_ROBOTS}<title>CDPA Bassin-Rond</title><meta http-equiv="refresh" content="0; url=../../"><link rel="canonical" href="../../"><a href="../../">CDPA Bassin-Rond</a>`);
+
+// 5. Mot de passe : seulement si SITE_PASSWORD est défini (secret GitHub Actions).
+// En local, la variable n'existe pas : la page reste lisible sans mot de passe.
+const MOT_DE_PASSE = process.env.SITE_PASSWORD;
+if (!MOT_DE_PASSE && process.env.REQUIRE_PASSWORD) {
+  throw new Error('SITE_PASSWORD manquant : ajoute le secret dans GitHub (Settings > Secrets and variables > Actions).');
+}
+if (MOT_DE_PASSE) {
+  const page = path.join(DIST, 'index.html');
+  execFileSync(path.join(RACINE, 'node_modules/.bin/staticrypt'), [
+    page, '-d', DIST, '-p', MOT_DE_PASSE, '-c', 'false', '--short', '--remember', '30',
+    '--template-title', 'CDPA Bassin-Rond',
+    '--template-instructions', 'Cette maquette du nouveau site est protégée. Saisissez le mot de passe pour la consulter.',
+    '--template-placeholder', 'Mot de passe',
+    '--template-button', 'Entrer',
+    '--template-remember', 'Se souvenir de moi pendant 30 jours',
+    '--template-error', 'Mot de passe incorrect.',
+    '--template-toggle-show', 'Afficher le mot de passe',
+    '--template-toggle-hide', 'Masquer le mot de passe',
+    '--template-color-primary', '#0f5c99',
+    '--template-color-secondary', '#dbe7ef',
+  ], { stdio: 'ignore' });
+  // L'écran de mot de passe garde le blocage des robots et les favicons
+  let ecran = await readFile(page, 'utf8');
+  const tete = [INDEXABLE ? '' : META_ROBOTS, '<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">', '<link rel="apple-touch-icon" href="apple-touch-icon.png">'].join('');
+  ecran = ecran.replace(/<head>/i, `<head>${tete}`);
+  await writeFile(page, ecran);
+  console.log('Mot de passe : page chiffrée (StatiCrypt).');
+}
 
 console.log(`Photos : ${ko(avant)} → ${ko(apres)} (${Object.keys(variantes).length} photos, ${LARGEURS.join(' et ')} px)`);
 console.log(`HTML   : ${ko(h.avant)} → ${ko(h.apres)}`);
