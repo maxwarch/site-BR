@@ -13,6 +13,17 @@ cd maquettes && python3 -m http.server 8742
 # puis ouvrir http://localhost:8742/d-journee/
 ```
 
+## Publication
+
+Le site est publié sur https://maxwarch.github.io/site-BR/. À chaque envoi sur `main`, GitHub Actions (`.github/workflows/pages.yml`) lance `npm run build` puis publie le dossier `dist/`.
+
+`npm run build` (`scripts/build.mjs`) ne modifie jamais les sources. Il écrit dans `dist/` :
+- les photos converties en WebP (900, 1200 et 1800 px), avec `srcset`, pour que chaque écran charge la bonne taille ;
+- le HTML, le CSS, le JS et le JSON minifiés ;
+- les favicons, générés à partir de `maquettes/assets/logo/logo-carre.png`.
+
+Pour voir la version publiée en local : `npm install`, puis `npm run preview` (http://localhost:8743/).
+
 ## À faire avant la migration
 
 - **Vidéos hébergées sur l'ancien site.** Deux vidéos de « La vie du club » pointent encore vers l'ancien site. Leurs liens casseront quand www.bassin-rond.net sera remplacé :

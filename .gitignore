@@ -6,3 +6,4 @@ node_modules/
 .impeccable/questions/
 .impeccable/mocks/
 .impeccable/build/
+dist/
