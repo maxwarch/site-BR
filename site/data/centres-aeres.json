@@ -25,7 +25,7 @@
           "id": "demi-journee",
           "nom": "À la ½ journée",
           "prix": 20,
-          "description": "Pour la demi-journée.",
+          "description": "Une demi-journée d'activité sur le site, encadrement et matériel compris.",
           "plusDemande": false
         }
       ]
@@ -52,7 +52,7 @@
           "id": "journee",
           "nom": "À la journée",
           "prix": 35,
-          "description": "Pour la journée.",
+          "description": "Une journée complète d'activités sur le site, encadrement et matériel compris.",
           "plusDemande": false
         }
       ]

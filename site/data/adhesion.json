@@ -1,6 +1,6 @@
 {
-  "note": "Le total de chaque formule est calculé : cotisation + licence + forfait séances.",
-  "intro": "Devenir adhérent, c'est naviguer au fil des saisons dans un club sérieux et convivial",
+  "note": "Le total de chaque formule est calculé : cotisation + licence + forfait séances. Dans intro, {licencies} est remplacé par la valeur de licencies.",
+  "intro": "Adhérer, c'est rejoindre les {licencies} licenciés du club et naviguer ensemble toute l'année.",
   "licencies": 140,
   "labelsFederaux": 3,
   "formules": [

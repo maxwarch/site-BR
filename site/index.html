@@ -1,467 +1,650 @@
 <!doctype html>
 <html lang="fr">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CDPA Bassin-Rond — Un club de voile unique, à Bouchain</title>
-<meta name="description" content="École de voile et base nautique sur le plan d'eau intérieur du Bassin-Rond, à Bouchain (Nord) : stages enfants, location de canoë, paddle et Hansa, adhésion à l'année, groupes et centres aérés.">
-<link rel="icon" type="image/png" href="images/logo/logo-carre.png">
-<link rel="apple-touch-icon" href="images/logo/logo-carre.png">
-<link rel="stylesheet" href="css/style.css">
-<script src="js/main.js" defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CDPA Bassin-Rond — Un club de voile unique, à Bouchain</title>
+  <meta name="description"
+    content="École de voile et base nautique sur le plan d'eau intérieur du Bassin-Rond, à Bouchain (Nord) : stages enfants, location de canoë, paddle et Hansa, adhésion à l'année, groupes et centres aérés.">
+  <link rel="icon" type="image/png" href="images/logo/logo-carre.png">
+  <link rel="apple-touch-icon" href="images/logo/logo-carre.png">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
 </head>
+
 <body id="top">
-<a class="skip" href="#contenu">Aller au contenu</a>
+  <a class="skip" href="#contenu">Aller au contenu</a>
 
-<header class="top">
-  <a class="brand" href="#top" aria-label="CDPA Bassin-Rond, retour en haut">
-    <img src="images/logo/BR-logo.png" width="347" height="239" alt="">
-    <span>CDPA Bassin-Rond</span>
-  </a>
-  <button class="menu" type="button" aria-expanded="false" aria-controls="nav-liste">
-    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menu</span>
-  </button>
-  <nav class="nav" aria-label="Navigation principale">
-    <ul id="nav-liste">
-      <li><a href="#stages">Stages</a></li>
-      <li><a href="#groupes">Groupes</a></li>
-      <li><a href="#location">Location</a></li>
-      <li><a href="#adhesion">Adhésion</a></li>
-      <li><a href="#les-24-heures-du-bassin-rond">Les 24 h</a></li>
-      <li><a href="#videos">Vidéos</a></li>
-      <li><a href="#infos">Contact</a></li>
-    </ul>
-  </nav>
-  <a class="tel" href="tel:+33327357228">
-    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6.6 3.5h3l1.5 4-2 1.3a11 11 0 0 0 6.1 6.1l1.3-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z"/></svg>
-    <span>03 27 35 72 28</span>
-  </a>
-</header>
-
-<!-- Rail : repère de lecture et accès direct aux sections -->
-<nav class="rail" aria-label="Sections de la page">
-  <ol>
-    <li><a href="#lieu" data-rail><span>Le lieu</span></a></li>
-    <li><a href="#stages" data-rail><span>Stages</span></a></li>
-    <li><a href="#groupes" data-rail><span>Groupes</span></a></li>
-    <li><a href="#location" data-rail><span>Location</span></a></li>
-    <li><a href="#adhesion" data-rail><span>Adhésion</span></a></li>
-    <li><a href="#les-24-heures-du-bassin-rond" data-rail><span>Les 24 h</span></a></li>
-    <li><a href="#videos" data-rail><span>Vidéos</span></a></li>
-    <li><a href="#infos" data-rail><span>Infos</span></a></li>
-  </ol>
-  <span class="rail__sun" aria-hidden="true">
-    <svg viewBox="0 0 40 40" class="soleil"><g class="soleil__rayons"><path class="soleil__halo" d="M20.00 8.50L20.00 3.00M26.76 10.70L29.99 6.25M30.94 16.45L36.17 14.75M30.94 23.55L36.17 25.25M26.76 29.30L29.99 33.75M20.00 31.50L20.00 37.00M13.24 29.30L10.01 33.75M9.06 23.55L3.83 25.25M9.06 16.45L3.83 14.75M13.24 10.70L10.01 6.25"/><path d="M20.00 8.50L20.00 3.00M26.76 10.70L29.99 6.25M30.94 16.45L36.17 14.75M30.94 23.55L36.17 25.25M26.76 29.30L29.99 33.75M20.00 31.50L20.00 37.00M13.24 29.30L10.01 33.75M9.06 23.55L3.83 25.25M9.06 16.45L3.83 14.75M13.24 10.70L10.01 6.25"/></g><circle class="soleil__ombre" cx="20" cy="20" r="8.6"/><circle class="soleil__disque" cx="20" cy="20" r="8"/><circle class="soleil__reflet" cx="17.4" cy="17.4" r="2.6"/></svg>
-  </span>
-</nav>
-
-<main id="contenu">
-
-  <section class="hero" aria-labelledby="titre">
-    <figure class="hero__photo">
-      <img src="images/photos/fb02.jpg" width="1800" height="1350" alt="Trois voiliers à voiles blanches et bleues sur le Bassin-Rond, sous un grand ciel de cumulus." fetchpriority="high">
-    </figure>
-
-    <div class="portes" role="group" aria-labelledby="frise-titre">
-      <h1 class="portes__titre" id="frise-titre">Votre <em>moment</em> au CDPA Bassin-Rond</h1>
-      <ol class="portes__liste">
-        <li class="porte">
-          <img src="images/photos/fb06.jpg" width="1800" height="1350" loading="lazy" alt="">
-          <a class="porte__lien" href="#stages">
-            <span class="porte__quoi">Un stage pour mon enfant… ou pour moi</span>
-            <span class="porte__qui">Stages jeunes de 7 à 17 ans, et stages adultes</span>
-          </a>
-          <a class="porte__direct" href="https://stages.bassin-rond.net/">Voir les dates<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-        </li>
-        <li class="porte">
-          <img src="images/photos/fb46.jpg" width="1800" height="1350" loading="lazy" alt="">
-          <a class="porte__lien" href="#groupes">
-            <span class="porte__quoi">Venir en groupe</span>
-            <span class="porte__qui">Les formules centres aérés</span>
-          </a>
-        </li>
-        <li class="porte">
-          <img src="images/photos/fb39.jpg" width="1800" height="1350" loading="lazy" alt="">
-          <a class="porte__lien" href="#location">
-            <span class="porte__quoi">Louer un bateau</span>
-            <span class="porte__qui">Canoë, kayak, paddle, Hansa</span>
-          </a>
-          <a class="porte__direct" href="https://location.bassin-rond.net/">Réserver un créneau<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-        </li>
-        <li class="porte">
-          <img src="images/photos/fb47.jpg" width="1800" height="1350" loading="lazy" alt="">
-          <a class="porte__lien" href="#adhesion">
-            <span class="porte__quoi">Naviguer toute l'année</span>
-            <span class="porte__qui">L'adhésion au club</span>
-          </a>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="chapitre chapitre--lieu" id="lieu" data-section aria-labelledby="lieu-titre">
-    <div class="ouverture">
-      <figure class="ouverture__photo grade-frais">
-        <img src="images/photos/fb24.jpg" width="1800" height="1350" loading="lazy" alt="Le Bassin-Rond, avec des péniches amarrées le long de la berge boisée et des bateaux sur l'eau.">
-      </figure>
-      <div class="ouverture__texte">
-        <h2 id="lieu-titre">L'eau d'abord, la forêt tout autour</h2>
-        <p>Le Bassin-Rond est un plan d'eau intérieur, calme et protégé. Les péniches rappellent le passé batelier du site, la forêt borde les rives, et l'on y glisse sur un moyen de locomotion écologique, non bruyant et non polluant.</p>
-        <p>C'est un terrain idéal pour apprendre : on navigue dans un contexte sécurisé, quel que soit son âge et son profil.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="chapitre chapitre--stages" id="stages" data-section aria-labelledby="stages-titre">
-    <div class="stages">
-      <div class="stages__texte">
-        <h2 id="stages-titre">Un stage pour mon enfant… ou pour moi</h2>
-        <p class="fait">Stages jeunes : <span class="num">14 h – 17 h</span>, pendant les vacances</p>
-        <p>Pendant les vacances scolaires, les jeunes de 7 à 17 ans passent leurs après-midi sur l'eau, à la semaine. Ils sont encadrés par des moniteurs diplômés d'État, sur un plan d'eau calme où l'on progresse vite, du premier bord aux manœuvres avancées. Beaucoup reviennent d'une année sur l'autre.</p>
-        <p>Le club propose aussi des stages pour les adultes : les sessions ouvertes sont annoncées sur le site des stages.</p>
-        <a class="bouton bouton--plein" href="https://stages.bassin-rond.net/">Voir les dates et s'inscrire<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-      </div>
-      <figure class="stages__photo stages__photo--a grade-net">
-        <img src="images/photos/fb06.jpg" width="1800" height="1350" loading="lazy" alt="Des enfants en gilet de sauvetage s'installent sur leurs bateaux au départ du ponton.">
-      </figure>
-      <figure class="stages__photo stages__photo--b grade-net">
-        <img src="images/photos/fb03.jpg" width="1800" height="1350" loading="lazy" alt="Un Ilca et un Optimist passent une bouée, l'eau scintille au soleil.">
-      </figure>
-    </div>
-
-    <div class="flotte" aria-labelledby="flotte-titre">
-      <figure class="flotte__photo grade-net">
-        <img src="images/photos/fb07.jpg" width="1800" height="1350" loading="lazy" alt="Une flotte serrée de dériveurs aux voiles blanches, rouges et turquoise.">
-      </figure>
-      <div class="flotte__liste">
-        <h3 id="flotte-titre">Un bateau pour chaque âge</h3>
-        <ul>
-          <li><span class="age">dès <span class="num">7</span> ans</span><strong>Optimist</strong><span>LE bateau pour découvrir la voile en toute sécurité.</span></li>
-          <li><span class="age">à deux</span><strong>Catamaran Newcat 12</strong><span>Pour les plus jeunes : à deux, plein de place, plus rigolo.</span></li>
-          <li><span class="age">solo ou double</span><strong>RS Quba</strong><span>Ultra polyvalent, parfait pour débuter en solo ou en double.</span></li>
-          <li><span class="age">dès <span class="num">11</span> ans</span><strong>Open Bic</strong><span>Il faut déjà avoir du niveau pour grimper cette monture.</span></li>
-          <li><span class="age">dès <span class="num">14</span> ans</span><strong>Ilca</strong><span>Vif, rapide et adaptable : des sensations assurées.</span></li>
-          <li><span class="age">à deux</span><strong>420</strong><span>À deux équipiers, pour débuter et aller jusqu'à la compétition.</span></li>
-          <li><span class="age">à plusieurs</span><strong>Ludic</strong><span>Bateau collectif, pour découvrir la voile tout en douceur.</span></li>
-          <li><span class="age">à deux</span><strong>Hansa</strong><span>Bateau double, adapté au handicap et facile à prendre en main.</span></li>
-        </ul>
-        
-      </div>
-    </div>
-  </section>
-
-  <section class="chapitre chapitre--groupes" id="groupes" data-section aria-labelledby="groupes-titre">
-    <div class="groupes">
-      <div class="groupes__tete">
-        <h2 id="groupes-titre">Venir en groupe</h2>
-        <p>Les formules ci-dessous sont réservées aux centres aérés : séjours de 4 ou 5 jours, à la journée ou à la demi-journée. Groupes de 6 personnes minimum ; les tarifs comprennent l'encadrement et le matériel pour les activités.</p>
-        <p class="groupes__autres">Comité d'entreprise, journée d'intégration ou autre groupe ? Le club vous accueille aussi : <a href="#infos">contactez-nous</a> pour organiser votre venue.</p>
-      </div>
-      <figure class="groupes__photo grade-net">
-        <img src="images/photos/fb46.jpg" width="1800" height="1350" loading="lazy" alt="Des jeunes en kayaks et paddles devant le hangar du club, les Optimist alignés au ponton.">
-      </figure>
-
-      <div class="tarif-groupes">
-        <fieldset class="bascule">
-          <legend>Durée du séjour</legend>
-          <input type="radio" name="duree" id="r-4-jours" value="4-jours" checked>
-          <label for="r-4-jours">4 jours</label>
-          <input type="radio" name="duree" id="r-5-jours" value="5-jours">
-          <label for="r-5-jours">5 jours</label>
-        </fieldset>
-        <div class="duree" id="duree-4-jours">
-          <h3 class="duree__titre" data-duree-titre="4-jours">4 jours de stage</h3>
-          <ul class="formules-g" data-formules="4-jours">
-            <li class="formule-g">
-              <h4>Multi activités</h4>
-              <p class="formule-g__prix"><span class="num">86 €</span> par personne</p>
-              <p>2 activités différentes par jour dont une séance de voile. L'occasion de découvrir la diversité de nos activités avec la voile comme fil rouge du séjour.</p>
-            </li>
-            <li class="formule-g formule-g--phare">
-              <h4>Nature <span class="formule-g__badge">Le plus demandé</span></h4>
-              <p class="formule-g__prix"><span class="num">67,50 €</span> par personne</p>
-              <p>1 activité de 2 heures par jour. Cette formule permet de prendre son temps et d'organiser des balades pédestres autour du site du Bassin-Rond.</p>
-            </li>
-            <li class="formule-g">
-              <h4>À la ½ journée</h4>
-              <p class="formule-g__prix"><span class="num">20 €</span> par personne</p>
-              <p>Pour la demi-journée.</p>
-            </li>
-          </ul>
-        </div>
-        <div class="duree" id="duree-5-jours">
-          <h3 class="duree__titre" data-duree-titre="5-jours">5 jours de stage</h3>
-          <ul class="formules-g" data-formules="5-jours">
-            <li class="formule-g">
-              <h4>Multi activités</h4>
-              <p class="formule-g__prix"><span class="num">100 €</span> par personne</p>
-              <p>2 activités différentes par jour dont une séance de voile. L'occasion de découvrir la diversité de nos activités avec la voile comme fil rouge du séjour.</p>
-            </li>
-            <li class="formule-g formule-g--phare">
-              <h4>Nature <span class="formule-g__badge">Le plus demandé</span></h4>
-              <p class="formule-g__prix"><span class="num">81 €</span> par personne</p>
-              <p>1 activité de 2 heures par jour. Cette formule permet de prendre son temps et d'organiser des balades pédestres autour du site du Bassin-Rond.</p>
-            </li>
-            <li class="formule-g">
-              <h4>À la journée</h4>
-              <p class="formule-g__prix"><span class="num">35 €</span> par personne</p>
-              <p>Pour la journée.</p>
-            </li>
-          </ul>
-        </div>
-
-        <div class="annexes">
-          <div class="annexe">
-            <h3>Camping et cotisation groupe</h3>
-            <table class="grille">
-              <tbody data-annexes>
-                <tr><th scope="row">Cotisation groupe</th><td><span class="num">74 €</span> par groupe</td></tr>
-                <tr><th scope="row">Camping 4 jours</th><td><span class="num">23 €</span> par personne</td></tr>
-                <tr><th scope="row">Camping 5 jours</th><td><span class="num">27 €</span> par personne</td></tr>
-                <tr><th scope="row">Camping à la journée<br><small>stage de moins de 4 jours</small></th><td><span class="num">8,75 €</span> par personne et par jour</td></tr>
-                <tr><th scope="row">Forfait énergie<br><small>pour l'utilisation de plaques de cuisson électriques</small></th><td><span class="num">55 €</span> en sus</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="annexe">
-            <h3>Le livret de certification</h3>
-            <p data-livret-texte>Le club peut délivrer à vos jeunes un livret certifiant le niveau atteint en fin de stage de voile : une carte de progression, un carnet de certification de l'expérience et une licence valable dans toutes les Écoles Françaises de Voile.</p>
-            <p class="livret" data-livret><span class="num">14 €</span> le livret, dont <strong><span class="num">7 €</span> pris en charge par le club</strong> (50 %). Il reste <span class="num">7 €</span> par livret à votre charge, si vous choisissez ce mode de validation.</p>
-          </div>
-        </div>
-
-        <div class="groupes__action">
-          <a class="bouton bouton--plein" href="#infos">Demander des renseignements</a>
-          <a class="lien" href="tel:+33327357228">ou appelez le <span class="num">03 27 35 72 28</span></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="chapitre chapitre--location" id="location" data-section aria-labelledby="location-titre">
-    <figure class="plein grade-net">
-      <img src="images/photos/fb39.jpg" width="1800" height="1350" loading="lazy" alt="Canoës, kayaks et paddles colorés sur le bassin, devant les péniches et les grands arbres.">
-    </figure>
-    <div class="location">
-      <h2 id="location-titre">Louer un bateau, en famille ou entre amis</h2>
-      <p class="location__intro">Pas besoin d'être licencié : on choisit son embarcation et son créneau en ligne, on règle, et la confirmation arrive par e-mail avec un QR code d'accès. Débutants bienvenus.</p>
-      <ul class="embarcations">
-        <li><strong>Canoë et kayak</strong><span>en solo ou en duo</span></li>
-        <li><strong>Paddle</strong><span>parfait pour une première fois sur l'eau</span></li>
-        <li><strong>Paddle géant</strong><span>jusqu'à 8 personnes à bord</span></li>
-        <li><strong>Hansa</strong><span>bateau double, adapté au handicap et facile à prendre en main</span></li>
+  <header class="top">
+    <a class="brand" href="#top" aria-label="CDPA Bassin-Rond, retour en haut">
+      <img src="images/logo/BR-logo.png" width="347" height="239" alt="">
+      <span>CDPA Bassin-Rond</span>
+    </a>
+    <button class="menu" type="button" aria-expanded="false" aria-controls="nav-liste">
+      <svg aria-hidden="true" viewBox="0 0 24 24">
+        <path d="M4 7h16M4 12h16M4 17h16" />
+      </svg><span>Menu</span>
+    </button>
+    <nav class="nav" aria-label="Navigation principale">
+      <ul id="nav-liste">
+        <li><a href="#stages">Stages</a></li>
+        <li><a href="#groupes">Groupes</a></li>
+        <li><a href="#location">Location</a></li>
+        <li><a href="#adhesion">Adhésion</a></li>
+        <li><a href="#les-24-heures-du-bassin-rond">Les 24 h</a></li>
+        <li><a href="#videos">Vidéos</a></li>
+        <li><a href="#infos">Contact</a></li>
       </ul>
-      <a class="bouton bouton--plein" href="https://location.bassin-rond.net/">Réserver une embarcation<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-    </div>
-  </section>
+    </nav>
+    <a class="tel" href="tel:+33327357228">
+      <svg aria-hidden="true" viewBox="0 0 24 24">
+        <path
+          d="M6.6 3.5h3l1.5 4-2 1.3a11 11 0 0 0 6.1 6.1l1.3-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z" />
+      </svg>
+      <span>03 27 35 72 28</span>
+    </a>
+  </header>
 
-  <section class="chapitre chapitre--adhesion" id="adhesion" data-section aria-labelledby="adhesion-titre">
-    <figure class="plein plein--dore grade-dore">
-      <img src="images/photos/fb47.jpg" width="1800" height="1350" loading="lazy" alt="Des jeunes du club font une pyramide en riant sur un paddle géant, sur le Bassin-Rond.">
-    </figure>
-    <div class="adhesion">
-      <h2 id="adhesion-titre">Naviguer toute l'année</h2>
-      <p class="adhesion__intro" data-adhesion-intro>Devenir adhérent, c'est naviguer au fil des saisons dans un club sérieux et convivial : <strong class="num">140</strong> licenciés et <strong class="num">3</strong> labels fédéraux.</p>
-      <div class="formules" data-tarifs="adhesion">
-        <div class="formule">
-          <h3>Adultes</h3>
-          <p class="formule__prix"><span class="num">313 €</span> <span>l'année</span></p>
-          <p class="formule__seance">soit <span class="num">9,80 €</span> la séance</p>
-          <dl>
-            <div><dt>Cotisation</dt><dd class="num">41 €</dd></div>
-            <div><dt>Licence</dt><dd class="num">72 €</dd></div>
-            <div><dt>Forfait séances</dt><dd class="num">200 €</dd></div>
-          </dl>
-          <p class="formule__supports">Ilca, 420, RS Quba, Hansa</p>
-        </div>
-        <div class="formule">
-          <h3>Jeunes</h3>
-          <p class="formule__prix"><span class="num">262 €</span> <span>l'année</span></p>
-          <p class="formule__seance">soit <span class="num">8,20 €</span> la séance</p>
-          <dl>
-            <div><dt>Cotisation</dt><dd class="num">29 €</dd></div>
-            <div><dt>Licence</dt><dd class="num">33 €</dd></div>
-            <div><dt>Forfait séances</dt><dd class="num">200 €</dd></div>
-          </dl>
-          <p class="formule__supports">Optimist, RS Quba, Open Skiff, Newcat 12, Hansa</p>
+  <!-- Rail : repère de lecture et accès direct aux sections -->
+  <nav class="rail" aria-label="Sections de la page">
+    <ol>
+      <li><a href="#lieu" data-rail><span>Le lieu</span></a></li>
+      <li><a href="#stages" data-rail><span>Stages</span></a></li>
+      <li><a href="#groupes" data-rail><span>Groupes</span></a></li>
+      <li><a href="#location" data-rail><span>Location</span></a></li>
+      <li><a href="#adhesion" data-rail><span>Adhésion</span></a></li>
+      <li><a href="#les-24-heures-du-bassin-rond" data-rail><span>Les 24 h</span></a></li>
+      <li><a href="#videos" data-rail><span>Vidéos</span></a></li>
+      <li><a href="#infos" data-rail><span>Infos</span></a></li>
+    </ol>
+    <span class="rail__sun" aria-hidden="true">
+      <svg viewBox="0 0 40 40" class="soleil">
+        <g class="soleil__rayons">
+          <path class="soleil__halo"
+            d="M20.00 8.50L20.00 3.00M26.76 10.70L29.99 6.25M30.94 16.45L36.17 14.75M30.94 23.55L36.17 25.25M26.76 29.30L29.99 33.75M20.00 31.50L20.00 37.00M13.24 29.30L10.01 33.75M9.06 23.55L3.83 25.25M9.06 16.45L3.83 14.75M13.24 10.70L10.01 6.25" />
+          <path
+            d="M20.00 8.50L20.00 3.00M26.76 10.70L29.99 6.25M30.94 16.45L36.17 14.75M30.94 23.55L36.17 25.25M26.76 29.30L29.99 33.75M20.00 31.50L20.00 37.00M13.24 29.30L10.01 33.75M9.06 23.55L3.83 25.25M9.06 16.45L3.83 14.75M13.24 10.70L10.01 6.25" />
+        </g>
+        <circle class="soleil__ombre" cx="20" cy="20" r="8.6" />
+        <circle class="soleil__disque" cx="20" cy="20" r="8" />
+        <circle class="soleil__reflet" cx="17.4" cy="17.4" r="2.6" />
+      </svg>
+    </span>
+  </nav>
+
+  <main id="contenu">
+
+    <section class="hero" aria-labelledby="titre">
+      <figure class="hero__photo">
+        <img src="images/photos/fb02.jpg" width="1800" height="1350"
+          alt="Trois voiliers à voiles blanches et bleues sur le Bassin-Rond, sous un grand ciel de cumulus."
+          fetchpriority="high">
+      </figure>
+
+      <div class="portes" role="group" aria-labelledby="frise-titre">
+        <h1 class="portes__titre" id="frise-titre">Votre <em>moment</em> au CDPA Bassin-Rond</h1>
+        <ol class="portes__liste">
+          <li class="porte">
+            <img src="images/photos/fb06.jpg" width="1800" height="1350" loading="lazy" alt="">
+            <a class="porte__lien" href="#stages">
+              <span class="porte__quoi">Un stage pour mon enfant… ou pour moi</span>
+              <span class="porte__qui">Stages jeunes de 7 à 17 ans, et stages adultes</span>
+            </a>
+            <a class="porte__direct" href="https://stages.bassin-rond.net/">Voir les dates<svg aria-hidden="true"
+                viewBox="0 0 24 24">
+                <path d="M7 17 17 7M9 7h8v8" />
+              </svg></a>
+          </li>
+          <li class="porte">
+            <img src="images/photos/fb46.jpg" width="1800" height="1350" loading="lazy" alt="">
+            <a class="porte__lien" href="#groupes">
+              <span class="porte__quoi">Venir en groupe</span>
+              <span class="porte__qui">Les formules centres aérés</span>
+            </a>
+          </li>
+          <li class="porte">
+            <img src="images/photos/fb39.jpg" width="1800" height="1350" loading="lazy" alt="">
+            <a class="porte__lien" href="#location">
+              <span class="porte__quoi">Louer un bateau</span>
+              <span class="porte__qui">Canoë, kayak, paddle, Hansa</span>
+            </a>
+            <a class="porte__direct" href="https://location.bassin-rond.net/">Réserver un créneau<svg aria-hidden="true"
+                viewBox="0 0 24 24">
+                <path d="M7 17 17 7M9 7h8v8" />
+              </svg></a>
+          </li>
+          <li class="porte">
+            <img src="images/photos/fb47.jpg" width="1800" height="1350" loading="lazy" alt="">
+            <a class="porte__lien" href="#adhesion">
+              <span class="porte__quoi">Naviguer toute l'année</span>
+              <span class="porte__qui">L'adhésion au club</span>
+            </a>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="chapitre chapitre--lieu" id="lieu" data-section aria-labelledby="lieu-titre">
+      <div class="ouverture">
+        <figure class="ouverture__photo grade-frais">
+          <img src="images/photos/fb24.jpg" width="1800" height="1350" loading="lazy"
+            alt="Le Bassin-Rond, avec des péniches amarrées le long de la berge boisée et des bateaux sur l'eau.">
+        </figure>
+        <div class="ouverture__texte">
+          <h2 id="lieu-titre">L'eau d'abord, la forêt tout autour</h2>
+          <p>Le Bassin-Rond est un plan d'eau intérieur, calme et protégé, là où le canal de la Sensée rejoint l'Escaut.
+            Les péniches amarrées le long de la berge rappellent que le site a longtemps vécu de la batellerie.
+            Aujourd'hui, la forêt borde les rives et on y navigue à la voile ou à la pagaie.</p>
+          <p>C'est un terrain idéal pour apprendre : on navigue dans un contexte sécurisé, quel que soit son âge et son
+            profil.</p>
         </div>
       </div>
-      <div class="adhesion__action">
-        <a class="bouton bouton--sombre" href="#infos">Nous contacter</a>
+    </section>
+
+    <section class="chapitre chapitre--stages" id="stages" data-section aria-labelledby="stages-titre">
+      <div class="stages">
+        <div class="stages__texte">
+          <h2 id="stages-titre">Un stage pour mon enfant… ou pour moi</h2>
+          <p class="fait">Stages jeunes : <span class="num">14 h – 17 h</span>, pendant les vacances</p>
+          <p>Pendant les vacances scolaires, les jeunes de 7 à 17 ans passent leurs après-midi sur l'eau, à la semaine.
+            Ils sont encadrés par des moniteurs diplômés d'État, sur un plan d'eau calme où l'on progresse vite, du
+            premier bord aux manœuvres avancées. Beaucoup reviennent d'une année sur l'autre.</p>
+          <p>Le club propose aussi des stages pour les adultes : les sessions ouvertes sont annoncées sur le site des
+            stages.</p>
+          <a class="bouton bouton--plein" href="https://stages.bassin-rond.net/">Voir les dates et s'inscrire<svg
+              aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M7 17 17 7M9 7h8v8" />
+            </svg></a>
+        </div>
+        <figure class="stages__photo stages__photo--a grade-net">
+          <img src="images/photos/fb06.jpg" width="1800" height="1350" loading="lazy"
+            alt="Des enfants en gilet de sauvetage s'installent sur leurs bateaux au départ du ponton.">
+        </figure>
+        <figure class="stages__photo stages__photo--b grade-net">
+          <img src="images/photos/fb03.jpg" width="1800" height="1350" loading="lazy"
+            alt="Un Ilca et un Optimist passent une bouée, l'eau scintille au soleil.">
+        </figure>
       </div>
-    </div>
-  </section>
 
-  <section class="chapitre chapitre--vingt-quatre" id="les-24-heures-du-bassin-rond" data-section aria-labelledby="vq-titre">
-    <div class="vq__tete">
-      <h2 id="vq-titre">Les 24 heures du Bassin-Rond <span class="vq__sous">Chaque année, le premier week-end de septembre</span></h2>
-      <p>Depuis le début des années 2000, l'évènement réunit plus de 5000 personnes sur un week-end. Reconnue d'intérêt communautaire, la manifestation est autant sportive que culturelle, et ouverte à tous, adhérent ou non.</p>
-    </div>
-    <div class="vq__mosaique">
-      <figure class="vq__a">
-        <img src="images/photos/fb01.jpg" width="1800" height="1146" loading="lazy" alt="Un paddeur déguisé en cowboy sur le bassin, entouré de radeaux et de bateaux, lors de la dernière édition sur le thème western.">
-        <figcaption>Baptêmes nautiques : la dernière édition a pris des airs de western.</figcaption>
-      </figure>
-      <figure class="vq__b">
-        <img src="images/photos/fb10.jpg" width="1800" height="1350" loading="lazy" alt="Le concert des 24 heures : un groupe joue sur scène devant le public, sous les arbres.">
-        <figcaption>Le concert.</figcaption>
-      </figure>
-      <figure class="vq__c">
-        <img src="images/photos/fb20.jpg" width="1800" height="1350" loading="lazy" alt="Une petite fille et une animatrice au chapeau de cow-boy font un atelier créatif sous la tente.">
-        <figcaption>Ateliers créatifs.</figcaption>
-      </figure>
-      <figure class="vq__d">
-        <img src="images/photos/fb14.jpg" width="1800" height="1350" loading="lazy" alt="Des enfants et leurs parents au jeu du lancer de balles, devant une structure gonflable jaune.">
-        <figcaption>Jeux et animations sur la pelouse.</figcaption>
-      </figure>
-    </div>
-    <ul class="vq__programme">
-      <li>Baptêmes nautiques</li>
-      <li>Concert</li>
-      <li>Jeux</li>
-      <li>Ateliers créatifs</li>
-    </ul>
-  </section>
+      <div class="flotte" aria-labelledby="flotte-titre">
+        <figure class="flotte__photo grade-net">
+          <img src="images/photos/fb07.jpg" width="1800" height="1350" loading="lazy"
+            alt="Une flotte serrée de dériveurs aux voiles blanches, rouges et turquoise.">
+        </figure>
+        <div class="flotte__liste">
+          <h3 id="flotte-titre">Un bateau pour chaque âge</h3>
+          <ul>
+            <li><span class="age">dès <span class="num">7</span> ans</span><strong>Optimist</strong><span>Le bateau des
+                débuts, stable et rassurant.</span></li>
+            <li><span class="age">à deux</span><strong>Catamaran Newcat 12</strong><span>Pour les plus jeunes : à deux,
+                plein de place, plus rigolo.</span></li>
+            <li><span class="age">solo ou double</span><strong>RS Quba</strong><span>Ultra polyvalent, parfait pour
+                débuter en solo ou en double.</span></li>
+            <li><span class="age">dès <span class="num">11</span> ans</span><strong>Open Bic</strong><span>Il faut déjà
+                avoir du niveau pour grimper cette monture.</span></li>
+            <li><span class="age">dès <span class="num">14</span> ans</span><strong>Ilca</strong><span>Vif, rapide et
+                adaptable : des sensations assurées.</span></li>
+            <li><span class="age">à deux</span><strong>420</strong><span>À deux équipiers, pour débuter et aller jusqu'à
+                la compétition.</span></li>
+            <li><span class="age">à plusieurs</span><strong>Ludic</strong><span>Bateau collectif, pour découvrir la
+                voile tout en douceur.</span></li>
+            <li><span class="age">à deux</span><strong>Hansa</strong><span>Bateau double, adapté au handicap et facile à
+                prendre en main.</span></li>
+          </ul>
 
-  <!-- Vidéos et reportages -->
-  <section class="chapitre chapitre--videos" id="videos" data-section aria-labelledby="videos-titre">
-    <div class="videos__tete">
-      <h2 id="videos-titre">On parle de nous</h2>
-      <p>Télévision, radio, office de tourisme : les reportages consacrés au club, du plus récent au plus ancien.</p>
-    </div>
-    <ol class="presse" id="liste-presse" data-plie="3">
+        </div>
+      </div>
+    </section>
+
+    <section class="chapitre chapitre--groupes" id="groupes" data-section aria-labelledby="groupes-titre">
+      <div class="groupes">
+        <div class="groupes__tete">
+          <h2 id="groupes-titre">Venir en groupe</h2>
+          <p>Les formules ci-dessous sont réservées aux centres aérés : séjours de 4 ou 5 jours, à la journée ou à la
+            demi-journée. Groupes de 6 personnes minimum ; les tarifs comprennent l'encadrement et le matériel pour les
+            activités.</p>
+          <p class="groupes__autres">Comité d'entreprise, journée d'intégration ou autre groupe ? Le club vous accueille
+            aussi : <a href="#infos">contactez-nous</a> pour organiser votre venue.</p>
+        </div>
+        <figure class="groupes__photo grade-net">
+          <img src="images/photos/fb46.jpg" width="1800" height="1350" loading="lazy"
+            alt="Des jeunes en kayaks et paddles devant le hangar du club, les Optimist alignés au ponton.">
+        </figure>
+
+        <div class="tarif-groupes">
+          <fieldset class="bascule">
+            <legend>Durée du séjour</legend>
+            <input type="radio" name="duree" id="r-4-jours" value="4-jours" checked>
+            <label for="r-4-jours">4 jours</label>
+            <input type="radio" name="duree" id="r-5-jours" value="5-jours">
+            <label for="r-5-jours">5 jours</label>
+          </fieldset>
+          <div class="duree" id="duree-4-jours">
+            <h3 class="duree__titre" data-duree-titre="4-jours">4 jours de stage</h3>
+            <ul class="formules-g" data-formules="4-jours">
+              <li class="formule-g">
+                <h4>Multi activités</h4>
+                <p class="formule-g__prix"><span class="num">86 €</span> par personne</p>
+                <p>2 activités différentes par jour dont une séance de voile. L'occasion de découvrir la diversité de
+                  nos activités avec la voile comme fil rouge du séjour.</p>
+              </li>
+              <li class="formule-g formule-g--phare">
+                <h4>Nature <span class="formule-g__badge">Le plus demandé</span></h4>
+                <p class="formule-g__prix"><span class="num">67,50 €</span> par personne</p>
+                <p>1 activité de 2 heures par jour. Cette formule permet de prendre son temps et d'organiser des balades
+                  pédestres autour du site du Bassin-Rond.</p>
+              </li>
+              <li class="formule-g">
+                <h4>À la ½ journée</h4>
+                <p class="formule-g__prix"><span class="num">20 €</span> par personne</p>
+                <p>Une demi-journée d'activité sur le site, encadrement et matériel compris.</p>
+              </li>
+            </ul>
+          </div>
+          <div class="duree" id="duree-5-jours">
+            <h3 class="duree__titre" data-duree-titre="5-jours">5 jours de stage</h3>
+            <ul class="formules-g" data-formules="5-jours">
+              <li class="formule-g">
+                <h4>Multi activités</h4>
+                <p class="formule-g__prix"><span class="num">100 €</span> par personne</p>
+                <p>2 activités différentes par jour dont une séance de voile. L'occasion de découvrir la diversité de
+                  nos activités avec la voile comme fil rouge du séjour.</p>
+              </li>
+              <li class="formule-g formule-g--phare">
+                <h4>Nature <span class="formule-g__badge">Le plus demandé</span></h4>
+                <p class="formule-g__prix"><span class="num">81 €</span> par personne</p>
+                <p>1 activité de 2 heures par jour. Cette formule permet de prendre son temps et d'organiser des balades
+                  pédestres autour du site du Bassin-Rond.</p>
+              </li>
+              <li class="formule-g">
+                <h4>À la journée</h4>
+                <p class="formule-g__prix"><span class="num">35 €</span> par personne</p>
+                <p>Une journée complète d'activités sur le site, encadrement et matériel compris.</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="annexes">
+            <div class="annexe">
+              <h3>Camping et cotisation groupe</h3>
+              <table class="grille">
+                <tbody data-annexes>
+                  <tr>
+                    <th scope="row">Cotisation groupe</th>
+                    <td><span class="num">74 €</span> par groupe</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Camping 4 jours</th>
+                    <td><span class="num">23 €</span> par personne</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Camping 5 jours</th>
+                    <td><span class="num">27 €</span> par personne</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Camping à la journée<br><small>stage de moins de 4 jours</small></th>
+                    <td><span class="num">8,75 €</span> par personne et par jour</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Forfait énergie<br><small>pour l'utilisation de plaques de cuisson
+                        électriques</small></th>
+                    <td><span class="num">55 €</span> en sus</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="annexe">
+              <h3>Le livret de certification</h3>
+              <p data-livret-texte>Le club peut délivrer à vos jeunes un livret certifiant le niveau atteint en fin de
+                stage de voile : une carte de progression, un carnet de certification de l'expérience et une licence
+                valable dans toutes les Écoles Françaises de Voile.</p>
+              <p class="livret" data-livret><span class="num">14 €</span> le livret, dont <strong><span class="num">7
+                    €</span> pris en charge par le club</strong> (50 %). Il reste <span class="num">7 €</span> par
+                livret à votre charge, si vous choisissez ce mode de validation.</p>
+            </div>
+          </div>
+
+          <div class="groupes__action">
+            <a class="bouton bouton--plein" href="#infos">Demander des renseignements</a>
+            <a class="lien" href="tel:+33327357228">ou appelez le <span class="num">03 27 35 72 28</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapitre chapitre--location" id="location" data-section aria-labelledby="location-titre">
+      <figure class="plein grade-net">
+        <img src="images/photos/fb39.jpg" width="1800" height="1350" loading="lazy"
+          alt="Canoës, kayaks et paddles colorés sur le bassin, devant les péniches et les grands arbres.">
+      </figure>
+      <div class="location">
+        <h2 id="location-titre">Louer un bateau, en famille ou entre amis</h2>
+        <p class="location__intro">Pas besoin d'être licencié : on choisit son embarcation et son créneau en ligne, on
+          règle, et la confirmation arrive par e-mail avec un QR code d'accès. Débutants bienvenus.</p>
+        <ul class="embarcations">
+          <li><strong>Canoë et kayak</strong><span>en solo ou en duo</span></li>
+          <li><strong>Paddle</strong><span>parfait pour une première fois sur l'eau</span></li>
+          <li><strong>Paddle géant</strong><span>jusqu'à 8 personnes à bord</span></li>
+          <li><strong>Hansa</strong><span>bateau double, adapté au handicap et facile à prendre en main</span></li>
+        </ul>
+        <a class="bouton bouton--plein" href="https://location.bassin-rond.net/">Réserver une embarcation<svg
+            aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M7 17 17 7M9 7h8v8" />
+          </svg></a>
+      </div>
+    </section>
+
+    <section class="chapitre chapitre--adhesion" id="adhesion" data-section aria-labelledby="adhesion-titre">
+      <figure class="plein plein--dore grade-dore">
+        <img src="images/photos/fb47.jpg" width="1800" height="1350" loading="lazy"
+          alt="Des jeunes du club font une pyramide en riant sur un paddle géant, sur le Bassin-Rond.">
+      </figure>
+      <div class="adhesion">
+        <h2 id="adhesion-titre">Naviguer toute l'année</h2>
+        <p class="adhesion__intro" data-adhesion-intro>Adhérer, c'est rejoindre les <strong class="num">140</strong>
+          licenciés du club et naviguer ensemble toute l'année.</p>
+        <p class="adhesion__vie">On vient pour la voile et on reste pour l'ambiance !</p>
+        <div class="formules" data-tarifs="adhesion">
+          <div class="formule">
+            <h3>Adultes</h3>
+            <p class="formule__prix"><span class="num">313 €</span> <span>l'année</span></p>
+            <p class="formule__seance">soit <span class="num">9,80 €</span> la séance</p>
+            <dl>
+              <div>
+                <dt>Cotisation</dt>
+                <dd class="num">41 €</dd>
+              </div>
+              <div>
+                <dt>Licence</dt>
+                <dd class="num">72 €</dd>
+              </div>
+              <div>
+                <dt>Forfait séances</dt>
+                <dd class="num">200 €</dd>
+              </div>
+            </dl>
+            <p class="formule__supports">Ilca, 420, RS Quba, Hansa</p>
+          </div>
+          <div class="formule">
+            <h3>Jeunes</h3>
+            <p class="formule__prix"><span class="num">262 €</span> <span>l'année</span></p>
+            <p class="formule__seance">soit <span class="num">8,20 €</span> la séance</p>
+            <dl>
+              <div>
+                <dt>Cotisation</dt>
+                <dd class="num">29 €</dd>
+              </div>
+              <div>
+                <dt>Licence</dt>
+                <dd class="num">33 €</dd>
+              </div>
+              <div>
+                <dt>Forfait séances</dt>
+                <dd class="num">200 €</dd>
+              </div>
+            </dl>
+            <p class="formule__supports">Optimist, RS Quba, Open Skiff, Newcat 12, Hansa</p>
+          </div>
+        </div>
+        <div class="adhesion__action">
+          <a class="bouton bouton--sombre" href="#infos">Nous contacter</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapitre chapitre--vingt-quatre" id="les-24-heures-du-bassin-rond" data-section
+      aria-labelledby="vq-titre">
+      <div class="vq__tete">
+        <h2 id="vq-titre">Les 24 heures du Bassin-Rond <span class="vq__sous">Chaque année, le premier week-end de
+            septembre</span></h2>
+        <div class="vq__texte">
+          <p>Plus de 5000 personnes passent ce week-end au bord du bassin. On fait son baptême sur l'eau, on écoute le
+            concert, les enfants vont d'un jeu à l'autre. C'est ouvert à tous, adhérent ou non, et reconnu d'intérêt
+            communautaire. La 20<sup>e</sup> édition a eu lieu en 2022.</p>
+          <p class="vq__autres">Le club organise aussi la Fête du sport et la Rand'eau nautic, dont la première édition
+            a réuni 18 participants.</p>
+        </div>
+      </div>
+      <div class="vq__mosaique">
+        <figure class="vq__a">
+          <img src="images/photos/fb01.jpg" width="1800" height="1146" loading="lazy"
+            alt="Un paddeur déguisé en cowboy sur le bassin, entouré de radeaux et de bateaux, lors de la dernière édition sur le thème western.">
+          <figcaption>Baptêmes nautiques : la dernière édition a pris des airs de western.</figcaption>
+        </figure>
+        <figure class="vq__b">
+          <img src="images/photos/fb10.jpg" width="1800" height="1350" loading="lazy"
+            alt="Le concert des 24 heures : un groupe joue sur scène devant le public, sous les arbres.">
+          <figcaption>Le concert.</figcaption>
+        </figure>
+        <figure class="vq__c">
+          <img src="images/photos/fb20.jpg" width="1800" height="1350" loading="lazy"
+            alt="Une petite fille et une animatrice au chapeau de cow-boy font un atelier créatif sous la tente.">
+          <figcaption>Ateliers créatifs.</figcaption>
+        </figure>
+        <figure class="vq__d">
+          <img src="images/photos/fb14.jpg" width="1800" height="1350" loading="lazy"
+            alt="Des enfants et leurs parents au jeu du lancer de balles, devant une structure gonflable jaune.">
+          <figcaption>Jeux et animations sur la pelouse.</figcaption>
+        </figure>
+      </div>
+      <ul class="vq__programme">
+        <li>Baptêmes nautiques</li>
+        <li>Concert</li>
+        <li>Jeux</li>
+        <li>Ateliers créatifs</li>
+      </ul>
+    </section>
+
+    <!-- Vidéos et reportages -->
+    <section class="chapitre chapitre--videos" id="videos" data-section aria-labelledby="videos-titre">
+      <div class="videos__tete">
+        <h2 id="videos-titre">On parle de nous</h2>
+        <p>Télévision, radio, office de tourisme : les reportages consacrés au club, du plus récent au plus ancien.</p>
+      </div>
+      <ol class="presse" id="liste-presse" data-plie="3">
         <li>
           <div class="presse__corps">
             <h3>En vadrouille sur Wéo</h3>
-            <p><span class="presse__media">Wéo</span> · <time datetime="2025-07-25">25 juillet 2025</time> — Une présentation de nos activités pour le magazine En vadrouille.</p>
+            <p><span class="presse__media">Wéo</span> · <time datetime="2025-07-25">25 juillet 2025</time> . Le magazine
+              En vadrouille fait le tour de nos activités.</p>
           </div>
-          <a class="lien-media" href="https://www.ultimedia.com/deliver/generic/iframe/mdtk/01049290/src/30usupz/zone/1/showtitle/1/" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"/></svg>Voir la vidéo<span class="sr"> : En vadrouille sur Wéo (nouvel onglet)</span></a>
+          <a class="lien-media"
+            href="https://www.ultimedia.com/deliver/generic/iframe/mdtk/01049290/src/30usupz/zone/1/showtitle/1/"
+            target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M8 5.5v13l10-6.5z" />
+            </svg>Voir la vidéo<span class="sr"> : En vadrouille sur Wéo (nouvel onglet)</span></a>
         </li>
         <li>
           <div class="presse__corps">
             <h3>Interview sur Wéo</h3>
-            <p><span class="presse__media">Wéo</span> · <time datetime="2022-09-02">2 septembre 2022</time> — À l'occasion de la 20<sup>e</sup> édition des 24 heures du Bassin-Rond.</p>
+            <p><span class="presse__media">Wéo</span> · <time datetime="2022-09-02">2 septembre 2022</time> . Guillaume
+              présente la 20<sup>e</sup> édition des 24 heures du Bassin-Rond.</p>
           </div>
-          <a class="lien-media" href="https://www.ultimedia.com/deliver/generic/iframe/mdtk/01049290/src/qs8x0pu/zone/1/showtitle/1/" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"/></svg>Voir la vidéo<span class="sr"> : Interview sur Wéo (nouvel onglet)</span></a>
+          <a class="lien-media"
+            href="https://www.ultimedia.com/deliver/generic/iframe/mdtk/01049290/src/qs8x0pu/zone/1/showtitle/1/"
+            target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M8 5.5v13l10-6.5z" />
+            </svg>Voir la vidéo<span class="sr"> : Interview sur Wéo (nouvel onglet)</span></a>
         </li>
         <li>
           <div class="presse__corps">
-            <h3>Le club mis en avant</h3>
-            <p><span class="presse__media">Office de Tourisme de la Porte du Hainaut</span> · <time datetime="2020-09-25">25 septembre 2020</time> — Une mise en avant du club par l'Office de Tourisme.</p>
+            <h3>Vu par l'Office de Tourisme</h3>
+            <p><span class="presse__media">Office de Tourisme de la Porte du Hainaut</span> · <time
+                datetime="2020-09-25">25 septembre 2020</time> . Une courte vidéo de présentation du club.</p>
           </div>
-          <a class="lien-media" href="https://www.youtube.com/watch?v=3vxiTsOs5O8" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"/></svg>Voir la vidéo<span class="sr"> : Le club mis en avant (nouvel onglet)</span></a>
+          <a class="lien-media" href="https://www.youtube.com/watch?v=3vxiTsOs5O8" target="_blank" rel="noopener"><svg
+              aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M8 5.5v13l10-6.5z" />
+            </svg>Voir la vidéo<span class="sr"> : Vu par l'Office de Tourisme (nouvel onglet)</span></a>
         </li>
         <li>
           <div class="presse__corps">
             <h3>Le club sur les ondes</h3>
-            <p><span class="presse__media">France Bleu Nord</span> · <time datetime="2020-06-13">13 juin 2020</time> — Un reportage diffusé dans les informations toute la journée.</p>
+            <p><span class="presse__media">France Bleu Nord</span> · <time datetime="2020-06-13">13 juin 2020</time> .
+              Un reportage repris dans les journaux de toute la journée.</p>
           </div>
-          <a class="lien-media" href="https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F865499569" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2M4 14h3v5H4zM17 14h3v5h-3z"/></svg>Écouter<span class="sr"> : Le club sur les ondes (nouvel onglet)</span></a>
+          <a class="lien-media"
+            href="https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F865499569"
+            target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M4 14v-2a8 8 0 0 1 16 0v2M4 14h3v5H4zM17 14h3v5h-3z" />
+            </svg>Écouter<span class="sr"> : Le club sur les ondes (nouvel onglet)</span></a>
         </li>
         <li>
           <div class="presse__corps">
             <h3>Reportage sur nos activités</h3>
-            <p><span class="presse__media">Wéo Grand Place</span> · <time datetime="2016-09-23">23 septembre 2016</time> — Les activités du club présentées par Wéo Grand Place.</p>
+            <p><span class="presse__media">Wéo Grand Place</span> · <time datetime="2016-09-23">23 septembre 2016</time>
+              . Un tour des activités du club.</p>
           </div>
-          <a class="lien-media" href="https://www.youtube.com/watch?v=5S0BXOIoKGw" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"/></svg>Voir la vidéo<span class="sr"> : Reportage sur nos activités (nouvel onglet)</span></a>
+          <a class="lien-media" href="https://www.youtube.com/watch?v=5S0BXOIoKGw" target="_blank" rel="noopener"><svg
+              aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M8 5.5v13l10-6.5z" />
+            </svg>Voir la vidéo<span class="sr"> : Reportage sur nos activités (nouvel onglet)</span></a>
         </li>
         <li>
           <div class="presse__corps">
             <h3>L'été au Bassin-Rond</h3>
-            <p><span class="presse__media">France 3 régional</span> · <time datetime="2016-08-25">25 août 2016</time> — Les activités d'été au Bassin-Rond.</p>
+            <p><span class="presse__media">France 3 régional</span> · <time datetime="2016-08-25">25 août 2016</time> .
+              Le bassin en pleine saison d'été.</p>
           </div>
-          <a class="lien-media" href="https://www.youtube.com/watch?v=QiEFPfdVT8o" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"/></svg>Voir la vidéo<span class="sr"> : L'été au Bassin-Rond (nouvel onglet)</span></a>
+          <a class="lien-media" href="https://www.youtube.com/watch?v=QiEFPfdVT8o" target="_blank" rel="noopener"><svg
+              aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M8 5.5v13l10-6.5z" />
+            </svg>Voir la vidéo<span class="sr"> : L'été au Bassin-Rond (nouvel onglet)</span></a>
         </li>
         <li>
           <div class="presse__corps">
             <h3>Les 24 heures et l'histoire du lieu</h3>
-            <p><span class="presse__media">France 3 régional</span> · <time datetime="2015-06-28">28 juin 2015</time> — Nos 24 heures du Bassin-Rond et l'historique du site.</p>
+            <p><span class="presse__media">France 3 régional</span> · <time datetime="2015-06-28">28 juin 2015</time> .
+              Les 24 heures, et l'histoire du site racontée en images.</p>
           </div>
-          <a class="lien-media" href="https://www.youtube.com/watch?v=NnRI3Qjm6vo" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"/></svg>Voir la vidéo<span class="sr"> : Les 24 heures et l'histoire du lieu (nouvel onglet)</span></a>
+          <a class="lien-media" href="https://www.youtube.com/watch?v=NnRI3Qjm6vo" target="_blank" rel="noopener"><svg
+              aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M8 5.5v13l10-6.5z" />
+            </svg>Voir la vidéo<span class="sr"> : Les 24 heures et l'histoire du lieu (nouvel onglet)</span></a>
         </li>
         <li>
           <div class="presse__corps">
             <h3>Les scolaires sur l'eau</h3>
-            <p><span class="presse__media">Matinale de France 3 régional</span> · <time datetime="2013-06-03">3 juin 2013</time> — Les activités scolaires au Bassin-Rond.</p>
+            <p><span class="presse__media">Matinale de France 3 régional</span> · <time datetime="2013-06-03">3 juin
+                2013</time> . Des classes viennent découvrir la voile.</p>
           </div>
-          <a class="lien-media" href="https://www.youtube.com/watch?v=MMRJA-sZGOA" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"/></svg>Voir la vidéo<span class="sr"> : Les scolaires sur l'eau (nouvel onglet)</span></a>
+          <a class="lien-media" href="https://www.youtube.com/watch?v=MMRJA-sZGOA" target="_blank" rel="noopener"><svg
+              aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M8 5.5v13l10-6.5z" />
+            </svg>Voir la vidéo<span class="sr"> : Les scolaires sur l'eau (nouvel onglet)</span></a>
         </li>
-    </ol>
-    <button class="bouton bouton--clair voir-plus" type="button" aria-controls="liste-presse" aria-expanded="true" hidden>Voir plus de reportages</button>
+      </ol>
+      <button class="bouton bouton--clair voir-plus" type="button" aria-controls="liste-presse" aria-expanded="true"
+        hidden>Voir plus de reportages</button>
 
-    <div class="vie">
-      <figure class="vie__photo grade-net">
-        <img src="images/photos/fb04.jpg" width="1800" height="1350" loading="lazy" alt="Un Ilca et des dériveurs passent une bouée sur le bassin, sous un ciel de cumulus.">
-      </figure>
-      <div class="vie__texte">
-        <h3>La vie du club, en images</h3>
-        <ul class="vie__liste" id="liste-vie" data-plie="3">
-          <li>
-            <h4>La vie de nos jeunes navigateurs</h4>
-            <p><span class="vie__quand">2019</span> — Comment nos jeunes et nouveaux navigateurs commencent au club.</p>
-            <a class="lien-media" href="https://www.bassin-rond.net/assets/uploads/2020/07/film-Estelle.mp4" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"/></svg>Voir la vidéo<span class="sr"> : La vie de nos jeunes navigateurs (nouvel onglet)</span></a>
-          </li>
-          <li>
-            <h4>Les 24 heures du Bassin-Rond vues du ciel</h4>
-            <p><span class="vie__quand">Filmées en 2019</span> — Tout le site et le bassin filmés depuis les airs.</p>
-            <a class="lien-media" href="https://www.youtube.com/watch?v=fjwHcRp0B1k" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"/></svg>Voir la vidéo<span class="sr"> : Les 24 heures du Bassin-Rond vues du ciel (nouvel onglet)</span></a>
-          </li>
-          <li>
-            <h4>Accueil de nos aînés de l'EHPAD de Bouchain</h4>
-            <p><span class="vie__quand">Mai 2018</span> — Des activités récréatives proposées aux aînés.</p>
-            <a class="lien-media" href="https://www.youtube.com/watch?v=rUW8SfhBKM4" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"/></svg>Voir la vidéo<span class="sr"> : Accueil de nos aînés de l'EHPAD de Bouchain (nouvel onglet)</span></a>
-          </li>
-          <li>
-            <h4>Entraînement de l'équipe du CDPA</h4>
-            <p><span class="vie__quand">Tous les ans</span> — Chaque année, les membres s'essaient à l'habitable en mer.</p>
-            <a class="lien-media" href="https://www.bassin-rond.net/assets/uploads/2020/07/Saison-2019.mp4" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"/></svg>Voir la vidéo<span class="sr"> : Entraînement de l'équipe du CDPA (nouvel onglet)</span></a>
-          </li>
-        </ul>
-        <button class="bouton bouton--clair voir-plus" type="button" aria-controls="liste-vie" aria-expanded="true" hidden>Voir plus de vidéos</button>
-        <a class="bouton" href="https://www.youtube.com/user/bassinrond/playlists" target="_blank" rel="noopener">Toutes nos vidéos sur YouTube<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg><span class="sr"> (nouvel onglet)</span></a>
+      <div class="vie">
+        <figure class="vie__photo grade-net">
+          <img src="images/photos/fb04.jpg" width="1800" height="1350" loading="lazy"
+            alt="Un Ilca et des dériveurs passent une bouée sur le bassin, sous un ciel de cumulus.">
+        </figure>
+        <div class="vie__texte">
+          <h3>La vie du club, en images</h3>
+          <ul class="vie__liste" id="liste-vie" data-plie="3">
+            <li>
+              <h4>La vie de nos jeunes navigateurs</h4>
+              <p><span class="vie__quand">2019</span>. Les premiers pas des nouveaux navigateurs au club.</p>
+              <a class="lien-media" href="https://www.bassin-rond.net/assets/uploads/2020/07/film-Estelle.mp4"
+                target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M8 5.5v13l10-6.5z" />
+                </svg>Voir la vidéo<span class="sr"> : La vie de nos jeunes navigateurs (nouvel onglet)</span></a>
+            </li>
+            <li>
+              <h4>Les 24 heures du Bassin-Rond vues du ciel</h4>
+              <p><span class="vie__quand">Filmées en 2019</span>. Le site et le bassin vus depuis les airs.</p>
+              <a class="lien-media" href="https://www.youtube.com/watch?v=fjwHcRp0B1k" target="_blank"
+                rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M8 5.5v13l10-6.5z" />
+                </svg>Voir la vidéo<span class="sr"> : Les 24 heures du Bassin-Rond vues du ciel (nouvel
+                  onglet)</span></a>
+            </li>
+            <li>
+              <h4>Accueil de nos aînés de l'EHPAD de Bouchain</h4>
+              <p><span class="vie__quand">Mai 2018</span>. Les résidents de l'EHPAD viennent passer un moment sur l'eau.
+              </p>
+              <a class="lien-media" href="https://www.youtube.com/watch?v=rUW8SfhBKM4" target="_blank"
+                rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M8 5.5v13l10-6.5z" />
+                </svg>Voir la vidéo<span class="sr"> : Accueil de nos aînés de l'EHPAD de Bouchain (nouvel
+                  onglet)</span></a>
+            </li>
+            <li>
+              <h4>Entraînement de l'équipe du CDPA</h4>
+              <p><span class="vie__quand">Tous les ans</span>. Les membres quittent le bassin pour naviguer en mer, sur
+                un habitable.</p>
+              <a class="lien-media" href="https://www.bassin-rond.net/assets/uploads/2020/07/Saison-2019.mp4"
+                target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M8 5.5v13l10-6.5z" />
+                </svg>Voir la vidéo<span class="sr"> : Entraînement de l'équipe du CDPA (nouvel onglet)</span></a>
+            </li>
+          </ul>
+          <button class="bouton bouton--clair voir-plus" type="button" aria-controls="liste-vie" aria-expanded="true"
+            hidden>Voir plus de vidéos</button>
+          <a class="bouton" href="https://www.youtube.com/user/bassinrond/playlists" target="_blank"
+            rel="noopener">Toutes nos vidéos sur YouTube<svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M7 17 17 7M9 7h8v8" />
+            </svg><span class="sr"> (nouvel onglet)</span></a>
+        </div>
       </div>
+    </section>
+
+    <!-- Infos pratiques -->
+    <section class="chapitre chapitre--infos" id="infos" data-section aria-labelledby="infos-titre">
+      <h2 id="infos-titre">Venir au CDPA Bassin-Rond</h2>
+      <div class="infos">
+        <div class="infos__bloc">
+          <h3>Adresse</h3>
+          <p>CDPA Bassin-Rond<br>403 rue Henri Deshays<br>59111 Bouchain</p>
+          <p class="note">Au centre du triangle Valenciennes, Cambrai et Douai.</p>
+          <a class="lien"
+            href="https://www.google.com/maps/search/?api=1&amp;query=403+rue+Henri+Deshays+59111+Bouchain">Itinéraire<svg
+              aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M7 17 17 7M9 7h8v8" />
+            </svg></a>
+        </div>
+        <div class="infos__bloc">
+          <h3>Accueil</h3>
+          <table class="horaires">
+            <tbody>
+              <tr>
+                <th scope="row">Du lundi au vendredi</th>
+                <td><span class="num">9 h – 12 h</span><br><span class="num">14 h – 18 h</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Le samedi</th>
+                <td><span class="num">14 h – 18 h</span><br><small>de mars à fin juin et de septembre à fin
+                    octobre</small></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="infos__bloc">
+          <h3>Nous joindre</h3>
+          <p><a class="lien" href="tel:+33327357228"><span class="num">03 27 35 72 28</span></a><br><a class="lien"
+              href="mailto:directeur@bassin-rond.net">directeur@bassin-rond.net</a></p>
+          <p class="note">Nous ne gérons ni le port ni la pêche.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pied">
+    <div class="pied__marque">
+      <img src="images/logo/BR-logo.png" width="347" height="239" alt="Le CDPA Bassin-Rond">
+      <p>Un club de voile unique, à Bouchain.</p>
     </div>
-  </section>
-
-  <!-- Infos pratiques -->
-  <section class="chapitre chapitre--infos" id="infos" data-section aria-labelledby="infos-titre">
-    <h2 id="infos-titre">Venir au CDPA Bassin-Rond</h2>
-    <div class="infos">
-      <div class="infos__bloc">
-        <h3>Adresse</h3>
-        <p>CDPA Bassin-Rond<br>403 rue Henri Deshays<br>59111 Bouchain</p>
-        <p class="note">Au centre du triangle Valenciennes, Cambrai et Douai.</p>
-        <a class="lien" href="https://www.google.com/maps/search/?api=1&amp;query=403+rue+Henri+Deshays+59111+Bouchain">Itinéraire<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-      </div>
-      <div class="infos__bloc">
-        <h3>Accueil</h3>
-        <table class="horaires">
-          <tbody>
-            <tr><th scope="row">Du lundi au vendredi</th><td><span class="num">9 h – 12 h</span><br><span class="num">14 h – 18 h</span></td></tr>
-            <tr><th scope="row">Le samedi</th><td><span class="num">14 h – 18 h</span><br><small>de mars à fin juin et de septembre à fin octobre</small></td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="infos__bloc">
-        <h3>Nous joindre</h3>
-        <p><a class="lien" href="tel:+33327357228"><span class="num">03 27 35 72 28</span></a><br><a class="lien" href="mailto:directeur@bassin-rond.net">directeur@bassin-rond.net</a></p>
-        <p class="note">Nous ne gérons ni le port ni la pêche.</p>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="pied">
-  <div class="pied__marque">
-    <img src="images/logo/BR-logo.png" width="347" height="239" alt="Le CDPA Bassin-Rond">
-    <p>Un club de voile unique, à Bouchain.</p>
-  </div>
-  <ul class="pied__liens">
-    <li><a href="https://www.facebook.com/bassin.rond">Facebook</a></li>
-    <li><a href="https://www.youtube.com/user/bassinrond/playlists">YouTube</a></li>
-    <li><a href="/conditions-generales-de-vente/">Conditions générales de vente</a></li>
-  </ul>
-  <p class="pied__legal">© 2026 CDPA Bassin-Rond</p>
-</footer>
+    <ul class="pied__liens">
+      <li><a href="https://www.facebook.com/bassin.rond">Facebook</a></li>
+      <li><a href="https://www.youtube.com/user/bassinrond/playlists">YouTube</a></li>
+      <li><a href="/conditions-generales-de-vente/">Conditions générales de vente</a></li>
+    </ul>
+    <p class="pied__legal">© 2026 CDPA Bassin-Rond</p>
+  </footer>
 </body>
+
 </html>

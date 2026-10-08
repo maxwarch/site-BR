@@ -195,14 +195,11 @@
 
   const zoneAdhesion = document.querySelector('[data-tarifs="adhesion"]');
   if (zoneAdhesion) {
-    charger('data/adhesion.json').then(({ intro, licencies, labelsFederaux, formules }) => {
+    charger('data/adhesion.json').then(({ intro, licencies, formules }) => {
       const zoneIntro = document.querySelector('[data-adhesion-intro]');
       if (zoneIntro && intro) {
-        const chiffres = [
-          licencies ? `<strong class="num">${licencies}</strong> ${licencies > 1 ? 'licenciés' : 'licencié'}` : '',
-          labelsFederaux ? `<strong class="num">${labelsFederaux}</strong> ${labelsFederaux > 1 ? 'labels fédéraux' : 'label fédéral'}` : '',
-        ].filter(Boolean);
-        zoneIntro.innerHTML = `${esc(intro.replace(/[\s.:]+$/, ''))}${chiffres.length ? ` : ${chiffres.join(' et ')}` : ''}.`;
+        // {licencies} dans le texte est remplacé par le nombre de licenciés.
+        zoneIntro.innerHTML = esc(intro).replaceAll('{licencies}', `<strong class="num">${esc(licencies)}</strong>`);
       }
       zoneAdhesion.innerHTML = formules.map((f) => {
         const total = f.cotisation + f.licence + f.forfaitSeances;
