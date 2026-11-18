@@ -1,0 +1,66 @@
+name: Déployer sur le VPS (preview)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-vps-preview
+  cancel-in-progress: false
+
+env:
+  DEPLOY_PATH: /var/www/preview.bassin-rond.net
+  SSH_PORT: '2222'
+
+jobs:
+  deployer:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run build
+
+      - name: Préparer la clé SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.CONTABO_SSH_PRIVATE_KEY }}
+        run: |
+          if [ -z "$SSH_PRIVATE_KEY" ]; then
+            echo "Secret CONTABO_SSH_PRIVATE_KEY manquant." >&2
+            exit 1
+          fi
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+
+      - name: Envoyer dist/ sur le VPS
+        env:
+          VPS_HOST: ${{ secrets.CONTABO_VPS_HOST }}
+          VPS_USER: ${{ secrets.CONTABO_VPS_USER }}
+        run: |
+          if [ -z "$VPS_HOST" ] || [ -z "$VPS_USER" ]; then
+            echo "Secrets CONTABO_VPS_HOST ou CONTABO_VPS_USER manquants." >&2
+            exit 1
+          fi
+          rsync -rtvz --delete \
+            --no-owner --no-group \
+            --chmod=D755,F644 \
+            --exclude='.nojekyll' \
+            -e "ssh -p $SSH_PORT -o StrictHostKeyChecking=accept-new -i ~/.ssh/deploy_key" \
+            dist/ \
+            "$VPS_USER@$VPS_HOST:$DEPLOY_PATH/"
+
+      - name: Nettoyer la clé SSH
+        if: always()
+        run: rm -f ~/.ssh/deploy_key
