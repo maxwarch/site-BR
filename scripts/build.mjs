@@ -10,6 +10,7 @@ import { execFileSync } from 'node:child_process';
 
 const RACINE = path.resolve(import.meta.dirname, '..');
 const SITE = path.join(RACINE, 'site');
+const DATA = path.join(RACINE, 'data');
 const IMAGES = path.join(SITE, 'images');
 const DIST = path.join(RACINE, 'dist');
 const LARGEURS = [900, 1200, 1800];
@@ -117,10 +118,9 @@ async function code(nom, loader) {
 
 // 4. JSON compactés (les fichiers source restent lisibles pour l'agent qui les modifie)
 async function donnees() {
-  const src = path.join(SITE, 'data');
   await mkdir(path.join(DIST, 'data'), { recursive: true });
-  for (const nom of (await readdir(src)).filter((n) => n.endsWith('.json'))) {
-    const json = JSON.parse(await readFile(path.join(src, nom), 'utf8'));
+  for (const nom of (await readdir(DATA)).filter((n) => n.endsWith('.json'))) {
+    const json = JSON.parse(await readFile(path.join(DATA, nom), 'utf8'));
     await writeFile(path.join(DIST, 'data', nom), JSON.stringify(json));
   }
 }

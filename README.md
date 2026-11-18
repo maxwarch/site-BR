@@ -5,18 +5,20 @@ Nouveau site de www.bassin-rond.net : une page d'accueil statique (HTML, CSS, JS
 ## Organisation
 
 ```
-site/                 les sources du site, servies telles quelles en développement
+site/                 les sources du site, servies en développement
 ├── index.html        la page d'accueil
 ├── css/style.css     les styles
 ├── js/main.js        les interactions (fond qui évolue, rail et soleil, tarifs JSON, vidéos…)
-├── data/             les données modifiables
-│   ├── adhesion.json       tarifs et chiffres de l'adhésion
-│   └── centres-aeres.json  formules, camping, livret des centres aérés
 ├── fonts/            les polices auto-hébergées (woff2)
 └── images/
     ├── photos/       les photos du club (provenance dans PHOTOS.md)
     └── logo/         le logo, dont logo-carre.png pour les favicons
-scripts/build.mjs     construit la version publiée dans dist/
+data/                 les données modifiables (partagées avec site-BR-agent)
+├── adhesion.json       tarifs et chiffres de l'adhésion
+└── centres-aeres.json  formules, camping, livret des centres aérés
+scripts/
+├── dev.mjs           serveur local de développement (site/ + data/)
+└── build.mjs         construit la version publiée dans dist/
 PRODUCT.md            le contexte produit (publics, offre, contraintes)
 DESIGN.md             le système visuel
 ```
