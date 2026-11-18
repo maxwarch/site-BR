@@ -13,7 +13,7 @@ const SITE = path.join(RACINE, 'site');
 const DATA = path.join(RACINE, 'data');
 const IMAGES = path.join(SITE, 'images');
 const DIST = path.join(RACINE, 'dist');
-const LARGEURS = [900, 1200, 1800];
+const LARGEURS = [480, 780, 1200, 1800];
 const QUALITE_WEBP = 72;
 // Tant que le site n'est pas officiellement en ligne : ni moteurs de recherche ni robots d'IA.
 // Passer à true au moment de la mise en ligne définitive.
@@ -52,7 +52,7 @@ async function photos() {
       const l = Math.min(largeur, width);
       if (variantes[base].some((v) => v.l === l)) continue;
       const out = `${base}-${l}.webp`;
-      const info = await sharp(fichier).resize({ width: l }).webp({ quality: QUALITE_WEBP }).keepMetadata().toFile(path.join(sortie, out));
+      const info = await sharp(fichier).resize({ width: l }).webp({ quality: QUALITE_WEBP, effort: 6 }).keepMetadata().toFile(path.join(sortie, out));
       apres += info.size;
       variantes[base].push({ l, out });
     }
@@ -67,11 +67,12 @@ async function html(variantes) {
   const srcset = (base) => variantes[base].map((v) => `images/photos/${v.out} ${v.l}w`).join(', ');
   const grande = (base) => `images/photos/${variantes[base].at(-1).out}`;
 
-  // Les photos pleine largeur (accueil, location, adhésion) occupent tout l'écran ; les autres au plus la moitié
+  // Les photos pleine largeur (accueil, location, adhésion) occupent tout l'écran ; les petites vignettes de la mosaïque au plus la moitié sur mobile et un quart sur grand écran ; les autres au plus la moitié
   source = source.replace(/(<figure class="([^"]*)">\s*)<img src="images\/photos\/([\w-]+)\.jpg"/g, (m, debut, classes, base) => {
     if (!variantes[base]) return m;
     const plein = /\b(hero__photo|plein)\b/.test(classes);
-    const sizes = plein ? '100vw' : '(max-width: 760px) 100vw, 50vw';
+    const petite = /\bvq__[cd]\b/.test(classes);
+    const sizes = plein ? '100vw' : petite ? '(max-width: 760px) 50vw, 25vw' : '(max-width: 760px) 100vw, 50vw';
     return `${debut}<img src="${grande(base)}" srcset="${srcset(base)}" sizes="${sizes}"`;
   });
   // Vignettes « Votre moment » : un quart de la largeur sur grand écran
@@ -80,6 +81,8 @@ async function html(variantes) {
   // Filet de sécurité : toute photo restante passe aussi en WebP
   source = source.replace(/<img src="images\/photos\/([\w-]+)\.jpg"/g, (m, base) =>
     variantes[base] ? `<img src="${grande(base)}" srcset="${srcset(base)}" sizes="(max-width: 760px) 100vw, 50vw"` : m);
+  source = source.replace(/<img ([^>]*loading="lazy"[^>]*?)>/g, (m, attrs) =>
+    /\bdecoding=/.test(attrs) ? m : `<img ${attrs} decoding="async">`);
 
   const hero = source.match(/class="hero__photo">\s*<img src="images\/photos\/([\w-]+)-\d+\.webp"/);
   if (hero) {

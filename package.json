@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "node scripts/dev.mjs",
     "build": "node scripts/build.mjs",
-    "preview": "npm run build && python3 -m http.server 8743 --directory dist"
+    "preview": "npm run build && python3 -m http.server 8743 --directory dist",
+    "check:budget": "node scripts/check-budget.mjs"
   },
   "devDependencies": {
     "esbuild": "^0.25.0",

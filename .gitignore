@@ -7,3 +7,5 @@ node_modules/
 .impeccable/mocks/
 .impeccable/build/
 dist/
+data/*.lock
+data/backups/

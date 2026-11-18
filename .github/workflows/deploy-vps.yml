@@ -31,6 +31,7 @@ jobs:
       - run: npm ci
 
       - run: npm run build
+      - run: npm run check:budget
 
       - name: Préparer la clé SSH
         env:
@@ -44,7 +45,7 @@ jobs:
           printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
 
-      - name: Envoyer dist/ sur le VPS
+      - name: Envoyer dist/ sur le VPS (sans écraser data/)
         env:
           VPS_HOST: ${{ secrets.CONTABO_VPS_HOST }}
           VPS_USER: ${{ secrets.CONTABO_VPS_USER }}
@@ -57,9 +58,18 @@ jobs:
             --no-owner --no-group \
             --chmod=D755,F644 \
             --exclude='.nojekyll' \
+            --exclude='/data/' \
+            --filter='P /data/' \
             -e "ssh -p $SSH_PORT -o StrictHostKeyChecking=accept-new -i ~/.ssh/deploy_key" \
             dist/ \
             "$VPS_USER@$VPS_HOST:$DEPLOY_PATH/"
+
+          rsync -rtvz --ignore-existing \
+            --no-owner --no-group \
+            --chmod=D755,F644 \
+            -e "ssh -p $SSH_PORT -o StrictHostKeyChecking=accept-new -i ~/.ssh/deploy_key" \
+            dist/data/ \
+            "$VPS_USER@$VPS_HOST:$DEPLOY_PATH/data/"
 
       - name: Nettoyer la clé SSH
         if: always()

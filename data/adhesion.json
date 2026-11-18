@@ -7,10 +7,10 @@
     {
       "id": "adultes",
       "nom": "Adultes",
-      "cotisation": 41,
-      "licence": 72,
-      "forfaitSeances": 200,
-      "prixSeance": 9.8,
+      "cotisation": 42,
+      "licence": 73,
+      "forfaitSeances": 201,
+      "prixSeance": 9.9,
       "supports": [
         "Ilca",
         "420",
@@ -21,10 +21,10 @@
     {
       "id": "jeunes",
       "nom": "Jeunes",
-      "cotisation": 29,
-      "licence": 33,
-      "forfaitSeances": 200,
-      "prixSeance": 8.2,
+      "cotisation": 30.5,
+      "licence": 33.5,
+      "forfaitSeances": 201,
+      "prixSeance": 8.3,
       "supports": [
         "Optimist",
         "RS Quba",

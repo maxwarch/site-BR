@@ -10,15 +10,15 @@
         {
           "id": "multi",
           "nom": "Multi activités",
-          "prix": 86,
-          "description": "2 activités différentes par jour dont une séance de voile. L'occasion de découvrir la diversité de nos activités avec la voile comme fil rouge du séjour.",
+          "prix": 87,
+          "description": "2 créneaux d'activités de 2h par jour (6 séances de 2h sur le séjour).",
           "plusDemande": false
         },
         {
           "id": "nature",
           "nom": "Nature",
-          "prix": 67.5,
-          "description": "1 activité de 2 heures par jour. Cette formule permet de prendre son temps et d'organiser des balades pédestres autour du site du Bassin-Rond.",
+          "prix": 68,
+          "description": "1 créneau d'activité de 2h par jour (4 séances de 2h sur le séjour).",
           "plusDemande": true
         },
         {
@@ -37,15 +37,15 @@
         {
           "id": "multi",
           "nom": "Multi activités",
-          "prix": 100,
-          "description": "2 activités différentes par jour dont une séance de voile. L'occasion de découvrir la diversité de nos activités avec la voile comme fil rouge du séjour.",
+          "prix": 102,
+          "description": "2 créneaux d'activités de 2h par jour (8 séances de 2h sur le séjour).",
           "plusDemande": false
         },
         {
           "id": "nature",
           "nom": "Nature",
-          "prix": 81,
-          "description": "1 activité de 2 heures par jour. Cette formule permet de prendre son temps et d'organiser des balades pédestres autour du site du Bassin-Rond.",
+          "prix": 82,
+          "description": "1 créneau d'activité de 2h par jour (5 séances de 2h sur le séjour).",
           "plusDemande": true
         },
         {
@@ -60,40 +60,41 @@
   ],
   "cotisationGroupe": {
     "libelle": "Cotisation groupe",
-    "prix": 74,
-    "unite": "par groupe"
+    "prix": 75,
+    "unite": "par centre ou commune",
+    "precision": "Une fois par commune, quel que soit le nombre de groupes accueillis."
   },
   "camping": [
     {
       "id": "4-jours",
       "libelle": "Camping 4 jours",
-      "prix": 23,
+      "prix": 24,
       "unite": "par personne"
     },
     {
       "id": "5-jours",
       "libelle": "Camping 5 jours",
-      "prix": 27,
+      "prix": 27.5,
       "unite": "par personne"
     },
     {
       "id": "journee",
       "libelle": "Camping à la journée",
-      "prix": 8.75,
+      "prix": 9,
       "unite": "par personne et par jour",
       "precision": "stage de moins de 4 jours"
     }
   ],
   "forfaitEnergie": {
     "libelle": "Forfait énergie",
-    "precision": "pour l'utilisation de plaques de cuisson électriques",
+    "precision": "Si mode cuisson électrique",
     "prix": 55,
-    "unite": "en sus"
+    "unite": "par séjour"
   },
   "livret": {
-    "prix": 14,
-    "priseEnChargeClub": 7,
-    "resteACharge": 7,
+    "prix": 15,
+    "priseEnChargeClub": 7.5,
+    "resteACharge": 7.5,
     "contenu": [
       "une carte de progression",
       "un carnet de certification de l'expérience",
