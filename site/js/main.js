@@ -256,7 +256,7 @@
 
   const zoneAdhesion = document.querySelector('[data-tarifs="adhesion"]');
   if (zoneAdhesion) {
-    charger('data/adhesion.json').then(({ intro, licencies, labelsFederaux, formules }) => {
+    charger('data/adhesion.json').then(({ intro, licencies, labelsFederaux, formules, famille }) => {
       const zoneIntro = document.querySelector('[data-adhesion-intro]');
       if (zoneIntro && intro) {
         const chiffres = [
@@ -265,7 +265,7 @@
         ].filter(Boolean);
         zoneIntro.innerHTML = `${esc(intro.replace(/[\s.:]+$/, ''))}${chiffres.length ? ` : ${chiffres.join(' et ')}` : ''}.`;
       }
-      zoneAdhesion.innerHTML = formules.map((f) => {
+      const cartes = formules.map((f) => {
         const total = f.cotisation + f.licence + f.forfaitSeances;
         return `<div class="formule">
           <h3>${esc(f.nom)}</h3>
@@ -278,7 +278,24 @@
           </dl>
           <p class="formule__supports">${f.supports.map(esc).join(', ')}</p>
         </div>`;
-      }).join('');
+      });
+      if (famille) {
+        cartes.push(`<div class="formule formule--famille">
+          <div class="formule__tete">
+            <h3>${esc(famille.nom)}</h3>
+            ${famille.totalPrecision ? `<p class="formule__total-variable">${esc(famille.totalPrecision)}</p>` : ''}
+            ${famille.condition ? `<p class="formule__seance">${esc(famille.condition)}</p>` : ''}
+          </div>
+          <dl>
+            <div><dt>Cotisation famille</dt><dd class="num">${euros(famille.cotisation)}</dd></div>
+            <div><dt>Licence adulte</dt><dd class="num">${euros(famille.licenceAdulte)}</dd></div>
+            <div><dt>Licence jeune</dt><dd class="num">${euros(famille.licenceJeune)}</dd></div>
+            <div><dt>Forfait séances${famille.forfaitSeancesPrecision ? `<br><small>${esc(famille.forfaitSeancesPrecision)}</small>` : ''}</dt><dd class="num">${euros(famille.forfaitSeancesBase)}</dd></div>
+            <div><dt>Personne supplémentaire</dt><dd class="num">${euros(famille.forfaitSeancesSupplementaire)}</dd></div>
+          </dl>
+        </div>`);
+      }
+      zoneAdhesion.innerHTML = cartes.join('');
       remesurer();
     }).catch(() => {});
   }

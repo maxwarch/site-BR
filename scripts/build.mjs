@@ -60,7 +60,68 @@ async function photos() {
   return variantes;
 }
 
-// 2. HTML : chemins vers dist/, srcset WebP, préchargement de la photo d'accueil, minification
+// Injection statique des JSON (adhesion.json, centres-aeres.json) dans index.html pour le SEO.
+const escHtml = (t) => String(t).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const euros = (n) => `${new Intl.NumberFormat('fr-FR', { minimumFractionDigits: Number.isInteger(n) ? 0 : 2, maximumFractionDigits: 2 }).format(n)}\u00a0€`;
+const prixSpan = (n) => `<span class="num">${euros(n)}</span>`;
+
+function remplacerContenuBalise(htmlSource, attrClause, nouveauContenu) {
+  const openRe = new RegExp(`<([a-z0-9]+)\\b[^>]*\\s${attrClause}(?=[\\s>])[^>]*>`, 'i');
+  const openMatch = openRe.exec(htmlSource);
+  if (!openMatch) return htmlSource;
+  const tag = openMatch[1];
+  const contentStart = openMatch.index + openMatch[0].length;
+  const tagRe = new RegExp(`<(/?)${tag}\\b[^>]*>`, 'gi');
+  tagRe.lastIndex = contentStart;
+  let depth = 1;
+  let m;
+  while ((m = tagRe.exec(htmlSource)) !== null) {
+    depth += m[1] === '/' ? -1 : 1;
+    if (depth === 0) {
+      return htmlSource.slice(0, contentStart) + nouveauContenu + htmlSource.slice(m.index);
+    }
+  }
+  return htmlSource;
+}
+
+async function injecterDonnees(source) {
+  const adhesion = JSON.parse(await readFile(path.join(DATA, 'adhesion.json'), 'utf8'));
+  const { intro, licencies, labelsFederaux, formules, famille } = adhesion;
+  if (intro) {
+    const chiffres = [
+      licencies ? `<strong class="num">${licencies}</strong> ${licencies > 1 ? 'licenciés' : 'licencié'}` : '',
+      labelsFederaux ? `<strong class="num">${labelsFederaux}</strong> ${labelsFederaux > 1 ? 'labels fédéraux' : 'label fédéral'}` : '',
+    ].filter(Boolean);
+    const introHtml = `${escHtml(intro.replace(/[\s.:]+$/, ''))}${chiffres.length ? ` : ${chiffres.join(' et ')}` : ''}.`;
+    source = remplacerContenuBalise(source, 'data-adhesion-intro', introHtml);
+  }
+  const cartes = formules.map((f) => {
+    const total = f.cotisation + f.licence + f.forfaitSeances;
+    return `<div class="formule"><h3>${escHtml(f.nom)}</h3><p class="formule__prix">${prixSpan(total)} <span>l'année</span></p>${f.prixSeance ? `<p class="formule__seance">soit ${prixSpan(f.prixSeance)} la séance</p>` : ''}<dl><div><dt>Cotisation</dt><dd class="num">${euros(f.cotisation)}</dd></div><div><dt>Licence</dt><dd class="num">${euros(f.licence)}</dd></div><div><dt>Forfait séances</dt><dd class="num">${euros(f.forfaitSeances)}</dd></div></dl><p class="formule__supports">${f.supports.map(escHtml).join(', ')}</p></div>`;
+  });
+  if (famille) {
+    cartes.push(`<div class="formule formule--famille"><div class="formule__tete"><h3>${escHtml(famille.nom)}</h3>${famille.totalPrecision ? `<p class="formule__total-variable">${escHtml(famille.totalPrecision)}</p>` : ''}${famille.condition ? `<p class="formule__seance">${escHtml(famille.condition)}</p>` : ''}</div><dl><div><dt>Cotisation famille</dt><dd class="num">${euros(famille.cotisation)}</dd></div><div><dt>Licence adulte</dt><dd class="num">${euros(famille.licenceAdulte)}</dd></div><div><dt>Licence jeune</dt><dd class="num">${euros(famille.licenceJeune)}</dd></div><div><dt>Forfait séances${famille.forfaitSeancesPrecision ? `<br><small>${escHtml(famille.forfaitSeancesPrecision)}</small>` : ''}</dt><dd class="num">${euros(famille.forfaitSeancesBase)}</dd></div><div><dt>Personne supplémentaire</dt><dd class="num">${euros(famille.forfaitSeancesSupplementaire)}</dd></div></dl></div>`);
+  }
+  source = remplacerContenuBalise(source, 'data-tarifs="adhesion"', cartes.join(''));
+
+  const d = JSON.parse(await readFile(path.join(DATA, 'centres-aeres.json'), 'utf8'));
+  for (const duree of d.durees) {
+    source = remplacerContenuBalise(source, `data-duree-titre="${duree.id}"`, escHtml(duree.libelle));
+    const items = duree.formules.map((f) => `<li class="formule-g${f.plusDemande ? ' formule-g--phare' : ''}"><h4>${escHtml(f.nom)}${f.plusDemande ? ' <span class="formule-g__badge">Le plus demandé</span>' : ''}</h4><p class="formule-g__prix">${prixSpan(f.prix)} ${escHtml(d.unite)}</p><p>${escHtml(f.description)}</p></li>`).join('');
+    source = remplacerContenuBalise(source, `data-formules="${duree.id}"`, items);
+  }
+  const ligneAnnexe = (l) => `<tr><th scope="row">${escHtml(l.libelle)}${l.precision ? `<br><small>${escHtml(l.precision)}</small>` : ''}</th><td>${prixSpan(l.prix)} ${escHtml(l.unite)}</td></tr>`;
+  source = remplacerContenuBalise(source, 'data-annexes', [d.cotisationGroupe, ...d.camping, d.forfaitEnergie].map(ligneAnnexe).join(''));
+  const contenu = d.livret.contenu;
+  const texteLivret = `${d.livret.description.replace(/\.$/, '')} : ${contenu.slice(0, -1).map(escHtml).join(', ')} et ${escHtml(contenu.at(-1))}.`;
+  source = remplacerContenuBalise(source, 'data-livret-texte', texteLivret);
+  const part = Math.round((d.livret.priseEnChargeClub / d.livret.prix) * 100);
+  const livretHtml = `${prixSpan(d.livret.prix)} le livret, dont <strong>${prixSpan(d.livret.priseEnChargeClub)} pris en charge par le club</strong> (${part}\u00a0%). Il reste ${prixSpan(d.livret.resteACharge)} par livret à votre charge, si vous choisissez ce mode de validation.`;
+  source = remplacerContenuBalise(source, 'data-livret', livretHtml);
+  return source;
+}
+
+// 2. HTML : chemins vers dist/, srcset WebP, préchargement de la photo d'accueil, données JSON, minification
 async function html(variantes) {
   let source = await readFile(path.join(SITE, 'index.html'), 'utf8');
 
@@ -98,6 +159,8 @@ async function html(variantes) {
 
   const restantes = source.match(/images\/photos\/[\w-]+\.jpg/g);
   if (restantes) throw new Error(`Photos JPEG encore référencées : ${restantes.join(', ')}`);
+
+  source = await injecterDonnees(source);
 
   const petit = await minifyHtml(source, {
     collapseWhitespace: true,

@@ -71,6 +71,19 @@ jobs:
             dist/data/ \
             "$VPS_USER@$VPS_HOST:$DEPLOY_PATH/data/"
 
+      - name: Resynchroniser index.html avec les données du VPS
+        env:
+          VPS_HOST: ${{ secrets.CONTABO_VPS_HOST }}
+          VPS_USER: ${{ secrets.CONTABO_VPS_USER }}
+        run: |
+          ssh -p "$SSH_PORT" -o StrictHostKeyChecking=accept-new -i ~/.ssh/deploy_key \
+            "$VPS_USER@$VPS_HOST" \
+            "if [ -x /home/maxkuser/site-br-agent/.venv/bin/python ]; then \
+               cd /home/maxkuser/site-br-agent && \
+               SITE_AGENT_DATA_DIR='$DEPLOY_PATH/data' SITE_AGENT_HTML_PATH='$DEPLOY_PATH/index.html' \
+               .venv/bin/python -c 'from agent.domain import adhesion, centres_aeres, html_sync, store; html_sync.sync_adhesion_html(store.read_json(store.data_path(adhesion.ADHESION_FILE))); html_sync.sync_centres_aeres_html(store.read_json(store.data_path(centres_aeres.CENTRES_AERES_FILE)))'; \
+             fi"
+
       - name: Nettoyer la clé SSH
         if: always()
         run: rm -f ~/.ssh/deploy_key

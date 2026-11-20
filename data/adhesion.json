@@ -33,5 +33,16 @@
         "Hansa"
       ]
     }
-  ]
+  ],
+  "famille": {
+    "nom": "Famille",
+    "condition": "Au moins 3 personnes dont 1 adulte",
+    "cotisation": 65,
+    "licenceAdulte": 73,
+    "licenceJeune": 33.5,
+    "forfaitSeancesBase": 402,
+    "forfaitSeancesSupplementaire": 100.5,
+    "forfaitSeancesPrecision": "pour les 2 premières personnes, puis -50 % dès la 3e",
+    "totalPrecision": "En fonction du nombre de personnes"
+  }
 }
