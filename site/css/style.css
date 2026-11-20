@@ -525,3 +525,59 @@ main [class*="grade-"]::before { content: ""; position: absolute; inset: 0; z-in
 /* Sans grand titre d'accueil : « Votre moment » devient le titre principal de la page */
 .hero .portes__titre { max-width: var(--max); font: 800 clamp(2rem, 3.6vw, 3.2rem)/1.08 var(--display); letter-spacing: -.02em; text-shadow: none; }
 .hero__photo { height: clamp(16rem, 48svh, 30rem); }
+
+/* Données en direct issues de l'API partagée (stages & location) */
+.live-sessions {
+  margin-top: var(--space-3);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--line);
+  max-width: 34rem;
+}
+.live-sessions__titre {
+  margin: 0 0 .5rem;
+  font: 800 1.05rem/1.2 var(--display);
+  color: var(--ink);
+}
+.live-sessions__liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.live-sessions__liste li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: .2rem .75rem;
+  padding: .45rem 0;
+  border-bottom: 1px dotted var(--line);
+  font-size: 1rem;
+}
+.live-sessions__dates { font-weight: 700; color: var(--ink); }
+.live-sessions__meta { color: var(--ink-soft); font-size: .95rem; }
+.live-sessions__places { font-weight: 700; color: var(--foret); }
+
+.location__statut {
+  grid-column: 1;
+  margin: 0 0 .5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--foret);
+}
+.embarcations__tete {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: .25rem .75rem;
+}
+.embarcations__prix {
+  font: 800 1.1rem/1 var(--display);
+  color: var(--lac);
+}
+.embarcations li a {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+.embarcations li a:hover strong { color: var(--lac); }

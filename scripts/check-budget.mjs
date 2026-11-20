@@ -3,7 +3,7 @@ import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import zlib from 'node:zlib';
 
-const DIST = path.resolve(import.meta.dirname, '..', 'dist');
+const DIST = path.resolve(import.meta.dirname, '..', 'dist', 'client');
 
 const gzipSize = async (rel) => zlib.gzipSync(await readFile(path.join(DIST, rel))).length;
 const rawSize = async (rel) => (await stat(path.join(DIST, rel))).size;

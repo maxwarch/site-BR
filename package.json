@@ -3,15 +3,21 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node scripts/dev.mjs",
-    "build": "node scripts/build.mjs",
-    "preview": "npm run build && python3 -m http.server 8743 --directory dist",
-    "check:budget": "node scripts/check-budget.mjs"
+    "prepare:assets": "node scripts/prepare-assets.mjs",
+    "dev": "node scripts/prepare-assets.mjs --if-missing && astro dev",
+    "build": "node scripts/prepare-assets.mjs && astro build",
+    "preview": "node --env-file=.env ./dist/server/entry.mjs",
+    "check:budget": "node scripts/check-budget.mjs",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/node": "^11.1.13",
+    "astro": "^7.4.12"
   },
   "devDependencies": {
+    "@types/node": "^25.9.5",
     "esbuild": "^0.25.0",
-    "html-minifier-terser": "^7.2.0",
     "sharp": "^0.34.0",
-    "staticrypt": "^3.5.4"
+    "typescript": "^5.9.3"
   }
 }

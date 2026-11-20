@@ -1,4 +1,4 @@
-name: Déployer sur le VPS (preview)
+name: Déployer sur le VPS (Astro SSR)
 
 on:
   push:
@@ -14,6 +14,7 @@ concurrency:
 
 env:
   DEPLOY_PATH: /var/www/preview.bassin-rond.net
+  PM2_APP_NAME: site-bassin-rond
   SSH_PORT: '2222'
 
 jobs:
@@ -26,12 +27,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
 
-      - run: npm ci
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
 
-      - run: npm run build
-      - run: npm run check:budget
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm run build
+      - run: pnpm run check:budget
 
       - name: Préparer la clé SSH
         env:
@@ -45,7 +49,7 @@ jobs:
           printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
 
-      - name: Envoyer dist/ sur le VPS (sans écraser data/)
+      - name: Envoyer le build Astro SSR sur le VPS
         env:
           VPS_HOST: ${{ secrets.CONTABO_VPS_HOST }}
           VPS_USER: ${{ secrets.CONTABO_VPS_USER }}
@@ -54,35 +58,27 @@ jobs:
             echo "Secrets CONTABO_VPS_HOST ou CONTABO_VPS_USER manquants." >&2
             exit 1
           fi
-          rsync -rtvz --delete \
-            --no-owner --no-group \
-            --chmod=D755,F644 \
-            --exclude='.nojekyll' \
-            --exclude='/data/' \
-            --filter='P /data/' \
+          rsync -rlgoDzvc --delete \
+            --exclude='.env' \
+            --exclude='.git' \
+            --exclude='node_modules' \
             -e "ssh -p $SSH_PORT -o StrictHostKeyChecking=accept-new -i ~/.ssh/deploy_key" \
-            dist/ \
+            dist package.json pnpm-lock.yaml ecosystem.config.cjs data \
             "$VPS_USER@$VPS_HOST:$DEPLOY_PATH/"
 
-          rsync -rtvz --ignore-existing \
-            --no-owner --no-group \
-            --chmod=D755,F644 \
-            -e "ssh -p $SSH_PORT -o StrictHostKeyChecking=accept-new -i ~/.ssh/deploy_key" \
-            dist/data/ \
-            "$VPS_USER@$VPS_HOST:$DEPLOY_PATH/data/"
-
-      - name: Resynchroniser index.html avec les données du VPS
+      - name: Installer les dépendances de prod & redémarrer PM2
         env:
           VPS_HOST: ${{ secrets.CONTABO_VPS_HOST }}
           VPS_USER: ${{ secrets.CONTABO_VPS_USER }}
         run: |
           ssh -p "$SSH_PORT" -o StrictHostKeyChecking=accept-new -i ~/.ssh/deploy_key \
             "$VPS_USER@$VPS_HOST" \
-            "if [ -x /home/maxkuser/site-br-agent/.venv/bin/python ]; then \
-               cd /home/maxkuser/site-br-agent && \
-               SITE_AGENT_DATA_DIR='$DEPLOY_PATH/data' SITE_AGENT_HTML_PATH='$DEPLOY_PATH/index.html' \
-               .venv/bin/python -c 'from agent.domain import adhesion, centres_aeres, html_sync, store; html_sync.sync_adhesion_html(store.read_json(store.data_path(adhesion.ADHESION_FILE))); html_sync.sync_centres_aeres_html(store.read_json(store.data_path(centres_aeres.CENTRES_AERES_FILE)))'; \
-             fi"
+            "export NVM_DIR=\"\$HOME/.nvm\" && . \"\$NVM_DIR/nvm.sh\" && \
+             export PNPM_HOME=\"\$HOME/.local/share/pnpm\" && export PATH=\"\$PNPM_HOME:\$PNPM_HOME/bin:\$PATH\" && \
+             cd '$DEPLOY_PATH' && \
+             pnpm install --prod --frozen-lockfile && \
+             pm2 startOrReload ecosystem.config.cjs --update-env && \
+             pm2 save"
 
       - name: Nettoyer la clé SSH
         if: always()

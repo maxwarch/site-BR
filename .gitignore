@@ -1,4 +1,6 @@
 .DS_Store
+.astro/
+.env
 node_modules/
 .impeccable/config.local.json
 .impeccable/hook.cache.json
@@ -7,5 +9,7 @@ node_modules/
 .impeccable/mocks/
 .impeccable/build/
 dist/
+public/
+src/lib/photo-variants.json
 data/*.lock
 data/backups/
