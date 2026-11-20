@@ -15,6 +15,7 @@ const IMAGES = path.join(SITE, 'images');
 const DIST = path.join(RACINE, 'dist');
 const LARGEURS = [480, 780, 1200, 1800];
 const QUALITE_WEBP = 72;
+const SITE_URL = 'https://www.bassin-rond.net';
 // Tant que le site n'est pas officiellement en ligne : ni moteurs de recherche ni robots d'IA.
 // Passer à true au moment de la mise en ligne définitive.
 const INDEXABLE = false;
@@ -23,6 +24,69 @@ const ROBOTS_TXT = ['User-agent: *', 'Disallow: /', '',
   ...['GPTBot', 'ChatGPT-User', 'OAI-SearchBot', 'ClaudeBot', 'Claude-Web', 'anthropic-ai', 'Google-Extended', 'PerplexityBot', 'CCBot', 'Bytespider', 'Applebot-Extended', 'Meta-ExternalAgent', 'Amazonbot', 'cohere-ai']
     .flatMap((bot) => [`User-agent: ${bot}`, 'Disallow: /', '']),
 ].join('\n');
+// En production (INDEXABLE = true) : autorise les moteurs et la recherche agentique, bloque uniquement les bots d'entraînement.
+const ROBOTS_TXT_PROD = [
+  'User-agent: *',
+  'Allow: /',
+  '',
+  '# Recherche agentique autorisée',
+  ...['OAI-SearchBot', 'PerplexityBot', 'Claude-SearchBot', 'Claude-User'].flatMap((bot) => [`User-agent: ${bot}`, 'Allow: /', '']),
+  '# Bots d’entraînement bloqués',
+  ...['GPTBot', 'ClaudeBot', 'Google-Extended', 'CCBot', 'Bytespider', 'Applebot-Extended', 'Meta-ExternalAgent', 'Amazonbot', 'cohere-ai']
+    .flatMap((bot) => [`User-agent: ${bot}`, 'Disallow: /', '']),
+  `Sitemap: ${SITE_URL}/sitemap.xml`,
+  '',
+].join('\n');
+
+function construireLlmsTxt(adhesion, d) {
+  const lignesAdhesion = adhesion.formules.map((f) => {
+    const total = f.cotisation + f.licence + f.forfaitSeances;
+    const seance = f.prixSeance ? ` (soit ${euros(f.prixSeance)} / séance)` : '';
+    return `- **${f.nom}** : ${euros(total)} / an${seance} — Cotisation ${euros(f.cotisation)}, Licence ${euros(f.licence)}, Forfait séances ${euros(f.forfaitSeances)}. Supports : ${f.supports.join(', ')}.`;
+  });
+  if (adhesion.famille) {
+    const fam = adhesion.famille;
+    lignesAdhesion.push(
+      `- **${fam.nom}** (${fam.condition}) : cotisation famille ${euros(fam.cotisation)}, licence adulte ${euros(fam.licenceAdulte)}, licence jeune ${euros(fam.licenceJeune)}, forfait séances ${euros(fam.forfaitSeancesBase)} (${fam.forfaitSeancesPrecision}), personne supplémentaire ${euros(fam.forfaitSeancesSupplementaire)}.`,
+    );
+  }
+  const lignesGroupes = d.durees.flatMap((duree) =>
+    duree.formules.map((f) => `- **${duree.libelle} — ${f.nom}** : ${euros(f.prix)} ${d.unite} (${f.description})`),
+  );
+  const lignesAnnexes = [d.cotisationGroupe, ...d.camping, d.forfaitEnergie].map(
+    (a) => `- **${a.libelle}**${a.precision ? ` (${a.precision})` : ''} : ${euros(a.prix)} ${a.unite}`,
+  );
+  return [
+    '# CDPA Bassin-Rond',
+    '',
+    `> Club et école de voile associative à Bouchain (Nord, France), sur le plan d'eau intérieur du Bassin-Rond (${adhesion.licencies} licenciés, ${adhesion.labelsFederaux} labels fédéraux).`,
+    '',
+    '## Coordonnées & accueil',
+    '- Adresse : 403 rue Henri Deshays, 59111 Bouchain, France',
+    '- Téléphone : +33 3 27 35 72 28 (03 27 35 72 28)',
+    '- E-mail : directeur@bassin-rond.net',
+    '- Horaires : lundi au vendredi 9 h – 12 h et 14 h – 18 h ; samedi 14 h – 18 h de mars à fin juin et de septembre à fin octobre.',
+    '- Note : le club ne gère ni le port ni la pêche.',
+    '',
+    '## Réservations en ligne (sous-domaines dédiés)',
+    '- [Stages de voile jeunes (7 à 17 ans) et adultes](https://stages.bassin-rond.net/) : vacances scolaires, 14 h – 17 h, moniteurs diplômés d’État.',
+    '- [Location d’embarcations](https://location.bassin-rond.net/) : canoë, kayak, paddle, paddle géant et voilier Hansa (sans licence requise).',
+    '',
+    `## Adhésion annuelle (${SITE_URL}/#adhesion)`,
+    ...lignesAdhesion,
+    '',
+    `## Groupes et centres aérés (${SITE_URL}/#groupes)`,
+    `- Minimum ${d.groupeMinimum} personnes ; ${d.inclus}`,
+    ...lignesGroupes,
+    ...lignesAnnexes,
+    `- **Livret de certification FFVoile** : ${euros(d.livret.prix)} le livret (${euros(d.livret.priseEnChargeClub)} pris en charge par le club, reste à charge ${euros(d.livret.resteACharge)}).`,
+    '- Comités d’entreprise, journées d’intégration et autres groupes : sur contact.',
+    '',
+    `## Événement annuel : Les 24 heures du Bassin-Rond (${SITE_URL}/#les-24-heures-du-bassin-rond)`,
+    '- Premier week-end de septembre, ouvert à tous (adhérent ou non), plus de 5 000 visiteurs : baptêmes nautiques, concert, jeux et ateliers créatifs.',
+    '',
+  ].join('\n');
+}
 
 const ko = (n) => `${(n / 1024).toFixed(0)} Ko`;
 let avant = 0;
@@ -118,6 +182,134 @@ async function injecterDonnees(source) {
   const part = Math.round((d.livret.priseEnChargeClub / d.livret.prix) * 100);
   const livretHtml = `${prixSpan(d.livret.prix)} le livret, dont <strong>${prixSpan(d.livret.priseEnChargeClub)} pris en charge par le club</strong> (${part}\u00a0%). Il reste ${prixSpan(d.livret.resteACharge)} par livret à votre charge, si vous choisissez ce mode de validation.`;
   source = remplacerContenuBalise(source, 'data-livret', livretHtml);
+
+  // Mise à jour dynamique du JSON-LD à partir des données réelles (adhesion.json et centres-aeres.json)
+  const offersAdhesion = formules.map((f) => {
+    const total = f.cotisation + f.licence + f.forfaitSeances;
+    return {
+      '@type': 'Offer',
+      name: `Adhésion annuelle ${f.nom}`,
+      price: String(total),
+      priceCurrency: 'EUR',
+      description: `Cotisation (${euros(f.cotisation)}) + licence (${euros(f.licence)}) + forfait séances (${euros(f.forfaitSeances)})${f.prixSeance ? `, soit ${euros(f.prixSeance)} la séance` : ''}. Supports : ${f.supports.join(', ')}.`,
+      url: `${SITE_URL}/#adhesion`,
+    };
+  });
+  if (famille) {
+    offersAdhesion.push({
+      '@type': 'Offer',
+      name: `Adhésion annuelle ${famille.nom}`,
+      description: `${famille.condition} : cotisation famille ${euros(famille.cotisation)}, licence adulte ${euros(famille.licenceAdulte)}, licence jeune ${euros(famille.licenceJeune)}, forfait séances ${euros(famille.forfaitSeancesBase)} (${famille.forfaitSeancesPrecision}), personne supplémentaire ${euros(famille.forfaitSeancesSupplementaire)}.`,
+      url: `${SITE_URL}/#adhesion`,
+    });
+  }
+  const offersGroupes = [
+    ...d.durees.flatMap((duree) =>
+      duree.formules.map((f) => ({
+        '@type': 'Offer',
+        name: `Centres aérés — ${duree.libelle} : ${f.nom}`,
+        price: String(f.prix),
+        priceCurrency: 'EUR',
+        description: `${f.description} (${d.unite}).`,
+        url: `${SITE_URL}/#groupes`,
+      })),
+    ),
+    ...[d.cotisationGroupe, ...d.camping, d.forfaitEnergie].map((item) => ({
+      '@type': 'Offer',
+      name: `Groupes & centres aérés — ${item.libelle}`,
+      price: String(item.prix),
+      priceCurrency: 'EUR',
+      description: `${item.unite}${item.precision ? ` (${item.precision})` : ''}.`,
+      url: `${SITE_URL}/#groupes`,
+    })),
+    {
+      '@type': 'Offer',
+      name: 'Centres aérés — Livret de certification FFVoile',
+      price: String(d.livret.resteACharge),
+      priceCurrency: 'EUR',
+      description: `Reste à charge par livret (${euros(d.livret.prix)} au total, dont ${euros(d.livret.priseEnChargeClub)} pris en charge par le club).`,
+      url: `${SITE_URL}/#groupes`,
+    },
+    {
+      '@type': 'Service',
+      name: "Accueil de groupes (centres aérés, comités d'entreprise, journées d'intégration, écoles)",
+      description: "Formules centres aérés (séjours 4 ou 5 jours, camping, cotisation groupe) et accueil sur contact de comités d'entreprise, journées d'intégration et autres groupes.",
+      url: `${SITE_URL}/#groupes`,
+    },
+  ];
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': `${SITE_URL}/#website`,
+        url: `${SITE_URL}/`,
+        name: 'CDPA Bassin-Rond',
+        inLanguage: 'fr',
+      },
+      {
+        '@type': 'SportsActivityLocation',
+        '@id': `${SITE_URL}/#club`,
+        name: 'CDPA Bassin-Rond',
+        description: "Association et école de voile sur le plan d'eau intérieur du Bassin-Rond à Bouchain : stages de voile jeunes et adultes, location de canoë, kayak, paddle et Hansa, adhésion à l'année, formules centres aérés et les 24 heures du Bassin-Rond.",
+        url: `${SITE_URL}/`,
+        logo: `${SITE_URL}/images/logo/BR-logo.png`,
+        image: `${SITE_URL}/images/photos/club-voile-bassin-rond-bouchain-1200.webp`,
+        telephone: '+33327357228',
+        email: 'directeur@bassin-rond.net',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: '403 rue Henri Deshays',
+          postalCode: '59111',
+          addressLocality: 'Bouchain',
+          addressCountry: 'FR',
+        },
+        areaServed: ['Bouchain', 'Valenciennes', 'Cambrai', 'Douai', 'Denain', 'Nord'],
+        openingHoursSpecification: [
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '12:00' },
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '14:00', closes: '18:00' },
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '14:00', closes: '18:00' },
+        ],
+        sameAs: [
+          'https://www.facebook.com/bassin.rond',
+          'https://www.youtube.com/user/bassinrond/playlists',
+        ],
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: 'Activités, stages et tarifs du CDPA Bassin-Rond',
+          itemListElement: [
+            ...offersAdhesion,
+            ...offersGroupes,
+            {
+              '@type': 'Service',
+              name: 'Stages de voile jeunes (7 à 17 ans) et adultes',
+              description: "Stages à la semaine pendant les vacances scolaires (14 h – 17 h), encadrés par des moniteurs diplômés d'État.",
+              url: 'https://stages.bassin-rond.net/',
+            },
+            {
+              '@type': 'Service',
+              name: 'Location de canoë, kayak, paddle et voilier Hansa',
+              description: "Location d'embarcations en ligne sans licence requise : canoë, kayak, paddle, paddle géant et Hansa.",
+              url: 'https://location.bassin-rond.net/',
+            },
+          ],
+        },
+      },
+      {
+        '@type': 'Event',
+        '@id': `${SITE_URL}/#24-heures-du-bassin-rond`,
+        name: 'Les 24 heures du Bassin-Rond',
+        description: 'Manifestation sportive et culturelle annuelle le premier week-end de septembre à Bouchain, réunissant plus de 5 000 personnes : baptêmes nautiques, concert, jeux et ateliers créatifs. Ouverte à tous, adhérent ou non.',
+        url: `${SITE_URL}/#les-24-heures-du-bassin-rond`,
+        image: `${SITE_URL}/images/photos/24-heures-bassin-rond-baptemes-nautiques-1200.webp`,
+        eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+        location: { '@id': `${SITE_URL}/#club` },
+        organizer: { '@id': `${SITE_URL}/#club` },
+      },
+    ],
+  };
+  source = remplacerContenuBalise(source, 'data-seo-jsonld', JSON.stringify(jsonLd).replace(/</g, '\\u003c'));
+
   return source;
 }
 
@@ -210,10 +402,21 @@ for (const [nom, taille] of [['favicon-32.png', 32], ['favicon-192.png', 192], [
   await sharp(LOGO_CARRE).resize(taille, taille).png({ compressionLevel: 9, palette: true }).toFile(path.join(DIST, nom));
 }
 await writeFile(path.join(DIST, '.nojekyll'), '');
-if (!INDEXABLE) await writeFile(path.join(DIST, 'robots.txt'), ROBOTS_TXT);
+if (!INDEXABLE) {
+  await writeFile(path.join(DIST, 'robots.txt'), ROBOTS_TXT);
+} else {
+  const aujourdhui = new Date().toISOString().slice(0, 10);
+  const [adhesionData, centresData] = await Promise.all([
+    readFile(path.join(DATA, 'adhesion.json'), 'utf8').then(JSON.parse),
+    readFile(path.join(DATA, 'centres-aeres.json'), 'utf8').then(JSON.parse),
+  ]);
+  await writeFile(path.join(DIST, 'robots.txt'), ROBOTS_TXT_PROD);
+  await writeFile(path.join(DIST, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>${SITE_URL}/</loc>\n    <lastmod>${aujourdhui}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>1.0</priority>\n  </url>\n</urlset>\n`);
+  await writeFile(path.join(DIST, 'llms.txt'), construireLlmsTxt(adhesionData, centresData));
+}
 // L'ancienne adresse de la première publication redirige vers la racine
 await mkdir(path.join(DIST, 'maquettes/d-journee'), { recursive: true });
-await writeFile(path.join(DIST, 'maquettes/d-journee/index.html'), `<!doctype html><meta charset="utf-8">${INDEXABLE ? '' : META_ROBOTS}<title>CDPA Bassin-Rond</title><meta http-equiv="refresh" content="0; url=../../"><link rel="canonical" href="../../"><a href="../../">CDPA Bassin-Rond</a>`);
+await writeFile(path.join(DIST, 'maquettes/d-journee/index.html'), `<!doctype html><meta charset="utf-8">${INDEXABLE ? '' : META_ROBOTS}<title>CDPA Bassin-Rond</title><meta http-equiv="refresh" content="0; url=../../"><link rel="canonical" href="${SITE_URL}/"><a href="../../">CDPA Bassin-Rond</a>`);
 
 // 5. Mot de passe : seulement si SITE_PASSWORD est défini (secret GitHub Actions).
 // En local, la variable n'existe pas : la page reste lisible sans mot de passe.

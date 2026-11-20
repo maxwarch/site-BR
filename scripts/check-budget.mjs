@@ -11,8 +11,8 @@ const rawSize = async (rel) => (await stat(path.join(DIST, rel))).size;
 const checks = [
   { label: 'CSS (gzip)', actual: await gzipSize('css/style.css'), limit: 50 * 1024 },
   { label: 'JS (gzip)', actual: await gzipSize('js/main.js'), limit: 200 * 1024 },
-  { label: 'Hero LCP desktop (fb02-1800.webp)', actual: await rawSize('images/photos/fb02-1800.webp'), limit: 200 * 1024 },
-  { label: 'Hero LCP mobile (fb02-780.webp)', actual: await rawSize('images/photos/fb02-780.webp'), limit: 100 * 1024 },
+  { label: 'Hero LCP desktop (club-voile-bassin-rond-bouchain-1800.webp)', actual: await rawSize('images/photos/club-voile-bassin-rond-bouchain-1800.webp'), limit: 200 * 1024 },
+  { label: 'Hero LCP mobile (club-voile-bassin-rond-bouchain-780.webp)', actual: await rawSize('images/photos/club-voile-bassin-rond-bouchain-780.webp'), limit: 100 * 1024 },
   {
     label: 'Polices latin initiales',
     actual: (await Promise.all([
