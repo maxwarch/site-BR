@@ -175,7 +175,10 @@ async function html(variantes) {
 
 // 3. CSS et JS minifiés par esbuild
 async function code(nom, loader) {
-  const source = await readFile(path.join(SITE, nom), 'utf8');
+  let source = await readFile(path.join(SITE, nom), 'utf8');
+  if (loader === 'js') {
+    source = source.replace(/\/\/ BUILD:STRIP-START[\s\S]*?\/\/ BUILD:STRIP-END/g, '');
+  }
   const { code: sortie } = await transform(source, { loader, minify: true, target: 'es2020', legalComments: 'none' });
   await mkdir(path.dirname(path.join(DIST, nom)), { recursive: true });
   await writeFile(path.join(DIST, nom), sortie);

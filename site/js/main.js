@@ -245,6 +245,7 @@
   });
 })();
 
+// BUILD:STRIP-START (en prod, les tarifs sont déjà injectés dans index.html au build et par l'agent)
 // Tarifs pilotés par les fichiers JSON (data/). Le HTML garde une copie de secours :
 // sans JavaScript, ou si un fichier ne se charge pas, la page affiche ces valeurs.
 (() => {
@@ -332,3 +333,4 @@
     }).catch(() => {});
   }
 })();
+// BUILD:STRIP-END
