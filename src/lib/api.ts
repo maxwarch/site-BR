@@ -1,6 +1,3 @@
-import { readFile } from 'node:fs/promises';
-import path from 'node:path';
-
 export interface AdhesionFormule {
   id: string;
   nom: string;
@@ -280,21 +277,6 @@ function normalizeLocalCentresAeres(raw: Record<string, any>): CentresAeresData 
   };
 }
 
-async function loadLocalVitrineFallback(): Promise<{
-  adhesion: AdhesionData;
-  centresAeres: CentresAeresData;
-}> {
-  const dataDir = path.resolve(process.cwd(), 'data');
-  const [adhRaw, caRaw] = await Promise.all([
-    readFile(path.join(dataDir, 'adhesion.json'), 'utf8').then((s) => JSON.parse(s)),
-    readFile(path.join(dataDir, 'centres-aeres.json'), 'utf8').then((s) => JSON.parse(s)),
-  ]);
-  return {
-    adhesion: normalizeLocalAdhesion(adhRaw),
-    centresAeres: normalizeLocalCentresAeres(caRaw),
-  };
-}
-
 export async function getSiteData(): Promise<SiteData> {
   const maxAgeMs = getCacheMaxAge() * 1000;
   const now = Date.now();
@@ -303,53 +285,30 @@ export async function getSiteData(): Promise<SiteData> {
   }
 
   const baseUrl = getApiBaseUrl();
-  if (baseUrl) {
-    const [vitrineRes, summaryRes, stagesRes] = await Promise.allSettled([
-      fetchJson<VitrinePublic>(`${baseUrl}/v1/public/vitrine`),
-      fetchJson<ClubSummary>(`${baseUrl}/v1/public/summary`),
-      fetchJson<{ types_stage: TypeStage[] }>(`${baseUrl}/v1/public/stages`),
-    ]);
-
-    const vitrine = vitrineRes.status === 'fulfilled' ? vitrineRes.value : null;
-    const summary = summaryRes.status === 'fulfilled' ? summaryRes.value : null;
-    const typesStage = stagesRes.status === 'fulfilled' ? stagesRes.value.types_stage ?? [] : [];
-
-    if (vitrine?.adhesion && vitrine?.centres_aeres) {
-      const value: SiteData = {
-        adhesion: vitrine.adhesion,
-        centresAeres: vitrine.centres_aeres,
-        summary,
-        typesStage,
-        source: 'api',
-      };
-      if (maxAgeMs > 0) {
-        cachedData = { value, expiresAt: now + maxAgeMs };
-      }
-      return value;
-    }
-
-    // API partiellement joignable ou vitrine absente : fallback local sur vitrine tout en gardant summary si disponible
-    const fallback = await loadLocalVitrineFallback();
-    const value: SiteData = {
-      adhesion: vitrine?.adhesion ?? fallback.adhesion,
-      centresAeres: vitrine?.centres_aeres ?? fallback.centresAeres,
-      summary,
-      typesStage,
-      source: summary ? 'api' : 'fallback',
-    };
-    if (maxAgeMs > 0) {
-      cachedData = { value, expiresAt: now + Math.min(maxAgeMs, 10_000) };
-    }
-    return value;
+  if (!baseUrl) {
+    throw new Error('BASSIN_ROND_API_URL est requis pour charger les données du site.');
   }
 
-  const fallback = await loadLocalVitrineFallback();
+  const [vitrineRes, summaryRes, stagesRes] = await Promise.allSettled([
+    fetchJson<VitrinePublic>(`${baseUrl}/v1/public/vitrine`),
+    fetchJson<ClubSummary>(`${baseUrl}/v1/public/summary`),
+    fetchJson<{ types_stage: TypeStage[] }>(`${baseUrl}/v1/public/stages`),
+  ]);
+
+  const vitrine = vitrineRes.status === 'fulfilled' ? vitrineRes.value : null;
+  const summary = summaryRes.status === 'fulfilled' ? summaryRes.value : null;
+  const typesStage = stagesRes.status === 'fulfilled' ? stagesRes.value.types_stage ?? [] : [];
+
+  if (!vitrine?.adhesion || !vitrine?.centres_aeres) {
+    throw new Error('Impossible de charger les données vitrine depuis bassin-rond-api.');
+  }
+
   const value: SiteData = {
-    adhesion: fallback.adhesion,
-    centresAeres: fallback.centresAeres,
-    summary: null,
-    typesStage: [],
-    source: 'fallback',
+    adhesion: vitrine.adhesion,
+    centresAeres: vitrine.centres_aeres,
+    summary,
+    typesStage,
+    source: 'api',
   };
   if (maxAgeMs > 0) {
     cachedData = { value, expiresAt: now + maxAgeMs };
