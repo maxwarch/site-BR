@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-06T11:44:35.988Z",
+  "generatedAt": "2026-11-25T15:02:30.000Z",
   "title": "Design System: CDPA Bassin-Rond",
   "extensions": {
     "colorMeta": {
@@ -424,7 +424,7 @@
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Le seul titre d'accueil, dans le ciel de la photo fb02."
+        "purpose": "Le seul titre d'accueil (« Votre moment au CDPA Bassin-Rond »)."
       },
       "headline": {
         "displayName": "Headline",
@@ -440,7 +440,7 @@
       },
       "title-item": {
         "displayName": "Title item",
-        "purpose": "Nom d'un bateau, d'une embarcation, d'une formule, d'un reportage, d'une entrée du sélecteur."
+        "purpose": "Nom d'un bateau, d'une embarcation, d'une formule, d'un reportage, d'une vignette."
       },
       "price": {
         "displayName": "Prix",
@@ -452,7 +452,7 @@
       },
       "lead": {
         "displayName": "Lead",
-        "purpose": "Promesse d'accueil et chapeaux de section."
+        "purpose": "Chapeaux de section."
       },
       "body": {
         "displayName": "Body",
@@ -471,7 +471,7 @@
         "groupes",
         "location",
         "adhesion",
-        "vingt-quatre",
+        "les-24-heures-du-bassin-rond",
         "videos",
         "infos"
       ],
@@ -485,7 +485,7 @@
         "ground-videos",
         "ground-infos"
       ],
-      "interpolation": "RGB linéaire entre la section courante et la suivante, uniquement pendant la seconde moitié de la section (eased = t < .5 ? 0 : (t - .5) * 2). Repère de lecture : scrollY + hauteur d'en-tête + 26 px. En bas de page, la dernière teinte est forcée.",
+      "interpolation": "RGB linéaire entre la section courante et la suivante, uniquement pendant la seconde moitié de la section (eased = t < .5 ? 0 : (t - .5) * 2). Repère de lecture : scrollY + hauteur d'en-tête + 2 px. En bas de page, la dernière teinte est forcée.",
       "progressVar": "--progress = index fractionnaire / 7, consommé par la chaleur des photos graduées.",
       "reducedMotion": "Index arrondi à l'entier : une teinte fixe par section, sans glissement.",
       "overlay24h": "linear-gradient(180deg, #5fb2e6 0%, #8ccbef 55%, var(--ground) 100%)",
@@ -494,7 +494,6 @@
         "menuOpen": "color-mix(in srgb, var(--ground) 85%, #fff)",
         "railBarMobile": "color-mix(in srgb, var(--ground) 80%, #fff)",
         "railLabel": "color-mix(in srgb, var(--ground) 70%, #fff)",
-        "chooser": "color-mix(in srgb, var(--ground) 18%, #fff)",
         "line": "color-mix(in srgb, var(--ink) 22%, transparent)"
       }
     },
@@ -521,7 +520,7 @@
         }
       ],
       "progressWarmth": "main [grade-*]::before : rgba(255, 200, 130, calc(var(--progress) * .07)) soft-light",
-      "heroVeil": "radial-gradient(ellipse 85% 75% at 28% 50%, rgba(240,246,250,.74) 0%, rgba(240,246,250,.5) 45%, rgba(240,246,250,0) 72%), derrière le texte seulement",
+      "heroVeil": "linear-gradient(180deg, rgba(240,246,250,.86) 0%, rgba(240,246,250,.7) 22%, rgba(240,246,250,.3) 40%, rgba(240,246,250,.22) 62%, rgba(240,246,250,.7) 82%, var(--ground) 100%)",
       "captionScrim": "linear-gradient(180deg, rgba(8,26,48,0), rgba(8,26,48,.85))",
       "captionLabel": "rgba(255,255,255,.88), coins 4px, 600 1rem"
     },
@@ -701,12 +700,12 @@
       "css": ".ds-plein{background:#d6ecf6;padding-bottom:1.5rem;color:#0e2a3c;font-family:\"Source Sans 3\",sans-serif} .ds-photo{height:12rem;background:linear-gradient(180deg,#8ccbef,#5fb2e6 60%,#2f6b3c)} .ds-panneau{position:relative;margin:-3.5rem 1.5rem 0;background:#fff;padding:clamp(1.5rem,4vw,3.5rem);border-radius:6px;box-shadow:0 20px 50px -30px rgba(14,42,60,.55)} .ds-panneau h2{margin:0 0 1rem;font:800 2.1rem/1.04 \"Fira Sans\",sans-serif;letter-spacing:-.015em} .ds-panneau ul{list-style:none;margin:0;padding:0} .ds-panneau li{display:flex;flex-direction:column;padding:1rem 0;border-bottom:1px solid rgba(14,42,60,.22)} .ds-panneau li:first-child{border-top:1px solid rgba(14,42,60,.22)} .ds-panneau strong{font:800 1.5rem/1.15 \"Fira Sans\",sans-serif} .ds-panneau span{color:#2f4a5c}"
     },
     {
-      "name": "Sélecteur « Votre moment au CDPA Bassin-Rond »",
+      "name": "Vignettes « Votre moment au CDPA Bassin-Rond »",
       "kind": "custom",
-      "refersTo": "button-plein",
-      "description": "Quatre entrées dans l'ordre stage, groupe, location, adhésion, chacune avec son lien direct, sur une ligne à points.",
-      "html": "<div class=\"ds-frise\"><h2>Votre moment au CDPA Bassin-Rond</h2><ol><li><a class=\"ds-quoi\" href=\"#\">Un stage pour mon enfant… ou pour moi</a><span class=\"ds-qui\">Stages jeunes de 7 à 17 ans, et stages adultes</span><a class=\"ds-direct\" href=\"#\">Voir les dates<svg class=\"ds-ico\" aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M7 17 17 7M9 7h8v8\"/></svg></a></li><li><a class=\"ds-quoi\" href=\"#\">Venir en groupe</a><span class=\"ds-qui\">Centres aérés, CE, écoles</span><a class=\"ds-direct\" href=\"#\">Voir les formules groupes<svg class=\"ds-ico\" aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M7 17 17 7M9 7h8v8\"/></svg></a></li><li><a class=\"ds-quoi\" href=\"#\">Louer un bateau</a><span class=\"ds-qui\">Canoë, kayak, paddle, Hansa</span><a class=\"ds-direct\" href=\"#\">Réserver un créneau<svg class=\"ds-ico\" aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M7 17 17 7M9 7h8v8\"/></svg></a></li><li><a class=\"ds-quoi\" href=\"#\">Naviguer toute l'année</a><span class=\"ds-qui\">L'adhésion au club</span><a class=\"ds-direct\" href=\"#\">Adhérer<svg class=\"ds-ico\" aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M7 17 17 7M9 7h8v8\"/></svg></a></li></ol></div>",
-      "css": ".ds-ico{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none} .ds-frise{padding:1.5rem;background:color-mix(in srgb,#dbe7ef 18%,#fff);border-top:1px solid rgba(14,42,60,.22);color:#0e2a3c;font-family:\"Source Sans 3\",sans-serif} .ds-frise h2{margin:0;font:800 1.35rem/1.2 \"Fira Sans\",sans-serif} .ds-frise ol{list-style:none;margin:0;padding:1rem 0 0;display:grid;grid-template-columns:repeat(4,1fr);position:relative} .ds-frise ol::before{content:\"\";position:absolute;left:0;right:0;top:calc(1rem + .55rem);height:2px;background:rgba(14,42,60,.22)} .ds-frise li{position:relative;padding:1.75rem 1.25rem 0 0;display:flex;flex-direction:column;gap:.35rem} .ds-frise li::before{content:\"\";position:absolute;left:0;top:.1rem;width:1rem;height:1rem;border-radius:50%;background:#fff;border:2px solid #0e2a3c;transition:background-color .25s,border-color .25s} .ds-frise li:hover::before,.ds-frise li:focus-within::before{background:#0f5c99;border-color:#0f5c99} .ds-quoi{font:800 1.3rem/1.15 \"Fira Sans\",sans-serif;color:inherit;text-decoration:none} .ds-quoi:hover{text-decoration:underline;text-decoration-thickness:2px} .ds-qui{font-size:1rem;color:#2f4a5c} .ds-direct{display:inline-flex;align-items:center;gap:.35rem;font-weight:800;font-size:1rem;color:#0f5c99;text-decoration:none} .ds-direct:hover{text-decoration:underline} .ds-frise a:focus-visible{outline:3px solid #1a72bd;outline-offset:3px}"
+      "refersTo": "button-clair",
+      "description": "Quatre portes photo dans l'ordre stage, groupe, location, adhésion, avec pilule blanche d'accès direct quand un sous-domaine existe.",
+      "html": "<div class=\"ds-portes\"><h2>Votre <em>moment</em> au CDPA Bassin-Rond</h2><ol><li><a class=\"ds-porte-lien\" href=\"#\"><span class=\"ds-quoi\">Un stage pour mon enfant… ou pour moi</span><span class=\"ds-qui\">Stages jeunes de 7 à 17 ans, et stages adultes</span></a><a class=\"ds-direct\" href=\"#\">Voir les dates<svg class=\"ds-ico\" aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M7 17 17 7M9 7h8v8\"/></svg></a></li><li><a class=\"ds-porte-lien\" href=\"#\"><span class=\"ds-quoi\">Venir en groupe</span><span class=\"ds-qui\">Les formules centres aérés</span></a></li><li><a class=\"ds-porte-lien\" href=\"#\"><span class=\"ds-quoi\">Louer un bateau</span><span class=\"ds-qui\">Canoë, kayak, paddle, Hansa</span></a><a class=\"ds-direct\" href=\"#\">Réserver un créneau<svg class=\"ds-ico\" aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M7 17 17 7M9 7h8v8\"/></svg></a></li><li><a class=\"ds-porte-lien\" href=\"#\"><span class=\"ds-quoi\">Naviguer toute l'année</span><span class=\"ds-qui\">L'adhésion au club</span></a></li></ol></div>",
+      "css": ".ds-ico{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none} .ds-portes{padding:1.5rem;background:#dbe7ef;font-family:\"Source Sans 3\",sans-serif;color:#0e2a3c} .ds-portes h2{margin:0 0 1rem;text-align:center;font:800 2rem/1.08 \"Fira Sans\",sans-serif;letter-spacing:-.02em} .ds-portes h2 em{font-style:normal;color:#0f5c99} .ds-portes ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem} .ds-portes li{position:relative;min-height:14rem;border-radius:6px;overflow:hidden;background:linear-gradient(180deg,#5fb2e6 0%,#1a527a 55%,#081a30 100%);box-shadow:0 26px 50px -30px rgba(14,42,60,.75);transition:transform .4s cubic-bezier(.25,.8,.25,1)} .ds-portes li:hover{transform:translateY(-4px) scale(1.03)} .ds-porte-lien{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;gap:.3rem;padding:1.1rem 1.1rem 4rem;color:#fff;text-decoration:none} .ds-portes li:not(:has(.ds-direct)) .ds-porte-lien{padding-bottom:1.25rem} .ds-quoi{font:800 1.25rem/1.08 \"Fira Sans\",sans-serif;letter-spacing:-.01em} .ds-qui{font-size:1rem;color:#e5eef4} .ds-direct{position:absolute;left:1.1rem;bottom:1.1rem;display:inline-flex;align-items:center;gap:.4rem;padding:.45rem .9rem;border-radius:999px;background:#fff;color:#0e2a3c;font-weight:800;font-size:1rem;text-decoration:none;transition:background-color .25s cubic-bezier(.16,1,.3,1),color .25s cubic-bezier(.16,1,.3,1)} .ds-direct:hover{background:#0f5c99;color:#fff} .ds-portes a:focus-visible{outline:3px solid #1a72bd;outline-offset:3px}"
     },
     {
       "name": "Rail et soleil",
