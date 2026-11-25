@@ -7,7 +7,13 @@ const data = await getSiteData();
 const { adhesion, centresAeres: d, summary } = data;
 const indexable = isIndexable();
 
-Astro.response.headers.set('Cache-Control', getCacheControlHeader());
+Astro.response.headers.set(
+  'Cache-Control',
+  import.meta.env.DEV ? 'no-store' : getCacheControlHeader()
+);
+const assetVersion = import.meta.env.DEV
+  ? Date.now()
+  : (import.meta.env.PUBLIC_ASSET_VERSION || process.env.PUBLIC_ASSET_VERSION || '1');
 
 const jsonLdString = JSON.stringify(buildJsonLd(data)).replace(/</g, '\\u003c');
 
@@ -51,7 +57,18 @@ const SUPPORT_DESCRIPTIONS: Record<string, string> = {
   hansa: 'bateau double, adapté au handicap et facile à prendre en main',
 };
 
-const upcomingSessions = (summary?.prochaines_sessions_stage ?? []).slice(0, 4);
+const allSessions = summary?.prochaines_sessions_stage ?? [];
+const hasMoreSessions = allSessions.length > 4;
+const seasonLabelFromDate = (iso: string): string => {
+  const month = Number(iso.slice(5, 7));
+  if (month >= 3 && month <= 5) return 'Printemps';
+  if (month >= 6 && month <= 8) return 'Été';
+  if (month >= 9 && month <= 11) return 'Automne';
+  return 'Hiver';
+};
+const vacancesScolaires = (summary?.vacances_scolaires ?? []).filter((vac) =>
+  allSessions.some((s) => s.debut <= vac.fin && s.fin >= vac.debut)
+);
 const liveSupports = summary?.supports_location ?? [];
 const nextLocationDate = liveSupports
   .flatMap((s) => s.prochaines_dates_ouvertes)
@@ -82,8 +99,8 @@ const currentYear = new Date().getFullYear();
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href={`/css/style.css?v=${import.meta.env.PUBLIC_ASSET_VERSION || process.env.PUBLIC_ASSET_VERSION || '1'}`}>
-<script src={`/js/main.js?v=${import.meta.env.PUBLIC_ASSET_VERSION || process.env.PUBLIC_ASSET_VERSION || '1'}`} defer></script>
+<link rel="stylesheet" href={`/css/style.css?v=${assetVersion}`}>
+<script src={`/js/main.js?v=${assetVersion}`} defer></script>
 <link rel="preload" as="image" href={pHero.src} imagesrcset={pHero.srcset} imagesizes="100vw" fetchpriority="high">
 <script type="application/ld+json" data-seo-jsonld set:html={jsonLdString} />
 </head>
@@ -195,34 +212,136 @@ const currentYear = new Date().getFullYear();
         <p class="fait">Stages jeunes : <span class="num">14 h – 17 h</span>, pendant les vacances</p>
         <p>Pendant les vacances scolaires, les jeunes de 7 à 17 ans passent leurs après-midi sur l'eau, à la semaine. Ils sont encadrés par des moniteurs diplômés d'État, sur un plan d'eau calme où l'on progresse vite, du premier bord aux manœuvres avancées. Beaucoup reviennent d'une année sur l'autre.</p>
         <p>Le club propose aussi des stages pour les adultes : les sessions ouvertes sont annoncées sur le site des stages.</p>
-        {upcomingSessions.length > 0 && (
-          <div class="live-sessions" data-live-stages>
-            <p class="live-sessions__titre">Prochaines sessions ouvertes ({summary?.annee_saison})</p>
-            <ul class="live-sessions__liste">
-              {upcomingSessions.map((session) => (
-                <li>
-                  <span class="live-sessions__dates">
-                    {formatDateRangeFr(session.debut, session.fin)}
-                  </span>
-                  <span class="live-sessions__meta">
-                    {session.nom} · <span class="num">{euros(session.price)}</span> ·{' '}
-                    <span class="live-sessions__places num">
-                      {session.disponible} place{session.disponible > 1 ? 's' : ''}
-                    </span>
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
+        {allSessions.length > 0 ? (
+          <>
+            <div class="live-sessions" data-live-stages>
+              <div class="live-sessions__head">
+                <p class="live-sessions__titre">Prochaines sessions ouvertes ({summary?.annee_saison})</p>
+                <div class="live-sessions__filtres" role="group" aria-label="Filtrer les stages">
+                  <div class="live-sessions__public" role="group" aria-label="Public">
+                    <button type="button" class="live-sessions__chip is-active" data-filter-public="all">Tous</button>
+                    <button type="button" class="live-sessions__chip" data-filter-public="jeunes">Jeunes</button>
+                    <button type="button" class="live-sessions__chip" data-filter-public="adultes">Adultes</button>
+                  </div>
+                  {vacancesScolaires.length > 0 && (
+                    <select class="live-sessions__saison" aria-label="Saison" data-filter-saison>
+                      <option value="all">Toutes les saisons</option>
+                      {vacancesScolaires.map((vac) => (
+                        <option value={`${vac.debut}|${vac.fin}`}>{vac.nom || seasonLabelFromDate(vac.debut)}</option>
+                      ))}
+                    </select>
+                  )}
+                </div>
+              </div>
+              <ul class="live-sessions__liste">
+                {allSessions.map((session, idx) => (
+                  <li
+                    class={idx >= 4 ? 'is-filtered-out' : undefined}
+                    data-public={session.public}
+                    data-debut={session.debut}
+                    data-fin={session.fin}
+                  >
+                    <a class="live-sessions__lien" href={`https://stages.bassin-rond.net/?session=${encodeURIComponent(session.id)}`}>
+                      <div class="live-sessions__info">
+                        <span class="live-sessions__dates">{formatDateRangeFr(session.debut, session.fin)}</span>
+                        <span class="live-sessions__nom">
+                          {session.nom} · {session.public === 'adultes' ? 'Adultes' : `${session.age_min}–${session.age_max} ans`}
+                        </span>
+                      </div>
+                      <div class="live-sessions__right">
+                        <span class="live-sessions__price num">{euros(session.price)}</span>
+                        <span class="live-sessions__places num">
+                          {session.disponible} place{session.disponible > 1 ? 's' : ''}
+                        </span>
+                      </div>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <div class="live-sessions__foot">
+                <span class="live-sessions__foot-meta num">
+                  {allSessions.length} session{allSessions.length > 1 ? 's' : ''} ouverte{allSessions.length > 1 ? 's' : ''}
+                </span>
+                <a class="live-sessions__foot-cta" href="https://stages.bassin-rond.net/">
+                  <span>{hasMoreSessions ? 'Voir les autres dates' : "Voir les dates et s'inscrire"}</span>
+                  <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg>
+                </a>
+              </div>
+            </div>
+            <script is:inline>
+              (() => {
+                const wrap = document.currentScript?.closest('.stages__texte');
+                const root = wrap?.querySelector('[data-live-stages]');
+                if (!root) return;
+                const list = root.querySelector('.live-sessions__liste');
+                const items = Array.from(root.querySelectorAll('.live-sessions__liste > li'));
+                const publicBtns = root.querySelectorAll('[data-filter-public]');
+                const saisonSelect = root.querySelector('[data-filter-saison]');
+                let currentPublic = 'all';
+                let currentSaison = 'all';
+                let emptyMsg = null;
+
+                const apply = () => {
+                  let shown = 0;
+                  items.forEach((li) => {
+                    const matchPublic = currentPublic === 'all' || li.dataset.public === currentPublic;
+                    let matchSaison = true;
+                    if (currentSaison !== 'all') {
+                      const [sDebut, sFin] = currentSaison.split('|');
+                      const d = li.dataset.debut || '';
+                      const f = li.dataset.fin || '';
+                      matchSaison = d <= sFin && f >= sDebut;
+                    }
+                    const visible = matchPublic && matchSaison && shown < 4;
+                    li.classList.toggle('is-filtered-out', !visible);
+                    if (visible) shown += 1;
+                  });
+                  if (shown === 0) {
+                    if (!emptyMsg) {
+                      emptyMsg = document.createElement('p');
+                      emptyMsg.className = 'live-sessions__vide';
+                      emptyMsg.textContent = 'Aucune session ouverte pour cette sélection.';
+                      list.after(emptyMsg);
+                    }
+                    emptyMsg.hidden = false;
+                  } else if (emptyMsg) {
+                    emptyMsg.hidden = true;
+                  }
+                };
+
+                apply();
+
+                publicBtns.forEach((btn) => {
+                  btn.addEventListener('click', () => {
+                    currentPublic = btn.dataset.filterPublic || 'all';
+                    publicBtns.forEach((b) => b.classList.toggle('is-active', b === btn));
+                    apply();
+                  });
+                });
+                if (saisonSelect) {
+                  saisonSelect.addEventListener('change', () => {
+                    currentSaison = saisonSelect.value;
+                    apply();
+                  });
+                }
+              })();
+            </script>
+          </>
+        ) : (
+          <>
+            <p class="live-sessions__bientot">Les prochaines dates de stages arrivent bientôt.</p>
+            <a class="bouton bouton--plein" href="https://stages.bassin-rond.net/">Voir les dates et s'inscrire<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+          </>
         )}
-        <a class="bouton bouton--plein" href="https://stages.bassin-rond.net/">Voir les dates et s'inscrire<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
       </div>
-      <figure class="stages__photo stages__photo--a grade-net">
-        <img src={pStagesA.src} srcset={pStagesA.srcset} sizes={pStagesA.sizes} width="1800" height="1350" loading="lazy" decoding="async" alt="Des enfants en gilet de sauvetage s'installent sur leurs bateaux au départ du ponton.">
-      </figure>
-      <figure class="stages__photo stages__photo--b grade-net">
-        <img src={pStagesB.src} srcset={pStagesB.srcset} sizes={pStagesB.sizes} width="1800" height="1350" loading="lazy" decoding="async" alt="Un Ilca et un Optimist passent une bouée, l'eau scintille au soleil.">
-      </figure>
+      <div class="stages__photos">
+        <figure class="stages__photo stages__photo--a grade-net">
+          <img src={pStagesA.src} srcset={pStagesA.srcset} sizes={pStagesA.sizes} width="1800" height="1350" loading="lazy" decoding="async" alt="Des enfants en gilet de sauvetage s'installent sur leurs bateaux au départ du ponton.">
+        </figure>
+        <figure class="stages__photo stages__photo--b grade-net">
+          <img src={pStagesB.src} srcset={pStagesB.srcset} sizes={pStagesB.sizes} width="1800" height="1350" loading="lazy" decoding="async" alt="Un Ilca et un Optimist passent une bouée, l'eau scintille au soleil.">
+        </figure>
+      </div>
     </div>
 
     <div class="flotte" aria-labelledby="flotte-titre">

@@ -23,6 +23,7 @@
   const header = document.querySelector('.top');
   const rail = document.querySelector('.rail');
   const railLinks = [...document.querySelectorAll('.rail a')];
+  const navLinks = [...document.querySelectorAll('.nav a')];
   const sun = document.querySelector('.rail__sun');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
 
@@ -63,7 +64,7 @@
       if (!reperes.length) return null;
       return `${-Math.max(0, Math.min(...reperes) - 32)}px`;
     });
-    const nextTops = sections.map((el) => el.getBoundingClientRect().top + sy);
+    const nextTops = sections.map((el) => (el ? el.getBoundingClientRect().top + sy : 0));
     const box = rail.getBoundingClientRect();
     const dotWidth = railLinks[0] ? (parseFloat(getComputedStyle(railLinks[0], '::after').width) || 16) : 16;
     const vertical = box.height > box.width;
@@ -159,6 +160,8 @@
     if (current !== prevCurrent) {
       prevCurrent = current;
       railLinks.forEach((a, k) => a.setAttribute('aria-current', k === current ? 'true' : 'false'));
+      const activeHref = current >= 0 ? `#${ORDER[current]}` : '';
+      navLinks.forEach((a) => a.setAttribute('aria-current', a.getAttribute('href') === activeHref ? 'true' : 'false'));
     }
     const railOn = sy > innerHeight * 0.6;
     if (railOn !== prevRailOn) {
