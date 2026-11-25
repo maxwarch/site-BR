@@ -82,8 +82,8 @@ const currentYear = new Date().getFullYear();
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="/css/style.css">
-<script src="/js/main.js" defer></script>
+<link rel="stylesheet" href={`/css/style.css?v=${import.meta.env.PUBLIC_ASSET_VERSION || process.env.PUBLIC_ASSET_VERSION || '1'}`}>
+<script src={`/js/main.js?v=${import.meta.env.PUBLIC_ASSET_VERSION || process.env.PUBLIC_ASSET_VERSION || '1'}`} defer></script>
 <link rel="preload" as="image" href={pHero.src} imagesrcset={pHero.srcset} imagesizes="100vw" fetchpriority="high">
 <script type="application/ld+json" data-seo-jsonld set:html={jsonLdString} />
 </head>
